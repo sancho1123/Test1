@@ -1,0 +1,71 @@
+// DAX Measures for the Dashboard
+// ---------------------------------------------------------------------------
+// Add these measures to the SourceData table in Power Pivot
+// (Power Pivot > Manage > Calculation Area, or right-click table > Add Measure).
+//
+// IMPORTANT: replace <Amount> with the actual numeric column you want to
+// aggregate (e.g., Sales, Quantity, Revenue). If you have several, duplicate
+// the Total/Count/Avg block for each measure.
+//
+// Prerequisites:
+//   - DateTable is marked as a Date Table in Power Pivot
+//   - Relationship exists: SourceData[<DateColumn>] -> DateTable[Date]
+// ---------------------------------------------------------------------------
+
+// ----- Base aggregations -----
+
+Total :=
+SUM ( SourceData[<Amount>] )
+
+Record Count :=
+COUNTROWS ( SourceData )
+
+Average :=
+DIVIDE ( [Total], [Record Count] )
+
+
+// ----- Time intelligence -----
+
+MTD :=
+TOTALMTD ( [Total], DateTable[Date] )
+
+QTD :=
+TOTALQTD ( [Total], DateTable[Date] )
+
+YTD :=
+TOTALYTD ( [Total], DateTable[Date] )
+
+
+// ----- Prior period & YoY -----
+
+Total PY :=
+CALCULATE ( [Total], SAMEPERIODLASTYEAR ( DateTable[Date] ) )
+
+YoY Change :=
+[Total] - [Total PY]
+
+YoY % :=
+DIVIDE ( [YoY Change], [Total PY] )
+
+
+// ----- Rolling -----
+
+Rolling 30D :=
+CALCULATE (
+    [Total],
+    DATESINPERIOD ( DateTable[Date], MAX ( DateTable[Date] ), -30, DAY )
+)
+
+Rolling 12M :=
+CALCULATE (
+    [Total],
+    DATESINPERIOD ( DateTable[Date], MAX ( DateTable[Date] ), -12, MONTH )
+)
+
+
+// ----- Formatting hints -----
+// In Power Pivot, set on each measure:
+//   Total, MTD, QTD, YTD, Total PY, YoY Change, Rolling 30D, Rolling 12M
+//     -> Format: Currency or Number (whichever fits <Amount>)
+//   Record Count -> Format: Whole Number
+//   YoY %        -> Format: Percentage, 1 decimal

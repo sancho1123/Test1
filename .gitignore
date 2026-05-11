@@ -1,0 +1,10 @@
+# Credentials — never commit
+daily_brief/.env
+
+# Logs and generated reports
+daily_brief/logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

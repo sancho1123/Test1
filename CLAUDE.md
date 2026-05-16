@@ -13,11 +13,30 @@ This file provides guidance for AI assistants (Claude, etc.) working in this rep
 
 ```
 Test1/
-├── CLAUDE.md        # AI assistant guidance (this file)
-└── .git/            # Git repository metadata
+├── CLAUDE.md                          # AI assistant guidance (this file)
+├── .github/
+│   └── workflows/
+│       └── daily-ukraine-brief.yml    # GitHub Actions: runs at 5 AM ET daily
+├── scripts/
+│   ├── generate_brief.py              # Calls Claude API to generate the daily brief
+│   ├── send_email.py                  # Sends brief via Gmail SMTP
+│   └── README.md                      # Setup instructions and secret configuration
+├── reports/
+│   ├── latest_brief.md               # Most recent brief (overwritten daily)
+│   └── YYYY-MM-DD_Ukraine-Russia_*   # Dated archive of each brief
+└── .git/                              # Git repository metadata
 ```
 
-> As the project grows, update this section to reflect the directory layout.
+## Daily Brief Automation
+
+This repository generates a daily Ukraine–Russia War Analyst Brief for OUSW Comptroller P/B analysts.
+
+- **Schedule**: 5:00 AM Eastern Time (configured via GitHub Actions cron)
+- **Output**: Markdown report saved to `reports/` and emailed to ericjsanchez23@gmail.com
+- **Required GitHub Secrets**: `ANTHROPIC_API_KEY`, `GMAIL_USER`, `GMAIL_APP_PASSWORD`
+- **Manual trigger**: GitHub Actions → "Daily Ukraine–Russia War Analyst Brief" → Run workflow
+
+See `scripts/README.md` for full setup instructions.
 
 ## Development Workflow
 

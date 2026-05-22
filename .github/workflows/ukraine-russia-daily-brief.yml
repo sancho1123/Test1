@@ -1,0 +1,52 @@
+name: Ukraine–Russia Daily Analyst Brief
+
+# Runs at 05:00 AM Eastern Time (10:00 UTC) every day
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:   # allow manual trigger for testing
+
+jobs:
+  generate-brief:
+    name: Generate and Email Daily Analyst Brief
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+      GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+      GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+      RECIPIENT_EMAIL: ericjsanchez23@gmail.com
+      REPORT_DATE: ${{ github.run_id }}   # overridden at runtime
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install anthropic==0.40.0 requests google-auth google-auth-oauthlib \
+                      google-auth-httplib2 google-api-python-client python-dateutil
+
+      - name: Generate report date
+        id: date
+        run: echo "TODAY=$(date -u -d 'TZ=America/New_York date' '+%Y-%m-%d' 2>/dev/null || date '+%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
+      - name: Run analyst brief generator
+        run: python .github/scripts/generate_brief.py
+        env:
+          REPORT_DATE: ${{ steps.date.outputs.TODAY }}
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ukraine-russia-brief-${{ steps.date.outputs.TODAY }}
+          path: output/
+          retention-days: 90

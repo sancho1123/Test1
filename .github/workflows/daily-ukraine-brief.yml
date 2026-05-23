@@ -1,0 +1,44 @@
+name: Daily Ukraine-Russia War Analyst Brief
+
+on:
+  schedule:
+    # 5:00 AM Eastern Time = 10:00 UTC (standard time) / 09:00 UTC (daylight saving time)
+    # Using 10:00 UTC to cover Eastern Standard Time (Nov-Mar)
+    # Update to 09:00 UTC during Eastern Daylight Time (Mar-Nov) if needed
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    # Allow manual trigger for testing
+
+jobs:
+  generate-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install anthropic requests python-dateutil
+
+      - name: Generate Ukraine-Russia War Analyst Brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_RECIPIENT: ericjsanchez23@gmail.com
+          GMAIL_SENDER_TOKEN: ${{ secrets.GMAIL_SENDER_TOKEN }}
+        run: |
+          python scripts/generate_daily_brief.py
+
+      - name: Commit and push report
+        run: |
+          git config --global user.name "Daily Brief Bot"
+          git config --global user.email "actions@github.com"
+          git add reports/
+          git diff --staged --quiet || git commit -m "Add daily Ukraine-Russia War brief $(date +%Y-%m-%d)"
+          git push

@@ -1,0 +1,71 @@
+name: Daily Ukraine–Russia War Analyst Brief
+
+# Schedule: 5:00 AM Eastern Time
+# EDT (summer, Mar–Nov): UTC-4 → run at 09:00 UTC
+# EST (winter, Nov–Mar): UTC-5 → run at 10:00 UTC
+# Using 09:00 UTC; adjust to 10:00 UTC in winter months manually or via environment variable
+on:
+  schedule:
+    - cron: '0 9 * * *'   # 5:00 AM EDT (UTC-4) — update to '0 10 * * *' Nov–Mar for EST
+  workflow_dispatch:       # Allow manual trigger for testing
+
+jobs:
+  generate-ukraine-brief:
+    name: Generate and Draft Ukraine–Russia War Analyst Brief
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set report date variables
+        id: date
+        run: |
+          echo "TODAY=$(date -u +%Y-%m-%d)" >> $GITHUB_OUTPUT
+          echo "TODAY_MONTH=$(date -u +%B)" >> $GITHUB_OUTPUT
+          echo "TODAY_YEAR=$(date -u +%Y)" >> $GITHUB_OUTPUT
+          echo "TODAY_FILE=$(date -u +%Y-%m-%d)" >> $GITHUB_OUTPUT
+
+      - name: Run Claude Code — Generate Ukraine Brief
+        uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Pass all required MCP server configurations for Gmail
+          mcp_config: |
+            {
+              "mcpServers": {
+                "gmail": {
+                  "command": "npx",
+                  "args": ["-y", "@gongrzhe/server-gmail-autoauth-mcp"],
+                  "env": {
+                    "GMAIL_OAUTH_CLIENT_ID": "${{ secrets.GMAIL_CLIENT_ID }}",
+                    "GMAIL_OAUTH_CLIENT_SECRET": "${{ secrets.GMAIL_CLIENT_SECRET }}",
+                    "GMAIL_OAUTH_REFRESH_TOKEN": "${{ secrets.GMAIL_OAUTH_REFRESH_TOKEN }}"
+                  }
+                }
+              }
+            }
+          prompt: |
+            Today's date is ${{ steps.date.outputs.TODAY }}.
+            Today's month is ${{ steps.date.outputs.TODAY_MONTH }}.
+            Today's year is ${{ steps.date.outputs.TODAY_YEAR }}.
+
+            Read the prompt file at prompts/ukraine-brief-daily.md and execute it fully.
+            Replace all {TODAY} placeholders with ${{ steps.date.outputs.TODAY }}.
+            Replace all {TODAY_MONTH} placeholders with ${{ steps.date.outputs.TODAY_MONTH }}.
+            Replace all {TODAY_YEAR} placeholders with ${{ steps.date.outputs.TODAY_YEAR }}.
+            Replace all {TODAY_FILE} placeholders with ${{ steps.date.outputs.TODAY_FILE }}.
+
+            Execute Steps 1 through 4 in the prompt file:
+            1. Research all 14 topic areas using WebSearch.
+            2. Generate the full HTML report.
+            3. Perform the quality check.
+            4. Create the Gmail draft to ericjsanchez23@gmail.com.
+
+            Report completion status and the Gmail draft ID when done.
+          allowed_tools: "WebSearch,WebFetch,mcp__Gmail__create_draft"
+          model: "claude-opus-4-5"

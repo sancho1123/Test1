@@ -1,0 +1,60 @@
+name: Daily Ukraine–Russia War Analyst Brief
+
+on:
+  # 5:00 AM Eastern Time = 09:00 UTC (EDT, UTC-4) / 10:00 UTC (EST, UTC-5)
+  # Using 09:00 UTC to cover EDT (summer). Adjust to 10:00 UTC in winter.
+  schedule:
+    - cron: '0 9 * * *'
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Run in test mode (no email send)'
+        required: false
+        default: 'false'
+
+jobs:
+  generate-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate and send daily brief
+        env:
+          ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
+          SENDER_EMAIL:         ${{ secrets.SENDER_EMAIL }}
+          SENDER_APP_PASSWORD:  ${{ secrets.SENDER_APP_PASSWORD }}
+          BRAVE_API_KEY:        ${{ secrets.BRAVE_API_KEY }}
+          TEST_MODE:            ${{ github.event.inputs.test_mode || 'false' }}
+        run: python scripts/generate_daily_brief.py
+
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ukraine-brief-${{ github.run_id }}
+          path: reports/*.md
+          retention-days: 90
+
+      - name: Commit report to repository
+        if: github.event_name == 'schedule' || github.event.inputs.test_mode == 'false'
+        run: |
+          git config user.name  "ukraine-brief-bot"
+          git config user.email "actions@github.com"
+          git add reports/
+          git diff --cached --quiet || git commit -m "Add daily brief $(date +%Y-%m-%d)"
+          git push origin HEAD

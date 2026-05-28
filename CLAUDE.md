@@ -13,11 +13,27 @@ This file provides guidance for AI assistants (Claude, etc.) working in this rep
 
 ```
 Test1/
-├── CLAUDE.md        # AI assistant guidance (this file)
-└── .git/            # Git repository metadata
+├── CLAUDE.md                          # AI assistant guidance (this file)
+├── .github/
+│   └── workflows/
+│       └── daily-brief.yml            # GitHub Actions — daily 0500 ET brief
+├── reports/
+│   └── YYYY-MM-DD_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md
+└── scripts/
+    ├── generate_daily_brief.py        # Report generation + email script
+    └── requirements.txt               # Python dependencies (anthropic)
 ```
 
-> As the project grows, update this section to reflect the directory layout.
+### Daily Brief Automation
+
+The `daily-brief.yml` workflow runs every day at 0500 ET (10:00 UTC). It calls
+`scripts/generate_daily_brief.py`, which uses the Anthropic API with web search
+to generate the analyst brief and emails it to the recipient.
+
+**Required GitHub Secrets** (Settings → Secrets and variables → Actions):
+- `ANTHROPIC_API_KEY` — Anthropic API key
+- `GMAIL_ADDRESS` — Gmail address used to send the report
+- `GMAIL_APP_PASSWORD` — Gmail App Password (not your regular password; generate at myaccount.google.com/apppasswords)
 
 ## Development Workflow
 

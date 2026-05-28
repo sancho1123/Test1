@@ -1,0 +1,62 @@
+name: Daily Ukraine-Russia War Analyst Brief
+
+on:
+  schedule:
+    # 5:00 AM Eastern Time = 10:00 UTC (EST) / 09:00 UTC (EDT)
+    # Using 10:00 UTC to cover Eastern Standard Time (winter).
+    # During EDT (summer), this runs at 6:00 AM ET. Adjust to 09:00 UTC for summer if needed.
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    inputs:
+      custom_date:
+        description: 'Override report date (YYYY-MM-DD). Leave blank for today.'
+        required: false
+        default: ''
+
+jobs:
+  generate-brief:
+    name: Generate and Email Daily Brief
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate daily analyst brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          echo "Starting daily brief generation — $(date)"
+          python scripts/generate_daily_brief.py
+          echo "Generation complete — $(date)"
+
+      - name: Commit report to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          DATE=$(date +%Y-%m-%d)
+          REPORT_FILE="reports/${DATE}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md"
+          if [ -f "$REPORT_FILE" ]; then
+            git add "$REPORT_FILE"
+            git diff --staged --quiet || git commit -m "Add daily brief: ${DATE}"
+            git push origin HEAD
+            echo "Report committed and pushed: $REPORT_FILE"
+          else
+            echo "No report file found at $REPORT_FILE — skipping commit"
+          fi

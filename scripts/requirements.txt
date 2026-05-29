@@ -1,0 +1,5 @@
+anthropic>=0.40.0
+feedparser>=6.0.11
+pytz>=2024.1
+requests>=2.31.0
+markdown>=3.6

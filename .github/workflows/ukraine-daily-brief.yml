@@ -1,0 +1,48 @@
+name: Ukraine-Russia War Daily Analyst Brief
+
+on:
+  schedule:
+    # 5:00 AM Eastern Time = 10:00 UTC (standard time) / 09:00 UTC (daylight time)
+    # Using 09:00 UTC to target 5 AM ET during EDT (Mar–Nov); adjust to 10:00 for EST (Nov–Mar)
+    - cron: '0 9 * * *'
+  workflow_dispatch:  # Allow manual trigger for testing
+
+jobs:
+  generate-and-email-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install anthropic requests
+
+      - name: Generate daily brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+        run: |
+          python scripts/generate_brief.py --output /tmp/brief.html
+
+      - name: Send email via Gmail SMTP
+        env:
+          GMAIL_SENDER: ${{ secrets.GMAIL_SENDER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_RECIPIENT: ericjsanchez23@gmail.com
+        run: |
+          python scripts/send_brief_email.py --input /tmp/brief.html
+
+      - name: Archive report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ukraine-brief-${{ env.REPORT_DATE }}
+          path: /tmp/brief.html
+          retention-days: 90

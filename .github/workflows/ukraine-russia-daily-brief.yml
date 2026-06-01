@@ -1,0 +1,77 @@
+name: Daily Ukraine–Russia War Analyst Brief
+
+# Runs every day at 05:00 AM Eastern Time (10:00 UTC in winter, 09:00 UTC in summer)
+# Using 10:00 UTC as a conservative baseline (EST). Adjust to 09:00 UTC for EDT (summer).
+on:
+  schedule:
+    - cron: '0 10 * * *'   # 05:00 ET (EST / UTC-5); change to '0 9 * * *' for EDT
+  workflow_dispatch:         # Allow manual trigger from GitHub Actions UI
+
+jobs:
+  generate-analyst-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (for Claude Code CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate and email daily analyst brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          REPORT_RECIPIENT: ericjsanchez23@gmail.com
+          REPORT_DATE: ${{ github.run_id }}
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          echo "Generating analyst brief for $TODAY"
+
+          claude --no-interactive -p "
+          You are generating the Daily Ukraine–Russia War Analyst Brief for ${TODAY} at 0500 ET.
+          Recipient: OUSW / Comptroller Program-Budget Analysts.
+          Email to: ericjsanchez23@gmail.com
+
+          TASK: Search for Ukraine-Russia War developments from the last 24-48 hours using WebSearch,
+          then compile and email a full analyst-grade brief following the exact structure defined in
+          the CLAUDE.md and the brief template saved in .github/brief-template.md.
+
+          Required sections:
+          1. Senior Leader Snapshot (BLUF, Top Issues, Watch Items, RFI Questions)
+          2. Analyst Annex (Executive Summary, Battlefield Ops, Defense Articles/Stockpiles,
+             DIB/Production, Funding/Budget/Appropriations, Operation Epic Fury / Iran Linkage,
+             External Actors / Sanctions, Escalation Risks, Congressional RFI Readiness,
+             Delta from Prior Report, Analyst Assessment, Source Log, Confidence Matrix)
+
+          Search priorities:
+          - ISW/Critical Threats battlefield assessment for today
+          - Reuters/AP/BBC breaking news on Ukraine-Russia frontline
+          - DoD/State/White House official releases
+          - CSIS/RAND/Atlantic Council analysis
+          - Congressional committee activity (HASC/SASC/HAC/SAC)
+          - Operation Epic Fury / Iran nuclear status
+          - Russia external support (China/DPRK/Iran)
+
+          Format: HTML email, professional analyst style, no political commentary,
+          every claim sourced with working URLs, confidence levels labeled.
+
+          After generating the report, create a Gmail draft to ericjsanchez23@gmail.com
+          with subject: '${TODAY} | Daily Ukraine-Russia War Analyst Brief | OUSW-PB'
+          " 2>&1 | tee brief_run_log_${TODAY}.txt
+
+      - name: Upload run log as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brief-run-log-${{ github.run_number }}
+          path: brief_run_log_*.txt
+          retention-days: 30

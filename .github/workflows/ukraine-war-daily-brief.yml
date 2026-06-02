@@ -1,0 +1,49 @@
+name: Daily Ukraine–Russia War Analyst Brief
+
+on:
+  schedule:
+    # 5:00 AM EST (UTC-5) = 10:00 UTC
+    # 6:00 AM EDT (UTC-4) = 10:00 UTC  (1-hr drift in summer is acceptable)
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: 'Override date YYYY-MM-DD (defaults to today ET)'
+        required: false
+        default: ''
+
+jobs:
+  generate-and-deliver:
+    name: Generate Brief & Email
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit archived reports back to repo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate brief and send email
+        env:
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_SENDER:       ${{ secrets.GMAIL_SENDER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TARGET_DATE:        ${{ github.event.inputs.target_date }}
+        run: python scripts/generate_ukraine_brief.py
+
+      - name: Archive report to repository
+        run: |
+          git config user.name  "ukraine-brief-bot"
+          git config user.email "ukraine-brief-bot@users.noreply.github.com"
+          git add reports/
+          git diff --cached --quiet || git commit -m "Add daily brief $(date -u +%Y-%m-%d)"
+          git push

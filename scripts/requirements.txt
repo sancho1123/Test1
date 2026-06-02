@@ -1,0 +1,3 @@
+# Daily Ukraine-Russia War Analyst Brief - Python dependencies
+anthropic>=0.50.0
+pytz>=2024.1

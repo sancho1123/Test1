@@ -1,0 +1,57 @@
+name: Daily Ukraine-Russia War Analyst Brief
+
+on:
+  schedule:
+    # 5:00 AM Eastern Time = 10:00 AM UTC (EST) / 09:00 AM UTC (EDT)
+    # Using 10:00 AM UTC to cover both EST and EDT throughout the year
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    inputs:
+      send_email:
+        description: 'Send email after generation'
+        required: false
+        default: 'true'
+        type: boolean
+
+jobs:
+  generate-brief:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install anthropic requests python-dateutil
+
+      - name: Generate Daily Analyst Brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+        run: |
+          python scripts/generate_brief.py
+
+      - name: Commit and push report
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add reports/
+          git diff --staged --quiet || git commit -m "Add daily Ukraine-Russia analyst brief $(date -u +%Y-%m-%d)"
+          git push origin HEAD:main
+
+      - name: Send email via Gmail API
+        if: ${{ github.event.inputs.send_email != 'false' }}
+        env:
+          GMAIL_CREDENTIALS: ${{ secrets.GMAIL_CREDENTIALS }}
+          GMAIL_TOKEN: ${{ secrets.GMAIL_TOKEN }}
+          RECIPIENT_EMAIL: ericjsanchez23@gmail.com
+        run: |
+          python scripts/send_brief_email.py

@@ -1,0 +1,61 @@
+name: Daily Ukraine-Russia War Analyst Brief
+
+# Runs every day at 0500 Eastern Time (1000 UTC; adjust for EDT/EST offset)
+# EDT (UTC-4): 0500 ET = 0900 UTC  |  EST (UTC-5): 0500 ET = 1000 UTC
+# Using 0900 UTC to target 0500 EDT (summer); update to 1000 UTC in winter
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # 0900 UTC = 0500 EDT (Eastern Daylight Time, Mar–Nov)
+  workflow_dispatch:       # Allow manual trigger for testing
+
+jobs:
+  generate-brief:
+    name: Generate and Email Daily Ukraine-Russia Brief
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: claude/kind-brahmagupta-xL9c7
+
+      - name: Set report date
+        id: date
+        run: echo "REPORT_DATE=$(date -u '+%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Run Daily Ukraine-Russia Brief via Claude Code
+        uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Pass Google/Gmail OAuth credentials if using Gmail MCP
+          # mcp_config: ${{ secrets.MCP_CONFIG }}
+          prompt: |
+            You are running the Daily Ukraine–Russia War Analyst Brief routine for ${{ env.REPORT_DATE }}.
+
+            Execute the full deep-research workflow to generate today's analyst brief per the specifications in CLAUDE.md and the established template at reports/ukraine-russia-brief/.
+
+            Steps:
+            1. Run deep-research across all 8 required topic areas (battlefield, defense articles/stockpiles, funding/budget/congressional, Operation Epic Fury/Iran linkage, third-party actors, DIB, escalation risks, congressional RFI readiness) for the last 24–48 hours.
+            2. Generate the full analyst brief following the exact structure in the prior report at reports/ukraine-russia-brief/.
+            3. Save the report to: reports/ukraine-russia-brief/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md
+            4. Send the report via Gmail MCP as an HTML email to: ericjsanchez23@gmail.com
+               Subject: ${{ env.REPORT_DATE }} | Daily Ukraine–Russia War Analyst Brief | OUSW P/B
+            5. Commit and push the report file to branch: claude/kind-brahmagupta-xL9c7
+            6. Update the Delta From Prior Report section by comparing to the previous day's report in the reports/ directory.
+
+            Use the same format, source requirements, confidence matrix, and quality checklist as the June 5, 2026 inaugural report. Every major claim must have a source with a direct web link. Label all unverified claims. Distinguish confirmed from analyst judgment from cannot confirm.
+
+          allowed_tools: "WebSearch,mcp__Gmail__create_draft,Bash,Read,Write,Edit,Glob,Grep"
+          timeout_minutes: 25
+
+      - name: Verify report was created
+        run: |
+          if [ -f "reports/ukraine-russia-brief/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md" ]; then
+            echo "✅ Report generated successfully for ${{ env.REPORT_DATE }}"
+            wc -l "reports/ukraine-russia-brief/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md"
+          else
+            echo "❌ Report file not found — check Claude Code action logs"
+            exit 1
+          fi

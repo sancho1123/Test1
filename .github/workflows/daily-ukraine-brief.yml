@@ -1,0 +1,52 @@
+name: Daily Ukraine-Russia War Analyst Brief
+
+# Runs at 09:00 UTC = 05:00 EDT (UTC-4, Mar–Nov)
+# To shift to 05:00 EST (UTC-5, Nov–Mar), change to '0 10 * * *'
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Generate report without sending email (test mode)'
+        type: boolean
+        default: false
+
+jobs:
+  generate-brief:
+    name: Generate and Email Daily Brief
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate and email analyst brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python scripts/generate_ukraine_brief.py --dry-run
+          else
+            python scripts/generate_ukraine_brief.py
+          fi
+
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ukraine-brief-${{ github.run_id }}
+          path: reports/*.md
+          retention-days: 90

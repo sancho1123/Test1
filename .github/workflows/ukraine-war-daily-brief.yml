@@ -1,0 +1,108 @@
+name: Ukraine–Russia War Daily Analyst Brief
+
+on:
+  schedule:
+    # 5:00 AM EDT (UTC-4) = 09:00 UTC — runs every day
+    # Adjust to 10:00 UTC in winter when Eastern switches to EST (UTC-5)
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      recipient_email:
+        description: 'Override recipient email (leave blank to use default)'
+        required: false
+        default: ''
+      report_date:
+        description: 'Override report date YYYY-MM-DD (leave blank for today)'
+        required: false
+        default: ''
+
+env:
+  REPORT_RECIPIENT: ${{ secrets.REPORT_RECIPIENT_EMAIL }}
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+  GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+  GMAIL_SENDER: ${{ secrets.GMAIL_SENDER_EMAIL }}
+
+jobs:
+  generate-and-deliver-brief:
+    name: Generate and Email Daily Brief
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Determine report date
+        id: date
+        run: |
+          if [ -n "${{ github.event.inputs.report_date }}" ]; then
+            echo "REPORT_DATE=${{ github.event.inputs.report_date }}" >> $GITHUB_OUTPUT
+          else
+            echo "REPORT_DATE=$(date -u +%Y-%m-%d)" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Determine recipient
+        id: recipient
+        run: |
+          OVERRIDE="${{ github.event.inputs.recipient_email }}"
+          DEFAULT="${{ env.REPORT_RECIPIENT }}"
+          if [ -n "$OVERRIDE" ]; then
+            echo "EMAIL=$OVERRIDE" >> $GITHUB_OUTPUT
+          else
+            echo "EMAIL=$DEFAULT" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate Ukraine–Russia War Analyst Brief
+        id: generate
+        env:
+          REPORT_DATE: ${{ steps.date.outputs.REPORT_DATE }}
+        run: |
+          python scripts/generate_daily_brief.py \
+            --date "$REPORT_DATE" \
+            --output "/tmp/brief_${REPORT_DATE}.md" \
+            --html-output "/tmp/brief_${REPORT_DATE}.html"
+          echo "REPORT_MD=/tmp/brief_${REPORT_DATE}.md" >> $GITHUB_OUTPUT
+          echo "REPORT_HTML=/tmp/brief_${REPORT_DATE}.html" >> $GITHUB_OUTPUT
+          echo "REPORT_DATE=$REPORT_DATE" >> $GITHUB_OUTPUT
+
+      - name: Send email via Gmail SMTP
+        env:
+          RECIPIENT_EMAIL: ${{ steps.recipient.outputs.EMAIL }}
+          REPORT_DATE: ${{ steps.date.outputs.REPORT_DATE }}
+        run: |
+          python scripts/send_brief_email.py \
+            --to "$RECIPIENT_EMAIL" \
+            --md-file "${{ steps.generate.outputs.REPORT_MD }}" \
+            --html-file "${{ steps.generate.outputs.REPORT_HTML }}" \
+            --date "$REPORT_DATE"
+
+      - name: Upload brief as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ukraine-war-brief-${{ steps.date.outputs.REPORT_DATE }}
+          path: |
+            /tmp/brief_${{ steps.date.outputs.REPORT_DATE }}.md
+            /tmp/brief_${{ steps.date.outputs.REPORT_DATE }}.html
+          retention-days: 90
+
+      - name: Notify on failure
+        if: failure()
+        env:
+          RECIPIENT_EMAIL: ${{ steps.recipient.outputs.EMAIL }}
+        run: |
+          python scripts/send_brief_email.py \
+            --to "$RECIPIENT_EMAIL" \
+            --failure-notice \
+            --date "${{ steps.date.outputs.REPORT_DATE }}"

@@ -1,0 +1,100 @@
+Generate a Daily Ukraine–Russia War Analyst Brief for today's date.
+
+This report is for analysts supporting the Department of War / OUSW Comptroller Program/Budget office. Write it as a 10-minute read, analyst-grade, executive-quality product.
+
+RESEARCH WINDOW: Last 24-48 hours only. Use background only when needed to explain a current development.
+
+REQUIRED REPORT STRUCTURE:
+
+---
+PART I — SENIOR LEADER SNAPSHOT
+---
+
+## BOTTOM LINE UP FRONT
+Provide 3-5 bullets: What changed in the last 24-48 hours? What matters most? What may affect U.S. funding, defense articles, stockpiles, or readiness? Any Ukraine-Russia / Operation Epic Fury overlap?
+Each bullet: Source name | Direct link | Confidence: High/Medium/Low/Cannot confirm
+
+## TOP ISSUES FOR OUSW COMPTROLLER P/B ANALYSTS
+5-7 bullets tagged: [Funding] [Appropriations] [Execution] [PDA] [USAI] [Defense Articles] [Stockpiles] [Replenishment] [Congressional RFI] [Readiness] [Epic Fury / Iran Linkage]
+Each: What happened | Why it matters | Likely congressional question
+
+## WATCH ITEMS — NEXT 7 DAYS
+5 watch items: Indicator to watch | Why it matters | Budget/defense article/congressional implication | Link
+
+## MOST LIKELY CONGRESSIONAL RFI QUESTIONS TODAY
+5-10 questions likely to be asked based on today's reporting.
+
+---
+PART II — ANALYST ANNEX
+---
+
+## 1. EXECUTIVE SUMMARY
+7-10 bullets with tags: [Military] [Funding] [Appropriations] [Defense Articles] [Stockpiles] [DIB] [Replenishment] [Readiness] [Congressional Interest] [Epic Fury / Iran Linkage] [Escalation Risk] [Sanctions] [Energy]
+Each: Topic tag | One-sentence summary | Why it matters | Source | Link | Confidence
+
+## 2. BATTLEFIELD AND MILITARY OPERATIONS
+Frontline changes, Russian offensives, Ukrainian counteroffensives, missile attacks, drone attacks, air defense, cyber, Black Sea, Crimea, casualty reporting (only if credible).
+Table format: Event | Location | Date/Timeframe | Source | Link | Confidence | Significance
+
+## 3. DEFENSE ARTICLES, WEAPONS, STOCKPILES, AND MUNITIONS
+A. U.S.-Provided Defense Articles — Patriot, NASAMS, HIMARS, GMLRS, ATACMS, Javelins, Stingers, 155mm, 105mm, Bradleys, Abrams, Strykers, MRAPs, air defense radars, counter-UAS, drones, EW, F-16 support, spare parts
+B. Allied/Partner Defense Articles — NATO, UK, Germany, France, Poland, Baltic states, Nordic, Canada, Australia, Japan, South Korea
+C. Stockpile and Readiness Issues — depletion, shortages, replenishment delays, multi-theater demand competition
+D. Analysis for each: What article? Transfer/requested/depleted/delayed/replenished/produced? Impact on battlefield? Impact on U.S. readiness? Congressional interest? Appropriations implication?
+
+## 4. DEFENSE INDUSTRIAL BASE AND PRODUCTION CAPACITY
+U.S. contractors, NATO production, ammo manufacturing, missile production, drone production, supply chain issues, multi-year procurement.
+Each: Company/entity | System/munition | Issue or improvement | Ukraine impact | Readiness impact | Source | Link | Confidence
+
+## 5. FUNDING, BUDGET, APPROPRIATIONS, AND CONGRESSIONAL RELEVANCE
+New aid, supplementals, PDA, USAI, FMF, replenishment funding, reprogrammings, apportionment, coalition contributions, frozen Russian assets, congressional oversight.
+Table: Funding item | Account/mechanism | Amount (if sourced) | Source | Link | Confidence | Comptroller relevance | Potential RFI
+
+## 6. OPERATION EPIC FURY / IRAN AND UKRAINE-RUSSIA WAR LINKAGE
+A. Weapons and stockpile competition — Patriot/THAAD/SM/NASAMS interceptors, counter-drone, PGMs, ISR
+B. Drone/missile warfare linkage — Iranian drones in Ukraine, Shahed-type systems, ballistic threats
+C. Russia-Iran relationship — weapons cooperation, diplomatic support, tech transfers, sanctions evasion
+D. Energy and economic effects — oil prices, LNG, Hormuz, Black Sea, European energy security
+E. Strategic bandwidth and force allocation — CENTCOM vs EUCOM, congressional appetite, allied burden sharing
+If no credible connection confirmed, state: "I cannot confirm a direct linkage between Operation Epic Fury and the Ukraine-Russia War in today's reporting."
+
+## 7. RUSSIA, IRAN, CHINA, NORTH KOREA, BELARUS, AND SANCTIONS-EVASION NETWORKS
+Weapons, ammo, electronics, dual-use, financial channels, shipping, cryptocurrency.
+Each: Actor | Assistance type | Source | Link | Confidence | Impact on Ukraine war | Relevance to U.S. sanctions/budget/Congress
+
+## 8. ESCALATION RISKS AND WARNING INDICATORS
+Nuclear signaling, Belarus involvement, NATO territory incidents, cyber, nuclear facilities, Black Sea escalation, new weapons systems.
+Classify each: Low / Medium / High
+Each: Indicator | Source | Link | Confidence | Why it matters | U.S. policy/budget/defense article implication
+
+## 9. CONGRESSIONAL RFI READINESS
+Table: Likely RFI Question | Short Answer | Source Links | Confidence
+Cover: battlefield changes, urgent defense articles, stockpile impact, allied stockpiles, Epic Fury competition, air defense status, readiness risk, funding streams, supplementals, Russia supplier networks, sanctions, DIB constraints.
+
+## 10. DELTA FROM PRIOR REPORT
+What is new, changed, escalated, de-escalated, or newly relevant since the prior report.
+If no prior report: "No prior report was available for comparison."
+
+## 11. ANALYST ASSESSMENT
+What matters most today? Watch items for next 7 days? Congressional issues? Budget execution risk? Defense article/stockpile replenishment risk? Readiness risk? Cross-theater linkage? Clearly label: Confirmed Facts | Analyst Judgment | Cannot Confirm
+
+## 12. SOURCE LOG
+Table: # | Source | Title | Date Published | Link | Topic | Confidence | Notes
+EVERY source must have a direct working web link. No source without a link. Label paywalled, official source, analysis, or claimed (for Russian/Ukrainian official claims).
+
+## 13. CONFIDENCE MATRIX
+Table: Claim/Topic | Confidence | Reason
+Definitions — High: official source or multiple credible sources. Medium: credible single source, not independently confirmed. Low: single-source, unclear, disputed. Cannot confirm: insufficient reliable sourcing.
+
+---
+SOURCE RULES:
+- Every claim must have a source with a working web link.
+- Do not state something as fact if it cannot be confirmed.
+- Clearly label: Confirmed | Likely | Claimed but unverified | Disputed | Cannot confirm
+- Prioritize: U.S. Government releases > ISW > CSIS/RAND/RUSI/Atlantic Council > Reuters/AP/BBC/FT/WSJ/NYT/WaPo > DefenseNews/Breaking Defense/USNI > Kyiv Independent/Ukrinform
+- Label Russian MoD and Ukrainian MoD claims as claims, not confirmed facts.
+- No political commentary. No speculation without evidence. No sensational language.
+---
+
+Report title format: YYYY-MM-DD_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB
+Write for Department-level analysts who need fast, accurate, sourced answers to congressional RFIs.

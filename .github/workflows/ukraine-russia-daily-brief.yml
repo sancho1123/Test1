@@ -1,0 +1,113 @@
+name: Daily Ukraine–Russia War Analyst Brief
+
+on:
+  schedule:
+    # 5:00 AM Eastern Daylight Time (EDT, UTC-4) = 09:00 UTC
+    # Note: shifts to 4 AM ET during EST (Nov-Mar, UTC-5). Adjust to '0 10 * * *' in winter if needed.
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      recipient_email:
+        description: 'Override recipient email'
+        required: false
+        default: 'ericjsanchez23@gmail.com'
+
+env:
+  REPORT_EMAIL: ericjsanchez23@gmail.com
+  REPORT_DATE: ''
+
+jobs:
+  generate-and-send-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set report date
+        run: echo "REPORT_DATE=$(TZ='America/New_York' date +%Y-%m-%d)" >> $GITHUB_ENV
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate Daily Analyst Brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_USE_BEDROCK: '0'
+        run: |
+          # Run Claude Code in non-interactive print mode to generate the report
+          # The --allowedTools flag permits web research without prompts
+          claude --print \
+            --allowedTools "WebSearch,WebFetch" \
+            --max-turns 40 \
+            "$(cat .github/workflows/brief-prompt.txt)" \
+            > reports/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md 2>&1 || true
+
+          # Confirm the file was created
+          if [ -f "reports/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md" ]; then
+            echo "Report generated successfully."
+            wc -l "reports/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md"
+          else
+            echo "Report file not found — check Claude output above."
+            exit 1
+          fi
+
+      - name: Commit report to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p reports
+          git add reports/
+          git diff --staged --quiet || git commit -m "Add daily brief ${{ env.REPORT_DATE }}"
+          git push origin HEAD
+
+      - name: Send report via email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          secure: false
+          username: ${{ secrets.GMAIL_SENDER_ADDRESS }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "[${{ env.REPORT_DATE }}] Daily Ukraine–Russia War Analyst Brief | OUSW Comptroller P/B"
+          to: ${{ inputs.recipient_email || env.REPORT_EMAIL }}
+          from: "OUSW P/B Daily Brief <${{ secrets.GMAIL_SENDER_ADDRESS }}>"
+          body: |
+            Daily Ukraine–Russia War Analyst Brief
+            Defense Articles, Stockpiles, Budget, Congressional RFI, and Operation Epic Fury Cross-Theater Impacts
+
+            Report Date: ${{ env.REPORT_DATE }}
+            Generated: ${{ env.REPORT_DATE }} at 05:00 ET
+
+            The full report is attached. It is also committed to the repository under:
+            reports/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md
+
+            This is an automated daily brief generated for OUSW Comptroller Program/Budget analysts.
+          attachments: reports/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md
+          ignore_cert: false
+
+      - name: Notify on failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          secure: false
+          username: ${{ secrets.GMAIL_SENDER_ADDRESS }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "[FAILED] Daily Ukraine–Russia War Brief – ${{ env.REPORT_DATE }}"
+          to: ${{ env.REPORT_EMAIL }}
+          from: "OUSW P/B Daily Brief <${{ secrets.GMAIL_SENDER_ADDRESS }}>"
+          body: |
+            The automated daily brief for ${{ env.REPORT_DATE }} failed to generate or send.
+
+            Review the GitHub Actions run at:
+            https://github.com/sancho1123/Test1/actions
+
+            Action required: Check ANTHROPIC_API_KEY and GMAIL_APP_PASSWORD secrets are valid.

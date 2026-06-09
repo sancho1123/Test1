@@ -1,0 +1,105 @@
+name: Daily Ukraine-Russia War Analyst Brief
+
+on:
+  schedule:
+    # 10:00 UTC = 5:00 AM ET (EST); adjust to 09:00 UTC for EDT (summer)
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    inputs:
+      report_date:
+        description: 'Report date override (YYYY-MM-DD). Defaults to today.'
+        required: false
+        default: ''
+
+jobs:
+  generate-brief:
+    name: Generate and Email Daily Brief
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: claude/kind-brahmagupta-n6r4aw
+
+      - name: Set report date
+        id: date
+        run: |
+          if [ -n "${{ github.event.inputs.report_date }}" ]; then
+            echo "REPORT_DATE=${{ github.event.inputs.report_date }}" >> $GITHUB_ENV
+          else
+            echo "REPORT_DATE=$(date -u +%Y-%m-%d)" >> $GITHUB_ENV
+          fi
+
+      - name: Generate Daily Ukraine-Russia War Analyst Brief
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          allowed_tools: "WebSearch,WebFetch,mcp__Gmail__create_draft,Bash,Write,Read"
+          mcp_config: |
+            {
+              "mcpServers": {
+                "Gmail": {
+                  "command": "npx",
+                  "args": ["-y", "@modelcontextprotocol/server-gmail"],
+                  "env": {
+                    "GMAIL_OAUTH_CLIENT_ID": "${{ secrets.GMAIL_OAUTH_CLIENT_ID }}",
+                    "GMAIL_OAUTH_CLIENT_SECRET": "${{ secrets.GMAIL_OAUTH_CLIENT_SECRET }}",
+                    "GMAIL_OAUTH_REFRESH_TOKEN": "${{ secrets.GMAIL_OAUTH_REFRESH_TOKEN }}"
+                  }
+                }
+              }
+            }
+          prompt: |
+            Today's date is ${{ env.REPORT_DATE }}.
+
+            Your task is to generate the Daily Ukraine–Russia War Analyst Brief for ${{ env.REPORT_DATE }}.
+
+            The audience is Department of War / OUSW Comptroller Program/Budget analysts who must be prepared to answer Congressional RFIs, senior leader questions, budget and execution inquiries, defense article and stockpile questions, Ukraine aid questions, and cross-theater impact questions involving Operation Epic Fury (U.S. military operations against Iran).
+
+            STEP 1 — RESEARCH (run 5 parallel web searches):
+            Search 1: "Ukraine Russia war battlefield update ${{ env.REPORT_DATE }}" and prior 48 hours — focus on ISW, Ukrinform, Reuters, AP, BBC
+            Search 2: "US defense articles weapons Ukraine stockpiles Patriot interceptors ${{ env.REPORT_DATE }}" — focus on CSIS, FPRI, Defense News, Breaking Defense
+            Search 3: "US Ukraine aid funding USAI PDA appropriations Congress ${{ env.REPORT_DATE }}" — focus on Congress.gov, DoD, OSW, Defense-Aerospace
+            Search 4: "Operation Epic Fury Iran ceasefire munitions stockpile ${{ env.REPORT_DATE }}" — focus on DoD, CENTCOM, CSIS, CBS, Military Times
+            Search 5: "Russia North Korea China weapons Ukraine war sanctions ${{ env.REPORT_DATE }}" — focus on CSIS, Atlantic Council, Kyiv Independent, USCC
+
+            STEP 2 — VERIFY key claims with 2–3 additional targeted searches as needed.
+
+            STEP 3 — WRITE the full report using the structure below. Every claim must have a source with a direct web link. Unverified claims must be labeled "Cannot confirm." Russian and Ukrainian government claims must be labeled as such.
+
+            REPORT STRUCTURE (both parts required):
+
+            PART I — SENIOR LEADER SNAPSHOT
+            A. Bottom Line Up Front (3–5 bullets with source, link, confidence)
+            B. Top Issues for OUSW Comptroller P/B Analysts (5–7 tagged bullets: [Funding][Appropriations][Execution][PDA][USAI][Defense Articles][Stockpiles][Replenishment][Congressional RFI][Readiness][Epic Fury/Iran Linkage])
+            C. Watch Items for the Next 7 Days (5 items)
+            D. Most Likely Congressional RFI Questions Today (5–10 questions)
+
+            PART II — ANALYST ANNEX
+            1. Executive Summary (7–10 tagged bullets)
+            2. Battlefield and Military Operations (table: Event | Location | Date | Source | Link | Confidence | Significance)
+            3. Defense Articles, Weapons, Stockpiles, and Munitions (subsections: US-Provided | Allied/Partner | Stockpile/Readiness | Required Analysis)
+            4. Defense Industrial Base and Production Capacity
+            5. Funding, Budget, Appropriations, and Congressional Relevance (table)
+            6. Operation Epic Fury / Iran and Ukraine-Russia War Linkage (subsections: Weapons/Stockpile Competition | Drone/Missile Linkage | Russia-Iran Relationship | Energy/Economic | Strategic Bandwidth)
+            7. Russia, Iran, China, North Korea, Belarus, and Sanctions-Evasion Networks
+            8. Escalation Risks and Warning Indicators (Low/Medium/High)
+            9. Congressional RFI Readiness Section (table: Question | Short Answer | Source Links | Confidence)
+            10. Delta From Prior Report
+            11. Analyst Assessment (Confirmed Facts / Analyst Judgment / Cannot Confirm)
+            12. Required News Article / Source Log (table: # | Source | Title | Date | Link | Topic | Confidence | Notes)
+            13. Confidence Matrix (table: Claim/Topic | Confidence | Reason)
+
+            STEP 4 — Save the report as a markdown file at:
+            reports/${{ env.REPORT_DATE }}_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.md
+
+            STEP 5 — Send an email draft to ericjsanchez23@gmail.com using the Gmail MCP tool (mcp__Gmail__create_draft) with:
+            - Subject: "${{ env.REPORT_DATE }} | Daily Ukraine–Russia War Analyst Brief | Defense Articles, Stockpiles, Budget, Congressional RFI & Operation Epic Fury"
+            - Body: The full formatted HTML report (professional, analyst-grade layout with tables, colored tags, source links)
+
+            Priority sources: ISW, Reuters, AP, BBC, Defense News, Breaking Defense, CSIS, RAND, RUSI, Atlantic Council, War on the Rocks, USNI News, Kyiv Independent, Politico, WSJ, NYT, WaPo, DoD/State/White House official releases, NATO, Congressional sources.
+
+            Every claim must be sourced with a direct URL. No political commentary. No speculation without evidence.

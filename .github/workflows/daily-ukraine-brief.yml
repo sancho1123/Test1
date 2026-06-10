@@ -1,0 +1,39 @@
+name: Daily Ukraine-Russia War Analyst Brief
+
+on:
+  schedule:
+    # 10:00 UTC = 5:00 AM EST / 6:00 AM EDT
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate and email daily brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ericjsanchez23@gmail.com
+        run: python scripts/generate_ukraine_brief.py
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ukraine-brief-${{ github.run_id }}
+          path: reports/
+          retention-days: 30

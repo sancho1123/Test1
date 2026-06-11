@@ -1,0 +1,40 @@
+name: Daily Ukraine-Russia War Analyst Brief
+
+on:
+  schedule:
+    # 10:00 UTC = 5:00 AM ET (EST) / 6:00 AM ET (EDT)
+    # Adjust to 09:00 UTC when Daylight Saving Time is in effect (March–November)
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      recipient_email:
+        description: 'Override recipient email (defaults to ericjsanchez23@gmail.com)'
+        required: false
+        default: 'ericjsanchez23@gmail.com'
+
+jobs:
+  generate-and-send-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install anthropic
+
+      - name: Generate and email daily brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ github.event.inputs.recipient_email || 'ericjsanchez23@gmail.com' }}
+        run: |
+          python scripts/generate_brief.py

@@ -1,0 +1,1121 @@
+<title>Ukraine–Russia War Daily Brief — 12 SEP 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* === TOKEN SYSTEM === */
+  :root {
+    --bg:        #F5F4F0;
+    --bg-2:      #ECEAE3;
+    --bg-3:      #E0DDD5;
+    --surface:   #FFFFFF;
+    --text:      #1C1C1E;
+    --text-2:    #4A4845;
+    --text-3:    #7A7570;
+    --accent:    #1B3A5C;
+    --accent-lt: #2E5880;
+    --red:       #8B1A1A;
+    --red-bg:    #FDF0F0;
+    --amber:     #7A4A00;
+    --amber-bg:  #FEF8E8;
+    --green:     #1A6B3A;
+    --green-bg:  #EFF8F2;
+    --blue-bg:   #EEF4FA;
+    --border:    #D4D0C8;
+    --border-2:  #C2BDB3;
+    --mono:      'IBM Plex Mono', monospace;
+    --serif:     'Source Serif 4', Georgia, serif;
+    --cond:      'Barlow Condensed', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:        #111318;
+      --bg-2:      #191C24;
+      --bg-3:      #222630;
+      --surface:   #1E222C;
+      --text:      #E4E2DC;
+      --text-2:    #9A9590;
+      --text-3:    #5C5850;
+      --accent:    #4A80B0;
+      --accent-lt: #6A9DC8;
+      --red:       #E05050;
+      --red-bg:    #2A1414;
+      --amber:     #D4A030;
+      --amber-bg:  #231A08;
+      --green:     #4AB870;
+      --green-bg:  #0E2016;
+      --blue-bg:   #0E1C2C;
+      --border:    #2A2E38;
+      --border-2:  #3A3E4A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:        #111318;
+    --bg-2:      #191C24;
+    --bg-3:      #222630;
+    --surface:   #1E222C;
+    --text:      #E4E2DC;
+    --text-2:    #9A9590;
+    --text-3:    #5C5850;
+    --accent:    #4A80B0;
+    --accent-lt: #6A9DC8;
+    --red:       #E05050;
+    --red-bg:    #2A1414;
+    --amber:     #D4A030;
+    --amber-bg:  #231A08;
+    --green:     #4AB870;
+    --green-bg:  #0E2016;
+    --blue-bg:   #0E1C2C;
+    --border:    #2A2E38;
+    --border-2:  #3A3E4A;
+  }
+
+  /* === RESET / BASE === */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    padding-block: 0;
+    padding-inline: 0;
+  }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--accent-lt); }
+
+  /* === CLASSIFICATION BAR === */
+  #class-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    font-family: var(--cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    padding: 5px 16px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+  }
+  #class-bar span { opacity: .7; font-weight: 400; }
+
+  /* === REPORT HEADER === */
+  #report-header {
+    background: var(--accent);
+    color: #fff;
+    padding: 28px 32px 24px;
+  }
+  #report-header .eyebrow {
+    font-family: var(--cond);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 6px;
+  }
+  #report-header h1 {
+    font-family: var(--cond);
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.15;
+    text-wrap: balance;
+    margin-bottom: 4px;
+  }
+  #report-header .sub {
+    font-family: var(--cond);
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    margin-bottom: 16px;
+  }
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,.65);
+    border-top: 1px solid rgba(255,255,255,.2);
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+  .header-meta strong { color: rgba(255,255,255,.9); }
+
+  /* === LAYOUT === */
+  #layout {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* === PART DIVIDERS === */
+  .part-header {
+    background: var(--bg-3);
+    border-left: 4px solid var(--accent);
+    padding: 10px 18px;
+    margin: 32px 0 20px;
+    font-family: var(--cond);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .part-header .part-num { opacity: .5; margin-right: 6px; }
+
+  /* === SECTION HEADERS === */
+  h2 {
+    font-family: var(--cond);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin: 28px 0 14px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--cond);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    margin: 20px 0 8px;
+  }
+
+  /* === BLUF BOX === */
+  #bluf {
+    background: var(--blue-bg);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  #bluf .bluf-label {
+    font-family: var(--cond);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  #bluf ul { list-style: none; padding: 0; }
+  #bluf ul li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  #bluf ul li:last-child { border-bottom: none; }
+  #bluf ul li::before { content: "▶"; color: var(--accent); margin-right: 8px; font-size: 9px; vertical-align: 2px; }
+
+  /* === BULLETS / LISTS === */
+  ul.report-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+  }
+  ul.report-list li {
+    padding: 6px 0 6px 20px;
+    border-bottom: 1px dashed var(--border);
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+  }
+  ul.report-list li:last-child { border-bottom: none; }
+  ul.report-list li::before {
+    content: "–";
+    position: absolute;
+    left: 4px;
+    color: var(--text-3);
+  }
+
+  /* === TAGS === */
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-right: 4px;
+    white-space: nowrap;
+    vertical-align: 2px;
+  }
+  .tag-funding   { background: var(--blue-bg); color: var(--accent); border: 1px solid var(--accent); }
+  .tag-defart    { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber); }
+  .tag-stock     { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
+  .tag-conf      { background: var(--green-bg); color: var(--green); border: 1px solid var(--green); }
+  .tag-fury      { background: #F4EFF9; color: #5B2D8E; border: 1px solid #A080CC; }
+  .tag-rfi       { background: var(--bg-3); color: var(--text-2); border: 1px solid var(--border-2); }
+  .tag-read      { background: var(--bg-2); color: var(--text-3); border: 1px solid var(--border); }
+  .tag-dib       { background: #F0F8F0; color: #2A7A3A; border: 1px solid #80C080; }
+  .tag-esc       { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
+  :root[data-theme="dark"] .tag-fury, :root:not([data-theme="light"]) .tag-fury {
+    background: #1C1030; color: #A080CC; border-color: #5B3A8A;
+  }
+  :root[data-theme="dark"] .tag-dib, :root:not([data-theme="light"]) .tag-dib {
+    background: #0C1E0C; color: #4AB870; border-color: #2A6A3A;
+  }
+
+  /* === CONFIDENCE BADGES === */
+  .conf {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 1px 7px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .conf-H { background: var(--green-bg); color: var(--green); }
+  .conf-M { background: var(--amber-bg); color: var(--amber); }
+  .conf-L { background: var(--red-bg); color: var(--red); }
+  .conf-U { background: var(--bg-3); color: var(--text-3); }
+
+  /* === RISK BANDS === */
+  .risk-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 14px;
+  }
+  .risk-row:last-child { border-bottom: none; }
+  .risk-badge {
+    flex-shrink: 0;
+    font-family: var(--cond);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .risk-HIGH { background: var(--red); color: #fff; }
+  .risk-MED  { background: var(--amber); color: #fff; }
+  .risk-LOW  { background: var(--green); color: #fff; }
+
+  /* === TABLES === */
+  .tbl-wrap { overflow-x: auto; margin: 12px 0 18px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+  }
+  th {
+    font-family: var(--cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    background: var(--bg-2);
+    padding: 7px 10px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-2);
+    white-space: nowrap;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--bg-2); }
+
+  /* === CITATION === */
+  .cite {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-3);
+    display: block;
+    margin-top: 3px;
+  }
+  .cite a { color: var(--accent); }
+
+  /* === INFO BOXES === */
+  .info-box {
+    border-left: 3px solid var(--accent);
+    background: var(--bg-2);
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .info-box.warn { border-color: var(--red); background: var(--red-bg); }
+  .info-box.note { border-color: var(--amber); background: var(--amber-bg); }
+  .info-box.ok   { border-color: var(--green); background: var(--green-bg); }
+
+  /* === RFI TABLE === */
+  .rfi-row {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .rfi-row:last-child { border-bottom: none; }
+  .rfi-q {
+    font-family: var(--cond);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .rfi-a { font-size: 13.5px; color: var(--text-2); line-height: 1.6; }
+
+  /* === SOURCE LOG === */
+  #source-log { font-size: 12.5px; }
+  #source-log .src-entry {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 0 8px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+    line-height: 1.5;
+  }
+  #source-log .src-num {
+    font-family: var(--mono);
+    color: var(--text-3);
+    font-size: 11px;
+    padding-top: 2px;
+  }
+
+  /* === DELTA SECTION === */
+  .delta-new  { color: var(--accent); }
+  .delta-esc  { color: var(--red); }
+  .delta-dsc  { color: var(--green); }
+
+  /* === CONFIDENCE MATRIX === */
+  .cm-high   { background: var(--green-bg); }
+  .cm-med    { background: var(--amber-bg); }
+  .cm-low    { background: var(--red-bg); }
+  .cm-unk    { background: var(--bg-2); }
+
+  /* === WATCH ITEMS === */
+  .watch-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--amber);
+    padding: 12px 14px;
+    margin: 8px 0;
+  }
+  .watch-item h4 {
+    font-family: var(--cond);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+  .watch-item p { font-size: 13.5px; line-height: 1.55; color: var(--text-2); }
+
+  /* === FOOTER === */
+  #report-footer {
+    background: var(--bg-3);
+    border-top: 2px solid var(--border-2);
+    padding: 14px 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-3);
+    text-align: center;
+    letter-spacing: .05em;
+  }
+
+  /* === PRINT === */
+  @media print {
+    #class-bar { position: fixed; }
+    body { font-size: 11pt; }
+    a { color: var(--text); text-decoration: none; }
+    .tbl-wrap { overflow: visible; }
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    #report-header { padding: 18px 16px 16px; }
+    #layout { padding: 16px 16px 40px; }
+    th, td { padding: 6px 7px; font-size: 12px; }
+  }
+</style>
+
+<!-- CLASSIFICATION BAR -->
+<div id="class-bar">UNCLASSIFIED // FOR OFFICIAL USE ONLY <span>/ OUSW COMPTROLLER P/B DISTRIBUTION</span></div>
+
+<!-- REPORT HEADER -->
+<header id="report-header">
+  <div class="eyebrow">Department of War / OUSW Comptroller Program–Budget</div>
+  <h1>Ukraine–Russia War Daily Analyst Brief</h1>
+  <div class="sub">Defense Articles · Stockpiles · Budget · Congressional RFI · Operation Epic Fury Cross-Theater Impacts</div>
+  <div class="header-meta">
+    <span><strong>DATE:</strong> 12 SEP 2026</span>
+    <span><strong>REPORT PERIOD:</strong> 10–12 SEP 2026</span>
+    <span><strong>PREPARED:</strong> 0500 ET</span>
+    <span><strong>WAR DAY:</strong> ~1,662 (Full-Scale Invasion)</span>
+    <span><strong>FILE:</strong> 2026-09-12_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB</span>
+    <span><strong>READ TIME:</strong> ~10 min</span>
+  </div>
+</header>
+
+<div id="layout">
+
+<!-- ======================================================
+     PART I — SENIOR LEADER SNAPSHOT
+     ====================================================== -->
+<div class="part-header"><span class="part-num">PART I /</span> Senior Leader Snapshot</div>
+
+<!-- A. BLUF -->
+<h2>A. Bottom Line Up Front</h2>
+
+<div id="bluf">
+  <div class="bluf-label">Bottom Line Up Front — 12 Sep 2026</div>
+  <ul>
+    <li>
+      <strong>[Military]</strong> No frontline position changes on Sep 11; Russia launched 162 drones and conducted 78 airstrikes with 233 guided aviation bombs overnight. Ukrainian forces executed long-range strikes against Russian logistics and fuel infrastructure. The ground war remains a high-attrition, slow-advance stalemate. <span class="cite"><a href="https://www.kyivpost.com/post/84312">ISW Assessment, 11 Sep 2026, Kyiv Post</a> — <span class="conf conf-H">HIGH</span></span>
+    </li>
+    <li>
+      <strong>[Defense Articles / Stockpiles]</strong> EU pledged €6.1 billion for Ukraine on Sep 11, including dedicated funding for Patriot interceptors. This partially offsets critical U.S. stockpile constraints; however, the U.S. depleted approximately two-thirds of its pre-war Patriot interceptor inventory during Operation Epic Fury, and PAC-3 MSE delivery timelines are ~42 months. <span class="cite"><a href="https://www.euronews.com/my-europe/2026/09/11/eu-pledges-61bn-for-ukraine-including-aid-for-patriot-interceptors">Euronews, 11 Sep 2026</a>; <a href="https://www.twz.com/land/pentagons-ability-to-supply-ukraine-with-more-patriot-interceptors-questioned-by-congress">The War Zone / TWZ</a> — <span class="conf conf-H">HIGH</span></span>
+    </li>
+    <li>
+      <strong>[Funding]</strong> U.S. military aid deliveries to Ukraine dropped more than 50% in 2026 ($265M/month vs $587M/month in 2025). No new supplemental appropriations exist; the FY26 NDAA authorizes $400M/year in USAI but the House appropriations bill includes $0. Senate bill holds $800M. Conference outcome pending. <span class="cite"><a href="https://www.globalsecurity.org/wmd/library/news/ukraine/2026/08/ukraine-260812-sputnik05.htm">GlobalSecurity.org, Aug 2026</a>; <a href="https://www.defense-aerospace.com/how-the-2026-ndaa-scales-back-u-s-funding-for-ukraine-and-shifts-the-burden-to-europe/">Defense-Aerospace, 2026</a> — <span class="conf conf-H">HIGH</span></span>
+    </li>
+    <li>
+      <strong>[Diplomacy]</strong> U.S. envoys Witkoff and Kushner visited Kyiv and Moscow (Sep 5–8). Zelensky stated "We expect the war will continue." No ceasefire; Ukraine explicitly counting on U.S. air defense and energy support for winter. Ukraine–Canada signed a 100-year partnership on Sep 10 including a joint drone production deal. <span class="cite"><a href="https://kyivindependent.com/units-of-ukraines-army-ordered-to-halt-fighting-as-us-envoys-set-to-visit-ukraine-russia/">Kyiv Independent</a>; <a href="https://www.aljazeera.com/news/2026/9/5/russias-putin-meets-us-envoys-to-discuss-trump-proposal-to-end-ukraine-war">Al Jazeera, 5 Sep 2026</a> — <span class="conf conf-H">HIGH</span></span>
+    </li>
+    <li>
+      <strong>[Epic Fury / Iran Linkage]</strong> Operation Epic Fury concluded with a ceasefire on April 15, 2026. Its principal budget/readiness impact on Ukraine persists: U.S. Patriot stockpile depletion (~2/3 of pre-war inventory expended in Iran operations) directly competes with Ukraine's air defense interceptor needs. Pentagon is pursuing tripling PAC-3 production by 2030, but near-term supply is constrained. Post-ceasefire, China, Russia, and North Korea continue supplying Iran with capabilities Tehran cannot source domestically. <span class="cite"><a href="https://www.defensenews.com/news/pentagon-congress/2026/08/03/pentagon-moves-to-triple-patriot-quadruple-thaad-interceptor-production/">Defense News, 3 Aug 2026</a>; <a href="https://thesoufancenter.org/intelbrief-march-5b/">Soufan Center</a> — <span class="conf conf-H">HIGH</span></span>
+    </li>
+  </ul>
+</div>
+
+<!-- B. TOP ISSUES -->
+<h2>B. Top Issues for OUSW Comptroller P/B Analysts</h2>
+
+<ul class="report-list">
+  <li>
+    <span class="tag tag-stock">STOCKPILES</span><span class="tag tag-fury">EPIC FURY LINKAGE</span>
+    <strong>PAC-3 MSE Interceptor Shortage: Dual-Theater Depletion.</strong> Operation Epic Fury expended approximately two-thirds of U.S. pre-war Patriot interceptor inventory. Ukraine continues to consume interceptors at a high rate against intensified Russian drone and missile campaigns (~6,395 kamikaze drones per day, Sep 11). The Pentagon's $58.6B deal and plans to triple production (to 2,000 PAC-3 MSE/year) will not relieve the shortfall until 2030. Near-term delivery timeline: ~42 months. <em>Congress is likely to ask: Can the U.S. meet Ukraine's and its own readiness requirements simultaneously?</em>
+    <span class="cite"><a href="https://www.defensenews.com/industry/techwatch/2026/07/30/us-strikes-586-billion-patriot-missile-deal-amid-rising-stockpile-concerns/">Defense News, 30 Jul 2026</a>; <a href="https://www.fpri.org/article/2026/05/scaling-patriot-production-the-industrial-base-crisis-explained/">FPRI, May 2026</a></span>
+  </li>
+  <li>
+    <span class="tag tag-funding">FUNDING</span><span class="tag tag-rfi">CONGRESSIONAL RFI</span>
+    <strong>FY26 Appropriations Gap: House vs. Senate.</strong> The House defense appropriations bill allocates $0 for Ukraine (no Trump admin request submitted); the Senate bill holds $800M. NDAA authorizes $400M/yr USAI. Until a conference agreement is reached and appropriations are enacted, USAI execution will slow further. $4.96B in Presidential Drawdown Authority remains unused/frozen from prior authorizations.
+    <span class="cite"><a href="https://www.defense-aerospace.com/how-the-2026-ndaa-scales-back-u-s-funding-for-ukraine-and-shifts-the-burden-to-europe/">Defense-Aerospace, 2026</a>; <a href="https://www.atlanticcouncil.org/blogs/ukrainealert/whats-in-the-new-us-defense-bill-for-ukraine/">Atlantic Council</a></span>
+  </li>
+  <li>
+    <span class="tag tag-defart">DEFENSE ARTICLES</span><span class="tag tag-funding">USAI</span>
+    <strong>USAI Execution Rate Declining Despite Large Contract Base.</strong> $32.3B contracted under USAI as of end-2025; only $11.1B delivered. Monthly delivery rate fell from $587M to $265M in 2026. Large backlog on production lines (ERAM cruise missiles: 3,350 authorized; Patriot systems; Strykers) has not translated to delivered capability. The gap between contracted and delivered is a key Comptroller execution question.
+    <span class="cite"><a href="https://militarnyi.com/en/news/u-s-contracts-additional-6-8-billion-in-weapons-for-ukraine-under-usai/">Militarnyi</a></span>
+  </li>
+  <li>
+    <span class="tag tag-read">READINESS</span>
+    <strong>Pentagon Directed Accelerated Production Planning — 21-Day Timeline.</strong> On Aug 11, the Pentagon gave industry 21 days to submit plans for "significantly faster" weapons production. This directly affects Patriot, THAAD, and precision munitions pipelines relevant to Ukraine replenishment.
+    <span class="cite"><a href="https://www.militarytimes.com/news/pentagon-congress/2026/08/11/pentagon-gives-industry-21-days-to-submit-plans-for-significantly-faster-weapons-production/">Military Times, 11 Aug 2026</a></span>
+  </li>
+  <li>
+    <span class="tag tag-rfi">CONGRESSIONAL RFI</span>
+    <strong>Congress Mandated PAC-3 Feasibility Report by Oct 1, 2026.</strong> The FY26 NDAA directs DoD to assess feasibility of increasing PAC-3 interceptor deliveries to Ukraine. This report is due within 19 days. OUSW P/B analysts should anticipate congressional follow-up and prepare a briefing package on production timelines, stockpile status, and trade-off analysis with readiness accounts.
+    <span class="cite"><a href="https://www.twz.com/land/pentagons-ability-to-supply-ukraine-with-more-patriot-interceptors-questioned-by-congress">TWZ / The War Zone</a></span>
+  </li>
+  <li>
+    <span class="tag tag-defart">DEFENSE ARTICLES</span>
+    <strong>Ukraine 2026 Arsenal Upgrades Proceeding (ERAM, Gripens, AWACS, European Air Defense).</strong> Despite U.S. slowdown, Ukraine is receiving large quantities of U.S.-developed ERAM cruise missiles, Swedish Gripens, AWACS, and what is described as "Europe's strongest air defense" from allied partners. This reflects a burden-sharing shift but does not fully compensate for U.S. reductions.
+    <span class="cite"><a href="https://united24media.com/latest-news/this-is-why-russia-cant-afford-to-stall-talks-what-ukraine-is-getting-in-2026-14714">UNITED24 Media</a></span>
+  </li>
+  <li>
+    <span class="tag tag-fury">EPIC FURY LINKAGE</span>
+    <strong>Iran Post-Ceasefire: Russia–Iran Cooperation Continues.</strong> Post-Epic Fury, the Russia-Iran weapons relationship persists. China, Russia, and North Korea are providing Iran with capabilities it cannot source domestically. Russia is not yet cut off from Iranian drone design expertise (Geran/Shahed), and secondary sanctions have thus far failed to disrupt these networks.
+    <span class="cite"><a href="https://thesoufancenter.org/intelbrief-march-5b/">Soufan Center</a>; <a href="https://www.uscc.gov/research/enabling-iran-timeline-chinas-role-during-and-after-operation-epic-fury">USCC, 2026</a></span>
+  </li>
+</ul>
+
+<!-- C. WATCH ITEMS -->
+<h2>C. Watch Items — Next 7 Days</h2>
+
+<div class="watch-item">
+  <h4>Watch 1: DoD PAC-3 Feasibility Report (Due Oct 1)</h4>
+  <p>The NDAA-mandated report on increasing PAC-3 deliveries to Ukraine is due within 19 days. Congressional hearing follow-up is likely in October. Prepare briefing materials on stockpile status, production timelines, and readiness trade-offs. <span class="cite"><a href="https://www.twz.com/land/pentagons-ability-to-supply-ukraine-with-more-patriot-interceptors-questioned-by-congress">TWZ</a></span></p>
+</div>
+<div class="watch-item">
+  <h4>Watch 2: House–Senate NDAA/Appropriations Conference</h4>
+  <p>House ($0) vs. Senate ($800M) discrepancy on Ukraine appropriations must be resolved in conference. Resolution determines whether USAI execution recovers or stalls further. Track for impact on defense article delivery schedules. <span class="cite"><a href="https://www.defense-aerospace.com/how-the-2026-ndaa-scales-back-u-s-funding-for-ukraine-and-shifts-the-burden-to-europe/">Defense-Aerospace</a></span></p>
+</div>
+<div class="watch-item">
+  <h4>Watch 3: Industry Response to Pentagon's 21-Day Production Acceleration Request</h4>
+  <p>Pentagon deadline for industry production acceleration plans has passed or is imminent (Aug 11 + 21 days = Sep 1). Watch for DoD announcements on new production contracts or adjustments to delivery timelines for PAC-3, THAAD, and precision munitions. <span class="cite"><a href="https://www.militarytimes.com/news/pentagon-congress/2026/08/11/pentagon-gives-industry-21-days-to-submit-plans-for-significantly-faster-weapons-production/">Military Times</a></span></p>
+</div>
+<div class="watch-item">
+  <h4>Watch 4: Russian Winter Offensive Preparation / Drone Production Surge</h4>
+  <p>Russia is executing ~6,000–6,400 kamikaze drone sorties per day. Ukraine is likely approaching peak demand for Patriot and NASAMS interceptors before the fall/winter campaign season. Watch for Ukrainian requests for additional air defense systems and allied responses. <span class="cite"><a href="https://www.kyivpost.com/post/84312">ISW, 11 Sep 2026</a></span></p>
+</div>
+<div class="watch-item">
+  <h4>Watch 5: Peace Talk Resumption / Witkoff–Kushner Follow-Up</h4>
+  <p>U.S. envoys departed without breakthrough. Watch for any renewed diplomatic contact or formal ceasefire proposals through September. A ceasefire would dramatically affect the budget and defense article execution picture, including open PDA and USAI commitments. <span class="cite"><a href="https://www.aljazeera.com/news/2026/9/5/russias-putin-meets-us-envoys-to-discuss-trump-proposal-to-end-ukraine-war">Al Jazeera, 5 Sep 2026</a></span></p>
+</div>
+
+<!-- D. RFI QUESTIONS -->
+<h2>D. Most Likely Congressional RFI Questions — 12 Sep 2026</h2>
+
+<div class="rfi-row">
+  <div class="rfi-q">1. Are U.S. air-defense interceptor stockpiles being depleted by both Ukraine and Epic Fury requirements simultaneously?</div>
+  <div class="rfi-a">Yes — confirmed. The U.S. expended approximately two-thirds of its pre-war Patriot interceptor inventory during Operation Epic Fury. Ukraine continues to consume interceptors at a high daily rate. The Pentagon has contracted for tripled production but timelines are 42–53 months. Near-term supply remains critically constrained. <span class="cite"><a href="https://www.defensenews.com/industry/techwatch/2026/07/30/us-strikes-586-billion-patriot-missile-deal-amid-rising-stockpile-concerns/">Defense News</a>; <a href="https://www.fpri.org/article/2026/05/scaling-patriot-production-the-industrial-base-crisis-explained/">FPRI</a></span> <span class="conf conf-H">HIGH</span></div>
+</div>
+<div class="rfi-row">
+  <div class="rfi-q">2. What defense articles are most urgently needed by Ukraine right now?</div>
+  <div class="rfi-a">Patriot PAC-3 MSE interceptors (air defense against Russian drone and missile saturation), NASAMS interceptors, long-range precision munitions (ERAM), artillery ammunition (155mm), and counter-drone systems. Ukraine is also receiving Gripens and enhanced European air defense in 2026. <span class="cite"><a href="https://united24media.com/latest-news/this-is-why-russia-cant-afford-to-stall-talks-what-ukraine-is-getting-in-2026-14714">UNITED24 Media</a>; <a href="https://www.euronews.com/my-europe/2026/09/11/eu-pledges-61bn-for-ukraine-including-aid-for-patriot-interceptors">Euronews</a></span> <span class="conf conf-H">HIGH</span></div>
+</div>
+<div class="rfi-row">
+  <div class="rfi-q">3. What is the current status of U.S. funding for Ukraine (PDA, USAI, FMF)?</div>
+  <div class="rfi-a">Presidential Drawdown Authority transfers frozen since Jan 2025; $4.96B in drawdown authority unused. USAI ($33B authorized, $32.3B contracted, $11.1B delivered) is now the primary pipeline with declining monthly execution. FY26 appropriations unresolved (House $0 / Senate $800M). No supplementals enacted since early 2025. <span class="cite"><a href="https://www.globalsecurity.org/wmd/library/news/ukraine/2026/08/ukraine-260812-sputnik05.htm">GlobalSecurity.org</a></span> <span class="conf conf-H">HIGH</span></div>
+</div>
+<div class="rfi-row">
+  <div class="rfi-q">4. Are additional supplemental appropriations, reprogrammings, or apportionment actions likely?</div>
+  <div class="rfi-a">No supplemental has been requested by the Trump administration. A House–Senate conference on FY26 defense appropriations will determine whether any Ukraine-specific funding survives. Absent a policy shift or major battlefield reversal, supplemental appropriations appear unlikely in the near term. <span class="cite"><a href="https://www.defense-aerospace.com/how-the-2026-ndaa-scales-back-u-s-funding-for-ukraine-and-shifts-the-burden-to-europe/">Defense-Aerospace</a></span> <span class="conf conf-M">MED</span></div>
+</div>
+<div class="rfi-row">
+  <div class="rfi-q">5. What is Russia receiving from Iran, North Korea, China, and Belarus?</div>
+  <div class="rfi-a">North Korea: ballistic missiles, artillery ammunition (millions of rounds), cannon/rocket artillery pieces, ~10,000–11,000 ground troops (7,000+ KPA casualties reported). China: 70% of Russia's machine tools, 90% of legacy chips (NATO: "decisive enabler"). Iran: Shahed/Geran drone design and technology enabling Russian domestic production. These networks continue despite U.S. secondary sanctions. <span class="cite"><a href="https://www.fdd.org/analysis/2026/08/07/axis-of-aggressors-military-cooperation-is-worse-than-you-think/">FDD, Aug 2026</a>; <a href="https://kyivindependent.com/north-korean-troops-took-over-7-000-casualties-in-russias-kursk-oblast-hur-claims/">Kyiv Independent</a></span> <span class="conf conf-H">HIGH</span></div>
+</div>
+<div class="rfi-row">
+  <div class="rfi-q">6. Is Europe carrying more of the financial burden for Ukraine?</div>
+  <div class="rfi-a">Yes — confirmed. The EU pledged €6.1B on Sep 11, including interceptors. Europe has progressively increased its share as U.S. support declined. Ukraine is receiving European AWACS, Gripens, and European-sourced air defense in 2026 as the U.S. burden-share diminishes. <span class="cite"><a href="https://www.euronews.com/my-europe/2026/09/11/eu-pledges-61bn-for-ukraine-including-aid-for-patriot-interceptors">Euronews, 11 Sep 2026</a></span> <span class="conf conf-H">HIGH</span></div>
+</div>
+<div class="rfi-row">
+  <div class="rfi-q">7. Is Operation Epic Fury's aftermath affecting Ukraine support capacity?</div>
+  <div class="rfi-a">Yes — confirmed primary link. The depletion of U.S. Patriot interceptor stocks during Epic Fury (Feb 28–Apr 15, 2026) is the dominant cross-theater impact. DoD is now requesting Congress authorize increased PAC-3 production and has signed a $58.6B Patriot deal. Iran's degraded military capacity may have reduced Shahed drone exports to Russia slightly, but indigenous Russian Geran production compensates. <span class="cite"><a href="https://www.whitehouse.gov/releases/2026/04/peace-through-strength-operation-epic-fury-crushes-iranian-threat-as-ceasefire-takes-hold/">White House, Apr 2026</a>; <a href="https://thesoufancenter.org/intelbrief-march-5b/">Soufan Center</a></span> <span class="conf conf-H">HIGH</span></div>
+</div>
+
+<!-- ======================================================
+     PART II — ANALYST ANNEX
+     ====================================================== -->
+<div class="part-header"><span class="part-num">PART II /</span> Analyst Annex</div>
+
+<!-- 1. EXECUTIVE SUMMARY -->
+<h2>1. Executive Summary</h2>
+
+<ul class="report-list">
+  <li><span class="tag tag-defart">DEFENSE ARTICLES</span><span class="tag tag-fury">EPIC FURY</span> <strong>PAC-3 Interceptor Depletion:</strong> Dual-theater draw (Ukraine + Epic Fury) has created an air defense interceptor crisis. U.S. expended ~2/3 of pre-war Patriot inventory in Epic Fury. Production tripling underway but 42-month lead time. Congress tasked DoD with feasibility report by Oct 1. <em>Confidence: HIGH.</em></li>
+  <li><span class="tag tag-funding">FUNDING</span> <strong>EU €6.1B Pledge (Sep 11):</strong> EU pledged €6.1B for Ukraine aid including dedicated Patriot interceptor funding, partially compensating for reduced U.S. flows. This represents Europe's largest single-week aid commitment in 2026. <em>Confidence: HIGH.</em></li>
+  <li><span class="tag tag-defart">DEFENSE ARTICLES</span> <strong>USAI Delivery Gap:</strong> $32.3B contracted vs $11.1B delivered; monthly execution rate cut in half in 2026. Large backlog of contracted systems (ERAM, Patriot, Strykers) on production lines has not translated to battlefield delivery. <em>Confidence: HIGH.</em></li>
+  <li><span class="tag tag-stock">STOCKPILES</span> <strong>No Frontline Change — High Attrition Continues:</strong> Sep 11 ISW: neither side advanced. Russia executed 78 airstrikes, 233 guided bombs, 6,395 kamikaze drones, 1,875 shellings. Ukrainian long-range strikes hit Russian fuel and logistics. Attrition rate places continuing demand on U.S./allied munitions pipelines. <em>Confidence: HIGH.</em></li>
+  <li><span class="tag tag-funding">APPROPRIATIONS</span> <strong>House–Senate Appropriations Gap:</strong> House $0 vs Senate $800M for Ukraine. Conference outcome will determine FY26 execution. Risk of a continuing resolution maintaining $0 level. <em>Confidence: HIGH.</em></li>
+  <li><span class="tag tag-rfi">CONGRESSIONAL</span> <strong>Peace Talks Failed:</strong> Witkoff/Kushner Sep 5 mission yielded no breakthrough. Zelensky: "war will continue." Ukraine requesting U.S. winter energy and air defense support. No near-term ceasefire in sight. <em>Confidence: HIGH.</em></li>
+  <li><span class="tag tag-dib">DIB</span> <strong>Pentagon Accelerated Production Push:</strong> Pentagon directed industry (Aug 11) to submit plans for "significantly faster" production of critical munitions. $58.6B Patriot deal signed Jul 2026. THAAD production quadrupling targeted. Results of industry submissions are a near-term watch item. <em>Confidence: HIGH.</em></li>
+  <li><span class="tag tag-fury">EPIC FURY / IRAN</span> <strong>Iran-Russia Cooperation Persists Post-Ceasefire:</strong> Despite Epic Fury's degradation of Iran's military capacity, Russia-Iran weapons and technology cooperation continues. North Korea, China continuing to rebuild Iranian capabilities. U.S. secondary sanctions have not disrupted these networks. <em>Confidence: HIGH.</em></li>
+  <li><span class="tag tag-conf">AXIS</span> <strong>North Korean Troops: 7,000+ Casualties, Still Deployed:</strong> KPA deployment in Russia's Kursk oblast began in 2025; ~11,000 troops at peak. Over 7,000 killed or wounded through Apr 2026. Kim Jong Un continues sending replacements. Russia providing NK with space, nuclear, and missile technology in exchange. <em>Confidence: HIGH.</em></li>
+</ul>
+
+<!-- 2. BATTLEFIELD -->
+<h2>2. Battlefield and Military Operations</h2>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>Event</th><th>Location/Date</th><th>Details</th><th>Source</th><th>Conf</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Russian Drone / Airstrike Campaign</strong></td>
+      <td>Ukraine-wide<br>11 Sep 2026</td>
+      <td>78 airstrikes, 233 guided aviation bombs, 6,395 kamikaze drones, 1,875 shelling incidents. Highest recorded drone count in recent reporting window.</td>
+      <td><a href="https://ua.news/en/war-vs-rf/opriliudnena-karta-boiovikh-dii-v-ukrayini-na-7-veresnia-2026-roku">UA.News</a>; GlobalSecurity</td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>No Ground Advances</strong></td>
+      <td>All fronts<br>11 Sep 2026</td>
+      <td>ISW: Neither Russian nor Ukrainian forces advanced on Sep 11. The Russian Spring-Summer 2026 offensive has failed to achieve operational maneuver. Russian gains remain slow and limited.</td>
+      <td><a href="https://www.kyivpost.com/post/84312">ISW via Kyiv Post, 11 Sep 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>Ukrainian Long-Range Strikes</strong></td>
+      <td>Occupied territories / Russia-proximate<br>Night 10–11 Sep</td>
+      <td>Ukrainian forces struck Russian military assets and fuel/logistics infrastructure. Drone strike sites, ammunition depots, and rail targets reported as objectives.</td>
+      <td><a href="https://www.kyivpost.com/post/84312">ISW via Kyiv Post, 11 Sep 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>Russian Overnight Drone Attack</strong></td>
+      <td>Ukraine<br>Night 10–11 Sep</td>
+      <td>Russia launched 162 drones against Ukraine overnight Sep 10–11. Air defense forces engaged. Damage assessment not fully confirmed in open sources at report time.</td>
+      <td><a href="https://www.kyivpost.com/post/84312">ISW via Kyiv Post</a></td>
+      <td><span class="conf conf-M">MED</span></td>
+    </tr>
+    <tr>
+      <td><strong>Zaporizhzhia: Ukrainian Hold</strong></td>
+      <td>Zaporizhzhia Oblast<br>Aug–Sep 2026</td>
+      <td>Russian limited offensive ops continue in Hulyaipole direction. No confirmed advances Sep 1. Ukrainian counterattack in Feb 2026 recaptured ~100 sq mi (first net gain since 2023).</td>
+      <td><a href="https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-september-1-2026">ISW via Critical Threats, 1 Sep 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>Donetsk: Slow Russian Advance</strong></td>
+      <td>Donetsk Oblast<br>Sep 2026</td>
+      <td>Ukraine holds ~19% of Donetsk province. Russia aims to seize Kramatorsk and Sloviansk (last major cities under Ukrainian control). Advance rate marginally increased in August but below 2025 pace.</td>
+      <td><a href="https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-september-1-2026">ISW, 1 Sep 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>Ukraine–Canada 100-Year Partnership + Drone Deal</strong></td>
+      <td>Diplomatic<br>10 Sep 2026</td>
+      <td>Zelensky and Canadian PM Carney signed 100-year partnership agreement including a Drone Deal to expand joint drone production. Represents significant allied commitment to Ukraine's long-term defense capacity.</td>
+      <td><a href="https://www.kyivpost.com/post/84312">ISW / Kyiv Post, 11 Sep 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 3. DEFENSE ARTICLES -->
+<h2>3. Defense Articles, Weapons, Stockpiles, and Munitions</h2>
+
+<h3>A. U.S.-Provided Defense Articles</h3>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>System</th><th>Status</th><th>Impact</th><th>Source</th><th>Conf</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>PAC-3 MSE Interceptors</strong></td>
+      <td>CONSTRAINED. ~2/3 of pre-war U.S. inventory expended in Epic Fury. Pentagon pursuing tripling production to 2,000/yr by 2030. $58.6B deal signed Jul 2026. 42-month delivery timeline. Congress mandated feasibility report by Oct 1.</td>
+      <td>Critical near-term shortage. Ukrainian air defense at risk against intensified Russian drone campaign. Likely Congressional RFI trigger.</td>
+      <td><a href="https://www.defensenews.com/industry/techwatch/2026/07/30/us-strikes-586-billion-patriot-missile-deal-amid-rising-stockpile-concerns/">Defense News, Jul 2026</a>; <a href="https://www.twz.com/land/pentagons-ability-to-supply-ukraine-with-more-patriot-interceptors-questioned-by-congress">TWZ</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>ERAM Cruise Missiles</strong></td>
+      <td>IN PRODUCTION. 3,350 units authorized Aug 2025. Expected large-quantity deliveries to Ukraine in 2026.</td>
+      <td>Significant long-range strike capability augmentation. Production on schedule per available reporting.</td>
+      <td><a href="https://united24media.com/latest-news/this-is-why-russia-cant-afford-to-stall-talks-what-ukraine-is-getting-in-2026-14714">UNITED24 Media</a></td>
+      <td><span class="conf conf-M">MED</span></td>
+    </tr>
+    <tr>
+      <td><strong>USAI General Portfolio</strong></td>
+      <td>$32.3B contracted; $11.1B delivered (as of Oct 2025). Monthly execution rate: $265M (2026) vs $587M (2025). Backlog remains on production lines.</td>
+      <td>Major execution concern for Comptroller office. Large gap between congressional authorization and battlefield delivery.</td>
+      <td><a href="https://www.globalsecurity.org/wmd/library/news/ukraine/2026/08/ukraine-260812-sputnik05.htm">GlobalSecurity.org</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>PDA Transfers</strong></td>
+      <td>FROZEN since Jan 2025 (Trump policy). $4.96B in drawdown authority unused.</td>
+      <td>The primary near-term delivery mechanism is offline. All U.S. defense article transfers now flow through USAI production contracts, not existing stockpiles.</td>
+      <td><a href="https://cepa.org/comprehensive-reports/wartime-assistance-to-ukraine-the-successes-failures-and-future-prospects-of-us-and-eu-support-models/">CEPA</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>B. Allied / Partner Defense Articles</h3>
+
+<ul class="report-list">
+  <li><strong>EU — €6.1B Pledge (Sep 11, 2026):</strong> Includes Patriot interceptors, general military aid. Represents largest single EU package in 2026. <span class="cite"><a href="https://www.euronews.com/my-europe/2026/09/11/eu-pledges-61bn-for-ukraine-including-aid-for-patriot-interceptors">Euronews, 11 Sep 2026</a> — <span class="conf conf-H">HIGH</span></span></li>
+  <li><strong>Sweden — Gripen Fighters:</strong> Ukraine receiving Gripen jets as part of 2026 arsenal expansion. Significant air power development. <span class="cite"><a href="https://united24media.com/latest-news/this-is-why-russia-cant-afford-to-stall-talks-what-ukraine-is-getting-in-2026-14714">UNITED24 Media</a> — <span class="conf conf-M">MED</span></span></li>
+  <li><strong>NATO Alliance — AWACS:</strong> Airborne early warning capability being extended to Ukraine in 2026. Significant C2 and air picture improvement. <span class="cite">UNITED24 Media — <span class="conf conf-M">MED</span></span></li>
+  <li><strong>Canada — 100-Year Partnership / Drone Deal:</strong> Joint drone production agreement signed Sep 10. Long-term capacity building. <span class="cite"><a href="https://www.kyivpost.com/post/84312">ISW via Kyiv Post</a> — <span class="conf conf-H">HIGH</span></span></li>
+  <li><strong>NATO/European Partners — "Europe's Strongest Air Defense":</strong> Combined European air defense package described as the most capable deployed to Ukraine. Partially compensates for U.S. Patriot supply constraints. <span class="cite">UNITED24 Media — <span class="conf conf-M">MED</span></span></li>
+</ul>
+
+<h3>C. Stockpile and Readiness Issues</h3>
+
+<div class="info-box warn">
+  <strong>Critical:</strong> U.S. Patriot PAC-3 MSE stockpile depletion is the single most consequential supply constraint affecting both U.S. readiness and Ukraine support. The dual draw from Operation Epic Fury and Ukraine has created a gap that cannot be filled before 2030 under current production expansion plans. Congress is actively engaged on this issue (Oct 1 report deadline).
+</div>
+
+<ul class="report-list">
+  <li><strong>PAC-3 MSE Inventory:</strong> ~2/3 of pre-war U.S. stock expended in Epic Fury (Iran conflict). Remaining inventory constrained. 42-month lead time for new production. <span class="conf conf-H">HIGH</span></li>
+  <li><strong>THAAD Inventory:</strong> Pentagon pursuing quadrupling production. Delivery timeline ~53 months. <span class="conf conf-H">HIGH</span></li>
+  <li><strong>General Munitions / Precision-Guided:</strong> High consumption rate on Ukrainian front (233 guided bombs per day by Russia alone creates corresponding Ukrainian counter-expenditure). No specific public U.S. shortage report in this window but prior CSIS analysis flags rebuilding missile inventory as a "multi-year project." <span class="cite"><a href="https://www.csis.org/analysis/rebuilding-us-missile-inventory-multiyear-project">CSIS</a> — <span class="conf conf-M">MED</span></span></li>
+  <li><strong>Artillery Ammunition:</strong> No new confirmed shortage data in this 48-hour window. Background: 155mm production has expanded significantly since 2023; multi-year procurement underway. <span class="conf conf-M">MED</span></li>
+  <li><strong>Counter-Drone Systems:</strong> High demand. Russia deploying 5,000–6,400 kamikaze drones per day. Ukrainian counter-drone interceptor demand is high and sustained. No confirmed U.S. stockpile shortage data in this window, but consumption rate is a standing watch item. <span class="conf conf-M">MED</span></li>
+</ul>
+
+<!-- 4. DEFENSE INDUSTRIAL BASE -->
+<h2>4. Defense Industrial Base and Production Capacity</h2>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>Entity</th><th>System</th><th>Development</th><th>Ukraine Impact</th><th>Source</th><th>Conf</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lockheed Martin / DoD</td>
+      <td>PAC-3 MSE</td>
+      <td>Framework agreement to triple production capacity to 2,000 units/yr by end of 2030. Camden, AR plant adds 650 jobs (1,200 → 1,850). Part of $58.6B Patriot deal.</td>
+      <td>Positive long-term; no near-term relief (42-month lead). Addresses dual-theater gap but too slow for current crisis.</td>
+      <td><a href="https://www.defensenews.com/news/pentagon-congress/2026/08/03/pentagon-moves-to-triple-patriot-quadruple-thaad-interceptor-production/">Defense News, 3 Aug 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>Northrop Grumman / DoD</td>
+      <td>THAAD Interceptors</td>
+      <td>Framework agreement to quadruple THAAD interceptor production. 53-month delivery timeline.</td>
+      <td>Indirectly positive for theater air defense posture. Does not directly flow to Ukraine near-term.</td>
+      <td><a href="https://www.defensenews.com/news/pentagon-congress/2026/08/03/pentagon-moves-to-triple-patriot-quadruple-thaad-interceptor-production/">Defense News, 3 Aug 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>U.S. Defense Industry (broad)</td>
+      <td>Multiple systems</td>
+      <td>Pentagon issued 21-day request (Aug 11) for industry-wide plans for "significantly faster" weapons production. Deadline passed ~Sep 1; results not yet publicly reported.</td>
+      <td>If successful, could accelerate timelines for ERAM, precision munitions, air defense components. Watch for DoD announcement.</td>
+      <td><a href="https://www.militarytimes.com/news/pentagon-congress/2026/08/11/pentagon-gives-industry-21-days-to-submit-plans-for-significantly-faster-weapons-production/">Military Times, 11 Aug 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>Allied / NATO DIB</td>
+      <td>Gripens, AWACS, Air Defense</td>
+      <td>European defense production compensating for reduced U.S. direct deliveries. Ukraine receiving Gripens, AWACS, European air defense in 2026 from allied industrial base.</td>
+      <td>Positive — partially compensates for U.S. slowdown but does not fully substitute for PAC-3 supply gap.</td>
+      <td><a href="https://united24media.com/latest-news/this-is-why-russia-cant-afford-to-stall-talks-what-ukraine-is-getting-in-2026-14714">UNITED24 Media</a></td>
+      <td><span class="conf conf-M">MED</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 5. FUNDING -->
+<h2>5. Funding, Budget, Appropriations, and Congressional Relevance</h2>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>Funding Item</th><th>Account</th><th>Amount</th><th>Status</th><th>Comptroller Relevance</th><th>Conf</th></tr>
+  </thead>
+  <tbody>
+    <tr class="cm-low">
+      <td><strong>FY26 Defense Appropriations — Ukraine</strong></td>
+      <td>USAI / O&M</td>
+      <td>House: $0 / Senate: $800M</td>
+      <td>Conference pending. Trump admin requested $0.</td>
+      <td>Core execution risk. If House position holds, no new USAI appropriations. Track conference closely.</td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>FY26 NDAA Authorization</strong></td>
+      <td>USAI</td>
+      <td>$400M/yr authorized</td>
+      <td>Enacted. Authorization only — requires separate appropriation to execute.</td>
+      <td>Authorization exists; appropriation is the gap. Execution is blocked absent House–Senate conference resolution.</td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr class="cm-low">
+      <td><strong>Presidential Drawdown Authority</strong></td>
+      <td>PDA</td>
+      <td>$4.96B unused/frozen</td>
+      <td>Frozen since Jan 2025 (Trump policy). No new PDA transfers.</td>
+      <td>Large authorization sits unused. No current policy pathway to execution. Represents a potential rapid-response tool if policy shifts.</td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>USAI Execution</strong></td>
+      <td>USAI</td>
+      <td>$265M/month</td>
+      <td>Active but declining. $32.3B contracted vs $11.1B delivered.</td>
+      <td>$21.2B contracted-but-undelivered backlog. Production timeline, not funding, is the near-term limiting factor.</td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>EU €6.1B Pledge</strong></td>
+      <td>EU budget</td>
+      <td>€6.1B (~$6.7B)</td>
+      <td>Pledged Sep 11, 2026. Includes Patriot interceptors.</td>
+      <td>Positive burden-sharing signal. Reduces near-term pressure on U.S. to act but does not resolve PAC-3 production gap.</td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>$6.8B Additional USAI Contracts</strong></td>
+      <td>USAI</td>
+      <td>$6.8B</td>
+      <td>Contracted. Adds to production backlog.</td>
+      <td>More contracts without delivery acceleration increases the execution gap further.</td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="info-box note">
+  <strong>Comptroller Note:</strong> The fundamental execution challenge is not funding authority — it is production velocity. Congress has authorized large sums ($33B USAI), but delivered capability ($11.1B) is constrained by industrial base capacity. OUSW P/B analysts should prepare to answer questions about the plan to close the contracted-vs-delivered gap, especially given the Oct 1 PAC-3 feasibility report deadline.
+</div>
+
+<!-- 6. EPIC FURY LINKAGE -->
+<h2>6. Operation Epic Fury / Iran — Ukraine–Russia War Linkage</h2>
+
+<div class="info-box ok">
+  Operation Epic Fury (Feb 28 – May 5, 2026) concluded with a formal ceasefire on April 15, 2026. The Strait of Hormuz reopened April 18. Oil prices returned to near pre-conflict levels. <em>Epic Fury is no longer an active operation as of this report.</em> The linkages described below are post-ceasefire / residual effects. <span class="cite"><a href="https://www.whitehouse.gov/releases/2026/04/peace-through-strength-operation-epic-fury-crushes-iranian-threat-as-ceasefire-takes-hold/">White House, Apr 2026</a></span>
+</div>
+
+<h3>A. Weapons and Stockpile Competition — CONFIRMED LINKAGE</h3>
+
+<div class="info-box warn">
+  <strong>Confirmed:</strong> The most direct and consequential Epic Fury / Ukraine linkage is PAC-3 MSE interceptor depletion. Operation Epic Fury expended approximately two-thirds of the U.S. pre-war Patriot inventory against Iranian missiles and drones. This inventory has not been replenished and directly competes with Ukraine's air defense needs. The $58.6B Patriot deal and tripling of production address the long-term shortage, but the 42-month delivery timeline means no near-term relief.
+</div>
+
+<ul class="report-list">
+  <li><strong>PAC-3 MSE:</strong> Both conflicts drew from the same U.S. stockpile. Near-term supply constrained for both theaters. <span class="conf conf-H">HIGH</span></li>
+  <li><strong>THAAD:</strong> Demand elevated post-Epic Fury. Quadrupling production authorized. 53-month timeline. Supply constrained. <span class="conf conf-H">HIGH</span></li>
+  <li><strong>Counter-drone systems:</strong> Both Iran and Russia employ saturation drone tactics (Shahed/Geran family). U.S. counter-drone inventory faces demand from both theaters, though Epic Fury is concluded. <span class="conf conf-M">MED</span></li>
+  <li><strong>Precision-guided munitions:</strong> Epic Fury consumed significant U.S. PGM stocks (10,000+ targets struck in ~38 days). Replenishment is ongoing. Impact on Ukraine supply not confirmed in this window. <span class="conf conf-M">MED</span></li>
+</ul>
+
+<h3>B. Drone and Missile Warfare Linkage</h3>
+
+<ul class="report-list">
+  <li><strong>Russia's Geran Drones (Shahed-Origin):</strong> Iran enabled Russia's indigenous production of Geran drones modeled on Iranian Shahed design. Epic Fury degraded Iran's production capacity (~66%+ of production facilities struck) but Russia's domestic Geran production is now largely self-sustaining. Daily deployment of 5,000–6,400+ kamikaze drones confirms production capacity is not seriously constrained. <span class="cite"><a href="https://www.fdd.org/analysis/2026/08/07/axis-of-aggressors-military-cooperation-is-worse-than-you-think/">FDD, Aug 2026</a> — <span class="conf conf-H">HIGH</span></span></li>
+  <li><strong>Shared Lessons — Air Defense Saturation Tactics:</strong> Both Iranian and Russian forces employed drone saturation tactics against U.S./allied and Ukrainian air defense networks. U.S. learned counter-tactics in Epic Fury that are applicable to Ukraine theater, and vice versa. <span class="conf conf-M">MED</span></li>
+  <li><strong>Iran's Reduced Direct Drone Export Capacity:</strong> Epic Fury destroyed or damaged 66%+ of Iran's missile/drone production. Direct Shahed exports to Russia may have declined. However, Russia's domestic production compensates. <em>I cannot confirm the specific current volume of Iran-to-Russia drone exports in this reporting window.</em> <span class="conf conf-L">LOW</span></li>
+</ul>
+
+<h3>C. Russia–Iran Relationship Post-Epic Fury</h3>
+
+<ul class="report-list">
+  <li><strong>Cooperation Persists:</strong> Post-ceasefire, China, Russia, and North Korea are each providing Iran with capabilities it cannot source domestically. The Russia-Iran partnership in the wake of Epic Fury is characterized as "limited and opportunistic" but continuing. <span class="cite"><a href="https://thesoufancenter.org/intelbrief-march-5b/">Soufan Center</a> — <span class="conf conf-H">HIGH</span></span></li>
+  <li><strong>U.S. Secondary Sanctions Ineffective:</strong> Secondary sanctions have thus far failed to disrupt the Russia-Iran-North Korea-China network providing capabilities to all four actors. Congressional oversight of sanctions effectiveness is expected. <span class="cite"><a href="https://www.uscc.gov/research/enabling-iran-timeline-chinas-role-during-and-after-operation-epic-fury">USCC, 2026</a> — <span class="conf conf-H">HIGH</span></span></li>
+  <li><strong>Does Epic Fury weaken Russia–Iran cooperation?</strong> Partially. Iran's degraded military production reduces its near-term export capacity. But the fundamental technology and knowledge transfers from Iran to Russia (Geran production capability) predate Epic Fury and are baked into Russia's industrial base. <span class="conf conf-M">MED</span></li>
+</ul>
+
+<h3>D. Energy and Economic Effects</h3>
+
+<ul class="report-list">
+  <li><strong>Strait of Hormuz:</strong> Fully reopened April 18, 2026. Oil prices returned near pre-conflict levels. No current Hormuz risk in this reporting window. <span class="cite"><a href="https://www.whitehouse.gov/releases/2026/04/peace-through-strength-operation-epic-fury-crushes-iranian-threat-as-ceasefire-takes-hold/">White House</a> — <span class="conf conf-H">HIGH</span></span></li>
+  <li><strong>Russian Energy Revenue:</strong> Oil price stabilization post-Hormuz reopening maintains Russian energy revenue near pre-Epic Fury levels. No confirmed disruption to Russian war financing from this source. <span class="conf conf-M">MED</span></li>
+  <li><strong>European Energy Security:</strong> No current energy crisis indicator in this reporting window. LNG flows stable. <span class="conf conf-M">MED</span></li>
+</ul>
+
+<h3>E. Strategic Bandwidth and Force Allocation</h3>
+<div class="info-box">
+  <strong>Analyst Judgment:</strong> Epic Fury (Feb–May 2026) created a period of reduced U.S. congressional and executive focus on Ukraine, which likely contributed to reduced diplomatic pressure on Russia and a delayed response to Ukraine's winter 2025–26 needs. Post-ceasefire, CENTCOM demands have decreased and EUCOM is re-prioritizing. The failed Witkoff/Kushner peace mission (Sep 5–8) and Zelensky's explicit statement that the war will continue suggest U.S. strategic bandwidth is returning to the Ukraine file, but policy commitments have not yet translated to increased material support. <em>This is analyst judgment, not confirmed reporting.</em>
+</div>
+
+<!-- 7. ADVERSARY SUPPORT NETWORKS -->
+<h2>7. Russia, Iran, China, North Korea, and Sanctions-Evasion Networks</h2>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>Actor</th><th>Assistance Type</th><th>Details</th><th>Source</th><th>Conf</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>China</strong></td>
+      <td>Dual-use components, machine tools, chips</td>
+      <td>Providing 70% of Russia's machine tools and 90% of legacy chips enabling Russian war machine rebuilding. NATO calls China the "decisive enabler of Russia's war against Ukraine." China also supported Iran during/after Epic Fury.</td>
+      <td><a href="https://www.fdd.org/analysis/2026/08/07/axis-of-aggressors-military-cooperation-is-worse-than-you-think/">FDD, Aug 2026</a>; <a href="https://www.csis.org/analysis/crink-security-ties-growing-cooperation-anchored-china-and-russia">CSIS</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>North Korea</strong></td>
+      <td>Ballistic missiles, artillery ammo, troops</td>
+      <td>Provided ballistic missiles and vast quantities of rocket/cannon ammunition. ~11,000 KPA troops deployed in Kursk Oblast (peak). 7,000+ casualties through Apr 2026. Kim continuing deployments. Russia providing space, nuclear, missile technology in return.</td>
+      <td><a href="https://kyivindependent.com/north-korean-troops-took-over-7-000-casualties-in-russias-kursk-oblast-hur-claims/">Kyiv Independent</a>; <a href="https://www.pravda.com.ua/eng/news/2026/04/29/8032380/">Ukrainska Pravda, Apr 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>Iran</strong></td>
+      <td>Drone design / technology transfer</td>
+      <td>Iran enabled Russia's indigenous Geran drone production (Shahed-derived). Iran's direct export capacity degraded by Epic Fury but Russia's domestic production is self-sustaining. Post-ceasefire, Russia-Iran cooperation continues though Iran's military capacity is significantly reduced.</td>
+      <td><a href="https://thesoufancenter.org/intelbrief-march-5b/">Soufan Center</a>; <a href="https://www.fdd.org/analysis/2026/08/07/axis-of-aggressors-military-cooperation-is-worse-than-you-think/">FDD</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td><strong>Russia (Sanctions Evasion)</strong></td>
+      <td>Networks for dual-use components</td>
+      <td>Russia continues to source microelectronics and dual-use components through third-country intermediaries despite sanctions. U.S. secondary sanctions have not disrupted these networks. Congressional oversight of sanctions enforcement expected.</td>
+      <td><a href="https://www.uscc.gov/research/enabling-iran-timeline-chinas-role-during-and-after-operation-epic-fury">USCC, 2026</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 8. ESCALATION RISKS -->
+<h2>8. Escalation Risks and Warning Indicators</h2>
+
+<div class="risk-row">
+  <span class="risk-badge risk-HIGH">HIGH</span>
+  <div>
+    <strong>Russian Drone/Airstrike Escalation:</strong> Russia reached 6,395 kamikaze drones in a single day (Sep 11) — among the highest reported. Sustained escalation of drone tempo approaching winter could overwhelm Ukrainian air defenses if PAC-3/NASAMS interceptor resupply does not keep pace. Congressional implication: emergency interceptor transfer authorizations may be sought.
+    <span class="cite"><a href="https://www.kyivpost.com/post/84312">ISW, 11 Sep 2026</a> — <span class="conf conf-H">HIGH</span></span>
+  </div>
+</div>
+<div class="risk-row">
+  <span class="risk-badge risk-MED">MED</span>
+  <div>
+    <strong>Peace Talk Failure and War Continuation Risk:</strong> Witkoff/Kushner mission yielded no results. Zelensky stated war will continue. Putin assessed to believe Russia is winning. Breakdown of diplomatic engagement could result in harder-line Ukrainian requests for additional U.S. support ahead of winter.
+    <span class="cite"><a href="https://www.aljazeera.com/news/2026/9/5/russias-putin-meets-us-envoys-to-discuss-trump-proposal-to-end-ukraine-war">Al Jazeera</a>; <a href="https://www.russiamatters.org/news/russia-analytical-report/russia-analytical-report-aug-31-sept-8-2026">Russia Matters, 8 Sep 2026</a> — <span class="conf conf-H">HIGH</span></span>
+  </div>
+</div>
+<div class="risk-row">
+  <span class="risk-badge risk-MED">MED</span>
+  <div>
+    <strong>North Korean Troop Escalation:</strong> KPA has suffered 7,000+ casualties; Kim is continuing deployments. Russia sharing nuclear/missile technology with North Korea. Risk of NK troop role expanding, North Korea obtaining advanced Russian military technology, increasing long-term regional instability.
+    <span class="cite"><a href="https://www.kyivpost.com/post/84312">Kyiv Post / ISW</a>; <a href="https://www.pravda.com.ua/eng/news/2026/04/29/8032380/">Ukrainska Pravda</a> — <span class="conf conf-H">HIGH</span></span>
+  </div>
+</div>
+<div class="risk-row">
+  <span class="risk-badge risk-MED">MED</span>
+  <div>
+    <strong>China Deepening Russia Enablement:</strong> NATO has declared China the "decisive enabler" of Russia's war. If China moves from dual-use to direct military supply (lethal aid), this would represent a significant escalation. No confirmed Chinese lethal aid to Russia in this reporting window.
+    <span class="cite"><a href="https://www.csis.org/analysis/crink-security-ties-growing-cooperation-anchored-china-and-russia">CSIS</a> — <span class="conf conf-M">MED</span></span>
+  </div>
+</div>
+<div class="risk-row">
+  <span class="risk-badge risk-LOW">LOW</span>
+  <div>
+    <strong>Russian Nuclear Signaling:</strong> No active nuclear signaling observed in this reporting window. Putin statements focus on diplomatic and conventional strategy. Risk level assessed as low for this period.
+    <span class="conf conf-M">MED</span>
+  </div>
+</div>
+
+<!-- 9. CONGRESSIONAL RFI READINESS -->
+<h2>9. Congressional RFI Readiness</h2>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th style="width:34%">RFI Question</th><th style="width:42%">Short Answer</th><th style="width:14%">Source Links</th><th>Conf</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>What changed in the Ukraine-Russia war in the last 24-48 hrs?</td>
+      <td>No ground advances Sep 11. Russia launched 162 drones + 78 airstrikes (233 guided bombs). Ukrainian long-range strikes hit Russian logistics. EU pledged €6.1B. Peace talks (Witkoff/Kushner Sep 5-8) failed.</td>
+      <td><a href="https://www.kyivpost.com/post/84312">ISW</a>; <a href="https://www.euronews.com/my-europe/2026/09/11/eu-pledges-61bn-for-ukraine-including-aid-for-patriot-interceptors">Euronews</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>Are Ukraine and Epic Fury competing for same munitions?</td>
+      <td>Yes — confirmed for PAC-3 MSE and THAAD interceptors. Epic Fury expended ~2/3 of U.S. pre-war Patriot inventory. Both theaters draw from same production lines.</td>
+      <td><a href="https://www.defensenews.com/industry/techwatch/2026/07/30/us-strikes-586-billion-patriot-missile-deal-amid-rising-stockpile-concerns/">DefNews</a>; <a href="https://www.fpri.org/article/2026/05/scaling-patriot-production-the-industrial-base-crisis-explained/">FPRI</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>What is the risk to U.S. military readiness?</td>
+      <td>Significant for air defense. PAC-3 MSE shortage means U.S. has limited ability to surge interceptors to either theater. Production tripling plan addresses 2030+, not today. CSIS flags 42-month replenishment timeline.</td>
+      <td><a href="https://www.csis.org/analysis/rebuilding-us-missile-inventory-multiyear-project">CSIS</a>; <a href="https://www.twz.com/land/pentagons-ability-to-supply-ukraine-with-more-patriot-interceptors-questioned-by-congress">TWZ</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>Are sanctions against Russia working?</td>
+      <td>Partially. Russia is significantly degraded but adapting via China, North Korea, and Iran networks. Secondary sanctions have not disrupted these supply chains. NATO states China is the "decisive enabler."</td>
+      <td><a href="https://www.fdd.org/analysis/2026/08/07/axis-of-aggressors-military-cooperation-is-worse-than-you-think/">FDD</a>; <a href="https://www.uscc.gov/research/enabling-iran-timeline-chinas-role-during-and-after-operation-epic-fury">USCC</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+    <tr>
+      <td>What DIB constraints matter most right now?</td>
+      <td>PAC-3 MSE and THAAD interceptor production lead times (42–53 months). Industry was directed to submit acceleration plans by ~Sep 1. Results pending. Lockheed Camden plant expansion underway but won't reach 2,000/yr until 2030.</td>
+      <td><a href="https://www.defensenews.com/news/pentagon-congress/2026/08/03/pentagon-moves-to-triple-patriot-quadruple-thaad-interceptor-production/">DefNews</a>; <a href="https://www.militarytimes.com/news/pentagon-congress/2026/08/11/pentagon-gives-industry-21-days-to-submit-plans-for-significantly-faster-weapons-production/">MilTimes</a></td>
+      <td><span class="conf conf-H">HIGH</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 10. DELTA FROM PRIOR REPORT -->
+<h2>10. Delta From Prior Report</h2>
+
+<div class="info-box">
+  <em>No prior daily report was available for automated comparison. The following items are flagged as newly confirmed or significant for 12 Sep 2026:</em>
+</div>
+
+<ul class="report-list">
+  <li class="delta-new"><strong>[NEW]</strong> EU pledges €6.1B for Ukraine including Patriot interceptors — Sep 11, 2026. Most significant allied funding action this week. <span class="cite"><a href="https://www.euronews.com/my-europe/2026/09/11/eu-pledges-61bn-for-ukraine-including-aid-for-patriot-interceptors">Euronews, 11 Sep 2026</a></span></li>
+  <li class="delta-new"><strong>[NEW]</strong> ISW Sep 11: No frontline advances; 6,395 kamikaze drones — highest single-day total in recent reporting window. Air defense demand at elevated level. <span class="cite"><a href="https://www.kyivpost.com/post/84312">ISW, 11 Sep 2026</a></span></li>
+  <li class="delta-new"><strong>[NEW]</strong> Ukraine–Canada 100-year partnership signed Sep 10, including joint drone production deal.</li>
+  <li class="delta-esc"><strong>[ESCALATION]</strong> U.S. peace talks (Witkoff/Kushner) yielded no breakthrough. Zelensky confirmed war will continue; Ukraine seeking winter energy and air defense support from U.S.</li>
+  <li><strong>[PERSISTENT]</strong> PAC-3 MSE shortage, USAI delivery gap, House appropriations at $0, and Russia–China–DPRK–Iran axis activity remain unchanged from background trend.</li>
+</ul>
+
+<!-- 11. ANALYST ASSESSMENT -->
+<h2>11. Analyst Assessment</h2>
+
+<div class="info-box">
+  <strong>What Matters Most Today:</strong> The intersection of the PAC-3 MSE interceptor crisis and Russia's escalating drone campaign is the highest-priority issue for OUSW Comptroller analysts. The DoD feasibility report mandated by Congress is due Oct 1, 2026 — 19 days from now — and will drive near-term congressional and senior leader inquiries. The EU's €6.1B pledge provides partial relief but does not resolve the U.S. production gap or the budget execution impasse.
+</div>
+
+<ul class="report-list">
+  <li><strong>Confirmed Facts:</strong> PAC-3 MSE depletion from Epic Fury; USAI delivery decline; House $0 / Senate $800M appropriations gap; ISW Sep 11 no-advance assessment; EU €6.1B pledge; KPA 7,000+ casualties; China "decisive enabler" designation by NATO; ceasefire April 15 2026.</li>
+  <li><strong>Analyst Judgment:</strong> Russia's Spring-Summer offensive is failing to achieve breakthrough but is sustaining high attrition. Ukraine can continue the fight with allied support. A ceasefire remains unlikely in the near term. The primary U.S. risk is a budget execution gap combining with air defense shortfalls ahead of winter.</li>
+  <li><strong>Cannot Confirm:</strong> Current volume of Iran-to-Russia Shahed exports; specific damage from individual Ukrainian long-range strikes in Sep 11–12 window; results of Pentagon's 21-day industry acceleration solicitation.</li>
+  <li><strong>Most Important Cross-Theater Linkage:</strong> Epic Fury Patriot inventory depletion directly constraining Ukraine air defense support. This is confirmed and consequential.</li>
+  <li><strong>Key Congressional Risk for Next 30 Days:</strong> DoD PAC-3 report (Oct 1) + appropriations conference = high-intensity congressional engagement on Ukraine defense articles and readiness trade-offs likely in October.</li>
+</ul>
+
+<!-- 12. SOURCE LOG -->
+<h2>12. Required Source Log</h2>
+
+<div id="source-log">
+  <div class="src-entry"><span class="src-num">1</span><div><strong>ISW / Kyiv Post</strong> — "ISW Russian Offensive Campaign Assessment, September 11, 2026" — 11 Sep 2026 — <a href="https://www.kyivpost.com/post/84312">kyivpost.com/post/84312</a> — Military assessment — <span class="conf conf-H">HIGH</span> — ISW primary assessment source</div></div>
+  <div class="src-entry"><span class="src-num">2</span><div><strong>Euronews</strong> — "EU pledges €6.1bn for Ukraine, including aid for Patriot interceptors" — 11 Sep 2026 — <a href="https://www.euronews.com/my-europe/2026/09/11/eu-pledges-61bn-for-ukraine-including-aid-for-patriot-interceptors">euronews.com</a> — Funding/defense articles — <span class="conf conf-H">HIGH</span></div></div>
+  <div class="src-entry"><span class="src-num">3</span><div><strong>Defense News</strong> — "US strikes $58.6 billion Patriot missile deal amid rising stockpile concerns" — 30 Jul 2026 — <a href="https://www.defensenews.com/industry/techwatch/2026/07/30/us-strikes-586-billion-patriot-missile-deal-amid-rising-stockpile-concerns/">defensenews.com</a> — Stockpiles/DIB — <span class="conf conf-H">HIGH</span></div></div>
+  <div class="src-entry"><span class="src-num">4</span><div><strong>Defense News</strong> — "Pentagon moves to triple Patriot, quadruple THAAD interceptor production" — 3 Aug 2026 — <a href="https://www.defensenews.com/news/pentagon-congress/2026/08/03/pentagon-moves-to-triple-patriot-quadruple-thaad-interceptor-production/">defensenews.com</a> — DIB/Production — <span class="conf conf-H">HIGH</span></div></div>
+  <div class="src-entry"><span class="src-num">5</span><div><strong>Military Times</strong> — "Pentagon gives industry 21 days to submit plans for 'significantly faster' weapons production" — 11 Aug 2026 — <a href="https://www.militarytimes.com/news/pentagon-congress/2026/08/11/pentagon-gives-industry-21-days-to-submit-plans-for-significantly-faster-weapons-production/">militarytimes.com</a> — DIB — <span class="conf conf-H">HIGH</span></div></div>
+  <div class="src-entry"><span class="src-num">6</span><div><strong>The War Zone (TWZ)</strong> — "Pentagon's Ability To Supply Ukraine With More Patriot Interceptors Questioned By Congress" — <a href="https://www.twz.com/land/pentagons-ability-to-supply-ukraine-with-more-patriot-interceptors-questioned-by-congress">twz.com</a> — Stockpiles/Congressional — <span class="conf conf-H">HIGH</span></div></div>
+  <div class="src-entry"><span class="src-num">7</span><div><strong>GlobalSecurity.org</strong> — "US Military Aid Deliveries to Ukraine Drop Over 50% in 2026" — Aug 2026 — <a href="https://www.globalsecurity.org/wmd/library/news/ukraine/2026/08/ukraine-260812-sputnik05.htm">globalsecurity.org</a> — Funding/Aid — <span class="conf conf-M">MED</span> — Note: Cites Sputnik as underlying source; treat with caution for framing</div></div>
+  <div class="src-entry"><span class="src-num">8</span><div><strong>Militarnyi</strong> — "U.S. Contracts Additional $6.8 Billion in Weapons for Ukraine Under USAI" — <a href="https://militarnyi.com/en/news/u-s-contracts-additional-6-8-billion-in-weapons-for-ukraine-under-usai/">militarnyi.com</a> — USAI — <span class="conf conf-M">MED</span></div></div>
+  <div class="src-entry"><span class="src-num">9</span><div><strong>Defense-Aerospace</strong> — "How the 2026 NDAA Scales Back U.S. Funding for Ukraine and Shifts the Burden to Europe" — 2026 — <a href="https://www.defense-aerospace.com/how-the-2026-ndaa-scales-back-u-s-funding-for-ukraine-and-shifts-the-burden-to-europe/">defense-aerospace.com</a> — Appropriations — <span class="conf conf-H">HIGH</span></div></div>
+  <div class="src-entry"><span class="src-num">10</span><div><strong>Atlantic Council</strong> — "What's in the new US defense bill for Ukraine?" — <a href="https://www.atlanticcouncil.org/blogs/ukrainealert/whats-in-the-new-us-defense-bill-for-ukraine/">atlanticcouncil.org</a> — Appropriations/NDAA — <span class="conf conf-H">HIGH</span> — Analysis</div></div>
+  <div class="src-entry"><span class="src-num">11</span><div><strong>Al Jazeera</strong> — "Russia's Putin meets US envoys to discuss Trump proposal to end Ukraine war" — 5 Sep 2026 — <a href="https://www.aljazeera.com/news/2026/9/5/russias-putin-meets-us-envoys-to-discuss-trump-proposal-to-end-ukraine-war">aljazeera.com</a> — Diplomacy — <span class="conf conf-H">HIGH</span></div></div>
+  <div class="src-entry"><span class="src-num">12</span><div><strong>Kyiv Independent</strong> — "North Korean troops took over 7,000 casualties in Russia's Kursk Oblast — HUR claims" — <a href="https://kyivindependent.com/north-korean-troops-took-over-7-000-casualties-in-russias-kursk-oblast-hur-claims/">kyivindependent.com</a> — DPRK — <span class="conf conf-H">HIGH</span> — Ukrainian HUR (intel) claim, corroborated by multiple sources</div></div>
+  <div class="src-entry"><span class="src-num">13</span><div><strong>FDD</strong> — "Axis of Aggressors Military Cooperation Is Worse Than You Think" — 7 Aug 2026 — <a href="https://www.fdd.org/analysis/2026/08/07/axis-of-aggressors-military-cooperation-is-worse-than-you-think/">fdd.org</a> — Adversary networks — <span class="conf conf-H">HIGH</span> — Analysis</div></div>
+  <div class="src-entry"><span class="src-num">14</span><div><strong>CSIS</strong> — "CRINK Security Ties: Growing Cooperation, Anchored by China and Russia" — <a href="https://www.csis.org/analysis/crink-security-ties-growing-cooperation-anchored-china-and-russia">csis.org</a> — China/Russia/Axis — <span class="conf conf-H">HIGH</span> — Analysis</div></div>
+  <div class="src-entry"><span class="src-num">15</span><div><strong>White House</strong> — "Peace Through Strength: Operation Epic Fury Crushes Iranian Threat as Ceasefire Takes Hold" — Apr 2026 — <a href="https://www.whitehouse.gov/releases/2026/04/peace-through-strength-operation-epic-fury-crushes-iranian-threat-as-ceasefire-takes-hold/">whitehouse.gov</a> — Epic Fury — <span class="conf conf-H">HIGH</span> — Official U.S. government source</div></div>
+  <div class="src-entry"><span class="src-num">16</span><div><strong>White House</strong> — "Operation Epic Fury: Decisive American Power to Crush Iran's Terror Regime" — Mar 2026 — <a href="https://www.whitehouse.gov/releases/2026/03/operation-epic-fury-decisive-american-power-to-crush-irans-terror-regime/">whitehouse.gov</a> — Epic Fury background — <span class="conf conf-H">HIGH</span> — Official U.S. government source</div></div>
+  <div class="src-entry"><span class="src-num">17</span><div><strong>Soufan Center</strong> — "The Iranian-Russian Partnership in the Aftermath of Operation Epic Fury" — <a href="https://thesoufancenter.org/intelbrief-march-5b/">thesoufancenter.org</a> — Iran-Russia post-Epic Fury — <span class="conf conf-H">HIGH</span> — Analysis</div></div>
+  <div class="src-entry"><span class="src-num">18</span><div><strong>USCC</strong> — "Enabling Iran: A Timeline of China's Role During and After Operation Epic Fury" — 2026 — <a href="https://www.uscc.gov/research/enabling-iran-timeline-chinas-role-during-and-after-operation-epic-fury">uscc.gov</a> — China/Iran/Epic Fury — <span class="conf conf-H">HIGH</span> — Official U.S. government commission</div></div>
+  <div class="src-entry"><span class="src-num">19</span><div><strong>FPRI</strong> — "Scaling Patriot Production: The Industrial Base Crisis Explained" — May 2026 — <a href="https://www.fpri.org/article/2026/05/scaling-patriot-production-the-industrial-base-crisis-explained/">fpri.org</a> — DIB/Patriot — <span class="conf conf-H">HIGH</span> — Analysis</div></div>
+  <div class="src-entry"><span class="src-num">20</span><div><strong>ISW / Critical Threats</strong> — "Russian Offensive Campaign Assessment, September 1, 2026" — 1 Sep 2026 — <a href="https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-september-1-2026">criticalthreats.org</a> — Battlefield — <span class="conf conf-H">HIGH</span></div></div>
+  <div class="src-entry"><span class="src-num">21</span><div><strong>UNITED24 Media</strong> — "Ukraine's 2026 Arsenal: Gripens, AWACS, Ballistic Missiles, and Europe's Strongest Air Defense" — <a href="https://united24media.com/latest-news/this-is-why-russia-cant-afford-to-stall-talks-what-ukraine-is-getting-in-2026-14714">united24media.com</a> — Defense articles — <span class="conf conf-M">MED</span> — Ukrainian-affiliated outlet</div></div>
+  <div class="src-entry"><span class="src-num">22</span><div><strong>Russia Matters / Belfer Center</strong> — "Russia Analytical Report, Aug. 31–Sept. 8, 2026" — 8 Sep 2026 — <a href="https://www.russiamatters.org/news/russia-analytical-report/russia-analytical-report-aug-31-sept-8-2026">russiamatters.org</a> — Russia policy — <span class="conf conf-H">HIGH</span> — Analysis</div></div>
+  <div class="src-entry"><span class="src-num">23</span><div><strong>CEPA</strong> — "Wartime Assistance to Ukraine: The Successes, Failures, and Future Prospects of US and EU Support Models" — <a href="https://cepa.org/comprehensive-reports/wartime-assistance-to-ukraine-the-successes-failures-and-future-prospects-of-us-and-eu-support-models/">cepa.org</a> — Aid models — <span class="conf conf-H">HIGH</span> — Analysis</div></div>
+  <div class="src-entry"><span class="src-num">24</span><div><strong>CSIS</strong> — "Rebuilding U.S. Missile Inventory: A Multiyear Project" — <a href="https://www.csis.org/analysis/rebuilding-us-missile-inventory-multiyear-project">csis.org</a> — Stockpiles — <span class="conf conf-H">HIGH</span> — Analysis</div></div>
+  <div class="src-entry"><span class="src-num">25</span><div><strong>Ukrainska Pravda</strong> — "Over 7,000 North Korean troops killed or wounded in Russia's war against Ukraine" — 29 Apr 2026 — <a href="https://www.pravda.com.ua/eng/news/2026/04/29/8032380/">pravda.com.ua</a> — DPRK — <span class="conf conf-M">MED</span> — Ukrainian outlet, citing Ukrainian intelligence</div></div>
+</div>
+
+<!-- 13. CONFIDENCE MATRIX -->
+<h2>13. Confidence Matrix</h2>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr><th>Claim / Topic</th><th>Confidence</th><th>Reason</th></tr>
+  </thead>
+  <tbody>
+    <tr class="cm-high"><td>ISW Sep 11 assessment (no advances, drone/airstrike data)</td><td><span class="conf conf-H">HIGH</span></td><td>Primary ISW assessment published Sep 11; corroborated by UA.News and GlobalSecurity data</td></tr>
+    <tr class="cm-high"><td>EU €6.1B Pledge (Sep 11)</td><td><span class="conf conf-H">HIGH</span></td><td>Confirmed by Euronews reporting; consistent with prior EU aid patterns</td></tr>
+    <tr class="cm-high"><td>PAC-3 MSE ~2/3 depletion from Epic Fury</td><td><span class="conf conf-H">HIGH</span></td><td>Defense News + FPRI + TWZ + Congressional language all confirm; consistent with White House battle damage assessments</td></tr>
+    <tr class="cm-high"><td>USAI contracted/delivered gap ($32.3B vs $11.1B)</td><td><span class="conf conf-H">HIGH</span></td><td>Multiple sources confirm; consistent with official U.S. government reporting</td></tr>
+    <tr class="cm-high"><td>FY26 House $0 / Senate $800M appropriations gap</td><td><span class="conf conf-H">HIGH</span></td><td>Confirmed by Defense-Aerospace, Atlantic Council, and Congressional reporting</td></tr>
+    <tr class="cm-high"><td>Operation Epic Fury ceasefire April 15 / Hormuz reopened Apr 18</td><td><span class="conf conf-H">HIGH</span></td><td>White House official release; corroborated by multiple independent sources</td></tr>
+    <tr class="cm-high"><td>North Korea 7,000+ KPA casualties</td><td><span class="conf conf-H">HIGH</span></td><td>Multiple corroborating sources (Kyiv Independent, Ukrainska Pravda, South Korean intel); broadly consistent</td></tr>
+    <tr class="cm-high"><td>China providing 70% machine tools / 90% legacy chips to Russia</td><td><span class="conf conf-H">HIGH</span></td><td>FDD analysis, CSIS, NATO characterization of China as "decisive enabler" — consistent across sources</td></tr>
+    <tr class="cm-high"><td>Witkoff/Kushner peace talks — no breakthrough (Sep 5-8)</td><td><span class="conf conf-H">HIGH</span></td><td>Al Jazeera reporting; corroborated by Kyiv Independent and Russia Matters</td></tr>
+    <tr class="cm-med"><td>Epic Fury linkage to Iranian drone supply reduction</td><td><span class="conf conf-M">MED</span></td><td>Production facility damage is confirmed; but specific current export volume to Russia not confirmed in open sources</td></tr>
+    <tr class="cm-med"><td>Ukraine 2026 arsenal upgrades (Gripens, AWACS)</td><td><span class="conf conf-M">MED</span></td><td>UNITED24 is a Ukrainian-affiliated outlet; some details may reflect aspirational vs. confirmed deliveries</td></tr>
+    <tr class="cm-low"><td>Specific damage from Sep 11-12 Ukrainian long-range strikes</td><td><span class="conf conf-L">LOW</span></td><td>Single-source; specific BDA not confirmed in this reporting window</td></tr>
+    <tr class="cm-unk"><td>Industry response to Pentagon 21-day production acceleration request</td><td><span class="conf conf-U">UNCONF</span></td><td>Deadline passed ~Sep 1 but no public reporting on industry responses or DoD decisions yet confirmed</td></tr>
+  </tbody>
+</table>
+</div>
+
+</div><!-- /layout -->
+
+<footer id="report-footer">
+  UNCLASSIFIED // FOR OFFICIAL USE ONLY &nbsp;|&nbsp; 2026-09-12_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB &nbsp;|&nbsp; Prepared 0500 ET &nbsp;|&nbsp; OUSW Comptroller Program–Budget Distribution
+</footer>

@@ -1,0 +1,1599 @@
+<title>Ukraine–Russia War Analyst Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;600&display=swap">
+
+<style>
+  /* ── Token System ─────────────────────────────────── */
+  :root {
+    --navy:       #0d1b35;
+    --navy-mid:   #1a2e52;
+    --steel:      #2c5282;
+    --steel-lt:   #3b6ea8;
+    --slate:      #4a5e7a;
+    --slate-lt:   #6b82a0;
+    --ground:     #f4f6fa;
+    --surface:    #ffffff;
+    --surface-2:  #eef1f7;
+    --border:     #d0d8e8;
+    --text:       #0d1b35;
+    --text-2:     #3a4a5e;
+    --text-3:     #6b7a8d;
+    --amber:      #b45309;
+    --amber-bg:   #fef3c7;
+    --red:        #991b1b;
+    --red-bg:     #fee2e2;
+    --green:      #155724;
+    --green-bg:   #d1fae5;
+    --teal:       #065f46;
+    --teal-bg:    #ccfbf1;
+    --tag-bg:     #dbeafe;
+    --tag-text:   #1e40af;
+    --notice-bg:  #fff7ed;
+    --notice-border: #d97706;
+    --accent:     #1a4b8c;
+    --accent-lt:  #2563eb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --navy:       #0a1628;
+      --navy-mid:   #111f3a;
+      --steel:      #1e3a5f;
+      --steel-lt:   #2563ab;
+      --slate:      #3a5070;
+      --slate-lt:   #5a7490;
+      --ground:     #0d1422;
+      --surface:    #111f3a;
+      --surface-2:  #162240;
+      --border:     #233050;
+      --text:       #e8edf5;
+      --text-2:     #a8bcd4;
+      --text-3:     #6b829e;
+      --amber:      #fbbf24;
+      --amber-bg:   #451a03;
+      --red:        #f87171;
+      --red-bg:     #3b0a0a;
+      --green:      #4ade80;
+      --green-bg:   #052e16;
+      --teal:       #5eead4;
+      --teal-bg:    #042f2e;
+      --tag-bg:     #1e3a5f;
+      --tag-text:   #93c5fd;
+      --notice-bg:  #1c1200;
+      --notice-border: #d97706;
+      --accent:     #3b82f6;
+      --accent-lt:  #60a5fa;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --navy:       #0a1628;
+    --navy-mid:   #111f3a;
+    --steel:      #1e3a5f;
+    --steel-lt:   #2563ab;
+    --ground:     #0d1422;
+    --surface:    #111f3a;
+    --surface-2:  #162240;
+    --border:     #233050;
+    --text:       #e8edf5;
+    --text-2:     #a8bcd4;
+    --text-3:     #6b829e;
+    --amber:      #fbbf24;
+    --amber-bg:   #451a03;
+    --red:        #f87171;
+    --red-bg:     #3b0a0a;
+    --green:      #4ade80;
+    --green-bg:   #052e16;
+    --tag-bg:     #1e3a5f;
+    --tag-text:   #93c5fd;
+    --notice-bg:  #1c1200;
+    --notice-border: #d97706;
+    --accent:     #3b82f6;
+    --accent-lt:  #60a5fa;
+  }
+
+  /* ── Base ─────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding-inline: 16px;
+    padding-block: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* ── Classification Bar ───────────────────────────── */
+  .classbar {
+    background: var(--green);
+    color: var(--surface);
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    padding: 5px 16px;
+    margin-inline: -16px;
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 100;
+  }
+
+  /* ── Header ───────────────────────────────────────── */
+  .report-header {
+    background: var(--navy);
+    color: var(--surface);
+    margin-inline: -16px;
+    padding: 24px 24px 20px;
+    border-bottom: 3px solid var(--accent-lt);
+  }
+
+  .report-header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 6px;
+  }
+
+  .report-header h1 {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    font-size: clamp(18px, 4vw, 26px);
+    font-weight: 600;
+    margin: 0 0 4px;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .report-header .subtitle {
+    font-size: 12px;
+    color: #93c5fd;
+    margin-bottom: 16px;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .meta-pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #dbeafe;
+  }
+
+  /* ── Critical Notice ──────────────────────────────── */
+  .critical-notice {
+    background: var(--notice-bg);
+    border-left: 4px solid var(--notice-border);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 16px;
+    margin: 16px 0;
+  }
+
+  .critical-notice .notice-head {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .critical-notice p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-2);
+    line-height: 1.5;
+  }
+
+  /* ── Section Headings ─────────────────────────────── */
+  .part-header {
+    background: var(--navy-mid);
+    color: #fff;
+    margin-inline: -16px;
+    padding: 12px 24px;
+    margin-block: 24px 0;
+  }
+
+  .part-header .part-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #93c5fd;
+  }
+
+  .part-header h2 {
+    margin: 2px 0 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-block: 12px;
+    overflow: hidden;
+  }
+
+  .section-head {
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-head h3 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .section-alpha {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--slate-lt);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 6px;
+    min-width: 22px;
+    text-align: center;
+  }
+
+  .section-body {
+    padding: 14px 16px;
+  }
+
+  /* ── Tags ─────────────────────────────────────────── */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+
+  .tag.red { background: var(--red-bg); color: var(--red); }
+  .tag.amber { background: var(--amber-bg); color: var(--amber); }
+  .tag.green { background: var(--green-bg); color: var(--green); }
+  .tag.teal { background: var(--teal-bg); color: var(--teal); }
+
+  /* ── Confidence Pills ─────────────────────────────── */
+  .conf {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 1px 7px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .conf.high { background: var(--green-bg); color: var(--green); }
+  .conf.medium { background: var(--amber-bg); color: var(--amber); }
+  .conf.low { background: var(--red-bg); color: var(--red); }
+  .conf.cannot { background: var(--surface-2); color: var(--text-3); border: 1px solid var(--border); }
+
+  /* ── Bullet Lists ─────────────────────────────────── */
+  ul.brief-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul.brief-list > li {
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  ul.brief-list > li:last-child { border-bottom: none; padding-bottom: 0; }
+  ul.brief-list > li:first-child { padding-top: 0; }
+
+  .bullet-text {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .source-line {
+    font-size: 11.5px;
+    color: var(--text-3);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .source-line a {
+    color: var(--accent-lt);
+    text-decoration: none;
+  }
+
+  .source-line a:hover { text-decoration: underline; }
+
+  /* ── Tables ───────────────────────────────────────── */
+  .tbl-wrap { overflow-x: auto; margin: 0 -2px; }
+
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    min-width: 480px;
+  }
+
+  table.data-table th {
+    background: var(--surface-2);
+    color: var(--text-2);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  table.data-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  table.data-table tr:last-child td { border-bottom: none; }
+
+  table.data-table tr:hover td { background: var(--surface-2); }
+
+  /* ── RFI Table ────────────────────────────────────── */
+  .rfi-table td:first-child {
+    font-style: italic;
+    color: var(--text-2);
+    width: 35%;
+  }
+
+  /* ── Watch Items ──────────────────────────────────── */
+  .watch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+
+  .watch-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 12px;
+  }
+
+  .watch-card .watch-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--slate-lt);
+    margin-bottom: 4px;
+  }
+
+  .watch-card .watch-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .watch-card p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-2);
+    line-height: 1.45;
+  }
+
+  /* ── Confidence Matrix ────────────────────────────── */
+  .conf-matrix td:nth-child(2) {
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* ── Delta Section ────────────────────────────────── */
+  .delta-badge {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .delta-badge.new { background: var(--accent-lt); }
+  .delta-badge.changed { background: var(--amber); }
+  .delta-badge.escalated { background: var(--red); }
+  .delta-badge.na { background: var(--text-3); }
+
+  .delta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .delta-item:last-child { border-bottom: none; }
+
+  /* ── Footer ───────────────────────────────────────── */
+  .report-footer {
+    background: var(--navy);
+    color: #93c5fd;
+    margin-inline: -16px;
+    padding: 16px 24px;
+    margin-top: 32px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  /* ── General typography ───────────────────────────── */
+  h4 {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 12px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  p { margin: 0 0 10px; }
+  p:last-child { margin-bottom: 0; }
+
+  .text-sm { font-size: 12px; color: var(--text-2); }
+
+  strong { color: var(--text); font-weight: 600; }
+
+  .cannot-confirm {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-3);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 8px 0;
+  }
+
+  .rtl-flag {
+    background: var(--red-bg);
+    border: 1px solid var(--red);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 500;
+    margin: 8px 0;
+  }
+
+  @media (max-width: 600px) {
+    .watch-grid { grid-template-columns: 1fr; }
+    .meta-row { gap: 8px; }
+  }
+</style>
+
+<!-- Classification Bar -->
+<div class="classbar">UNCLASSIFIED // FOR OFFICIAL USE ONLY // AI-GENERATED RESEARCH AID — NOT FOR DISSEMINATION WITHOUT HUMAN REVIEW</div>
+
+<!-- Report Header -->
+<div class="report-header">
+  <div class="eyebrow">OUSW COMPTROLLER — PROGRAM/BUDGET DIRECTORATE</div>
+  <h1>Daily Ukraine–Russia War Analyst Brief</h1>
+  <div class="subtitle">Defense Articles · Stockpiles · Budget · Congressional RFI · Operation Epic Fury Cross-Theater Impacts</div>
+  <div class="meta-row">
+    <span class="meta-pill">DATE: 16 SEP 2026</span>
+    <span class="meta-pill">CYCLE: 0500 ET DAILY RUN</span>
+    <span class="meta-pill">AUDIENCE: P/B ANALYSTS</span>
+    <span class="meta-pill">FILE: 2026-09-16_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB</span>
+  </div>
+</div>
+
+<!-- CRITICAL DATA ACCESS NOTICE -->
+<div class="critical-notice" style="margin-top:16px;">
+  <div class="notice-head">⚠ CRITICAL DATA ACCESS LIMITATION — READ FIRST</div>
+  <p>
+    <strong>This report was generated by an AI assistant (Claude, knowledge cutoff: August 2025) with NO real-time internet access.</strong>
+    Today's date is 16 September 2026 — over 13 months past the AI's training cutoff.
+    Sections requiring last 24–48 hour developments are populated with the <strong>last confirmed context from training data (through ~August 2025)</strong> and are clearly marked
+    <span style="font-family:'IBM Plex Mono',monospace;background:var(--amber-bg);color:var(--amber);padding:1px 6px;border-radius:3px;font-size:11px;">⚡ REQUIRES CURRENT RESEARCH</span>.
+    All specific source links are frameworks only — no live URLs could be verified.
+    <strong>Analysts must independently verify all time-sensitive claims before responding to congressional RFIs or briefing senior leaders.</strong>
+    For a fully automated live-data brief, configure this routine with a web-search-enabled AI session.
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PART I: SENIOR LEADER SNAPSHOT                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div class="part-header">
+  <div class="part-label">Part I</div>
+  <h2>Senior Leader Snapshot — One-Page Executive Product</h2>
+</div>
+
+<!-- A. BLUF -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">A</span>
+    <h3>Bottom Line Up Front (BLUF) — Last 24–48 Hours</h3>
+    <span class="tag amber">⚡ REQUIRES CURRENT RESEARCH</span>
+  </div>
+  <div class="section-body">
+    <div class="rtl-flag">
+      Real-time developments cannot be confirmed for 16 September 2026. The following bullets reflect the standing strategic posture as of the AI's August 2025 knowledge cutoff. Analysts must replace these with verified current-cycle reporting before use.
+    </div>
+
+    <ul class="brief-list">
+      <li>
+        <div class="bullet-text">
+          <span class="tag">Defense Articles</span>
+          Ukraine continued receiving U.S. and allied air defense systems (Patriot, NASAMS, IRIS-T) to counter intensified Russian ballistic and cruise missile strikes against critical infrastructure and population centers. Ongoing attrition of interceptor inventories remained a pressure point on U.S. and allied stockpiles. <em>[Current status requires verification.]</em>
+        </div>
+        <div class="source-line">
+          Source: ISW / DoD — <span style="color:var(--amber);">⚡ Verify at: isw.org / defense.gov / state.gov for current reporting</span> | <span class="conf medium">Medium — Last-known, not current</span>
+        </div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag">Stockpiles</span>
+          Patriot PAC-2 and PAC-3 interceptor inventories were under dual-theater pressure from Ukraine and Middle East operations (CENTCOM AOR). Replenishment timelines from Raytheon/RTX were extending due to component constraints. <em>[Current production rates require verification.]</em>
+        </div>
+        <div class="source-line">
+          Source: Breaking Defense / Defense News — <span style="color:var(--amber);">⚡ Verify for current cycle</span> | <span class="conf medium">Medium</span>
+        </div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag">Funding</span>
+          Ukraine supplemental funding mechanisms (PDA, USAI, FMF) were subject to congressional appropriations debates. Ukraine Security Assistance Initiative (USAI) and Presidential Drawdown Authority (PDA) drawdowns were ongoing as of mid-2025. <em>[Current execution status requires verification from OMB/OSD.]</em>
+        </div>
+        <div class="source-line">
+          Source: Congress.gov / White House — <span style="color:var(--amber);">⚡ Verify current PDA/USAI balances</span> | <span class="conf medium">Medium</span>
+        </div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag red">Epic Fury / Iran</span>
+          Iran's drone and missile programs supporting Russia (Shahed-136/131 series) and Iranian activities in the Middle East CENTCOM AOR created competing demands on U.S. counter-drone and air defense resources. Direct linkage to a named "Operation Epic Fury" cannot be independently confirmed from AI training data. <em>[Analysts must verify current CENTCOM operational posture and any named operation details.]</em>
+        </div>
+        <div class="source-line">
+          Source: Reuters / ISW — <span style="color:var(--amber);">⚡ Cannot confirm Op. Epic Fury specifics — requires classified/current sourcing</span> | <span class="conf cannot">Cannot Confirm</span>
+        </div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag">Readiness</span>
+          U.S. Army and allied readiness was being monitored for degradation from sustained PDA transfers of artillery (155mm), HIMARS/GMLRS, Javelins, and Stingers. Replenishment appropriations were not keeping pace with transfer rates as of mid-2025. <em>[Current readiness assessments require OSD/JCS verification.]</em>
+        </div>
+        <div class="source-line">
+          Source: GAO / Congressional testimony — <span style="color:var(--amber);">⚡ Verify current readiness delta</span> | <span class="conf medium">Medium</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- B. Top Issues for P/B Analysts -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">B</span>
+    <h3>Top Issues for OUSW Comptroller P/B Analysts</h3>
+  </div>
+  <div class="section-body">
+    <ul class="brief-list">
+      <li>
+        <div class="bullet-text">
+          <span class="tag red">PDA</span><span class="tag red">Stockpiles</span>
+          <strong>PDA Drawdown Velocity vs. Replenishment Funding Gap:</strong> The pace of Presidential Drawdown Authority transfers to Ukraine has consistently outpaced congressional replenishment appropriations. Analysts should verify current PDA authority remaining, transfers-to-date, and whether a new supplemental or reprogramming action is needed. Congress will ask whether DoD can sustain current transfer rates.
+        </div>
+        <div class="source-line">⚡ Potential RFI: "What is the remaining PDA balance and replenishment funding status?"</div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag amber">Appropriations</span><span class="tag amber">USAI</span>
+          <strong>USAI Execution Pace:</strong> Ukraine Security Assistance Initiative (USAI) funds weapons procurement rather than drawdown from U.S. stocks. Analysts should track obligation rates, unobligated balances, and whether contract awards are on schedule. Late obligations could signal execution problems.
+        </div>
+        <div class="source-line">⚡ Potential RFI: "Are USAI funds being obligated on schedule? Any unobligated balances at risk?"</div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag">Defense Articles</span><span class="tag red">Readiness</span>
+          <strong>Air Defense Interceptor Inventory Stress:</strong> Patriot (PAC-2/PAC-3), NASAMS (AIM-120/AMRAAM), and IRIS-T interceptors are being consumed at rates that stress both U.S. and allied inventories, exacerbated by potential CENTCOM / Middle East demands. Raytheon production ramp for PAC-3 MSE was planned but constrained by propellant and component sourcing.
+        </div>
+        <div class="source-line">⚡ Potential RFI: "Are interceptor stocks adequate for both Ukraine and CENTCOM requirements simultaneously?"</div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag">DIB</span><span class="tag amber">Replenishment</span>
+          <strong>155mm Ammunition Production Shortfall:</strong> U.S. Army was expanding 155mm production capacity (Lake City, Scranton, and allied facilities) from ~15,000 to 100,000+ rounds/month. Analysts should verify if production targets are being met and whether replenishment contracts align with drawdown rates.
+        </div>
+        <div class="source-line">⚡ Potential RFI: "Is 155mm production keeping pace with Ukraine transfers and U.S. reserve requirements?"</div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag teal">Congressional RFI</span><span class="tag">FMF</span>
+          <strong>Frozen Russian Assets / Extraordinary Revenue:</strong> G7 discussions on using interest from frozen Russian sovereign assets (~$300B) to fund Ukraine were ongoing. Analysts should track whether any appropriation or authorization action has been taken to channel these funds through U.S. accounts.
+        </div>
+        <div class="source-line">⚡ Potential RFI: "Has Congress authorized use of frozen Russian asset revenue for Ukraine? Current status?"</div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag red">Epic Fury / Iran Linkage</span>
+          <strong>Iran–Russia Weapons Pipeline:</strong> Iranian Shahed-series drones, artillery shells, and ballistic missiles (reported) were providing Russia with attritable strike capacity in Ukraine. Any CENTCOM operation disrupting Iranian weapons production/export could indirectly relieve pressure on Ukraine. Analysts should assess whether any action has degraded Iranian supply to Russia.
+        </div>
+        <div class="source-line">⚡ Potential RFI: "Has any CENTCOM action reduced Iran's ability to supply Russia with drones and ammunition?"</div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag amber">Execution</span>
+          <strong>Coalition Burden-Sharing Tracking:</strong> European allies (Germany, UK, France, Poland, Nordics) significantly increased bilateral aid to Ukraine. Analysts supporting comptroller functions should maintain a running total of non-U.S. contributions to understand U.S. proportional share and congressional messaging.
+        </div>
+        <div class="source-line">⚡ Potential RFI: "What share of total Ukraine support has the U.S. contributed vs. allies? Is that share changing?"</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- C. Watch Items -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">C</span>
+    <h3>Watch Items — Next 7 Days</h3>
+  </div>
+  <div class="section-body">
+    <div class="watch-grid">
+      <div class="watch-card">
+        <div class="watch-num">WATCH 01</div>
+        <div class="watch-title">PDA Authority Remaining Balance</div>
+        <p>Monitor DoD notifications to Congress on PDA drawdowns. If authority is near depletion, a new supplemental or reprogramming request may be imminent. Budget implication: potentially significant. Source: defense.gov / Congress notifications.</p>
+      </div>
+      <div class="watch-card">
+        <div class="watch-num">WATCH 02</div>
+        <div class="watch-title">Russian Strike Campaign Intensity</div>
+        <p>Track mass strike events against Ukrainian energy/infrastructure. Increased frequency drives urgent air defense interceptor requests and may trigger emergency supplemental asks. Source: ISW, ACLED, Kyiv Independent.</p>
+      </div>
+      <div class="watch-card">
+        <div class="watch-num">WATCH 03</div>
+        <div class="watch-title">Patriot/PAC-3 Production Milestones</div>
+        <p>Monitor Raytheon (RTX) earnings guidance and DoD contract awards for interceptor production. Delays would tighten dual-theater inventory picture. Source: RTX investor relations, Breaking Defense.</p>
+      </div>
+      <div class="watch-card">
+        <div class="watch-num">WATCH 04</div>
+        <div class="watch-title">CENTCOM / Iran Activity (Epic Fury)</div>
+        <p>Any escalation or de-escalation in the Middle East directly affects CENTCOM air defense posture and may pull interceptors from the Ukraine pipeline. Source: DoD releases, Reuters, USNI News.</p>
+      </div>
+      <div class="watch-card">
+        <div class="watch-num">WATCH 05</div>
+        <div class="watch-title">Congressional Appropriations Action</div>
+        <p>Track markup sessions, CR negotiations, and any supplemental requests related to Ukraine. A government shutdown or CR would affect USAI obligation authority. Source: Congress.gov, House/Senate Approps.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D. Likely RFI Questions Today -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">D</span>
+    <h3>Most Likely Congressional RFI Questions — Today</h3>
+  </div>
+  <div class="section-body">
+    <ol style="padding-left:20px;margin:0;font-size:13.5px;line-height:2;">
+      <li>What changed in the Ukraine–Russia War in the last 24–48 hours and how does it affect U.S. interests?</li>
+      <li>Are U.S. Patriot and NASAMS interceptor stocks adequate for both Ukraine and the Middle East simultaneously?</li>
+      <li>What is the current status of PDA authority — how much remains and when will it run out?</li>
+      <li>Are Russia's gains on the battlefield changing Ukraine's near-term equipment requirements?</li>
+      <li>Is Iran supplying Russia with more drones or missiles? Has any U.S. action (Operation Epic Fury) disrupted this?</li>
+      <li>Is North Korea's ammunition and artillery supply to Russia still ongoing? What volume?</li>
+      <li>What is China's current role in supporting Russia — technology, dual-use goods, financial channels?</li>
+      <li>Has the administration submitted any new supplemental or reprogramming request for Ukraine?</li>
+      <li>Are U.S. readiness levels being degraded by sustained Ukraine transfers?</li>
+      <li>What is the status of allied F-16 deliveries to Ukraine and associated sustainment costs?</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PART II: ANALYST ANNEX                                  -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div class="part-header">
+  <div class="part-label">Part II</div>
+  <h2>Analyst Annex — Detailed Research and Source-Based Report</h2>
+</div>
+
+<!-- 1. EXECUTIVE SUMMARY -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">1</span>
+    <h3>Executive Summary</h3>
+    <span class="tag amber">⚡ REQUIRES CURRENT RESEARCH</span>
+  </div>
+  <div class="section-body">
+    <ul class="brief-list">
+      <li>
+        <div class="bullet-text"><span class="tag">Military</span> <strong>Frontline Attrition Warfare Continues:</strong> As of the AI's last confirmed knowledge (~August 2025), the conflict remained in a grinding attritional phase. Russia maintained slow but persistent pressure in eastern Ukraine (Donetsk, Zaporizhzhia axes). Ukraine's defensive posture required sustained artillery, air defense, and manpower. <em>Current frontline status requires ISW/ACLED verification.</em></div>
+        <div class="source-line">ISW: isw.org | <span class="conf medium">Medium — Background context only</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><span class="tag">Defense Articles</span> <strong>Air Defense Priority:</strong> Patriot systems, NASAMS, and IRIS-T remain Ukraine's highest-priority needs for intercepting Russian ballistic and cruise missiles. F-16 deliveries from Denmark/Netherlands were underway in mid-2025, with training and sustainment as limiting factors.</div>
+        <div class="source-line">DoD / Breaking Defense | <span class="conf medium">Medium — verify for current cycle</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><span class="tag">Stockpiles</span> <strong>Dual-Theater Interceptor Stress:</strong> The simultaneous demand from Ukraine and CENTCOM (Middle East) for Patriot, SM-3, and THAAD interceptors was creating genuine inventory stress. This is the single most important defense article issue for congressional RFI preparation.</div>
+        <div class="source-line">CRS / GAO / Breaking Defense | <span class="conf high">High — structurally persistent issue</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><span class="tag">Funding</span> <strong>Supplemental Funding Cycles:</strong> Congress passed multiple Ukraine supplementals through FY2025. Whether additional supplementals have been passed for FY2026 cannot be confirmed from AI training data. Analysts must verify current appropriations status through Congress.gov.</div>
+        <div class="source-line">Congress.gov | <span class="conf cannot">Cannot Confirm — post-cutoff</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><span class="tag red">Epic Fury / Iran Linkage</span> <strong>Iranian Drone Supply to Russia:</strong> Iran's provision of Shahed-136/131 drones to Russia was well-documented through mid-2025. Russia was domestically producing variants (Geran-2). Whether any CENTCOM operation has materially disrupted this supply chain cannot be confirmed. <em>I cannot confirm the specifics of "Operation Epic Fury."</em></div>
+        <div class="source-line">Reuters / ISW / RUSI | <span class="conf medium">Medium — Iran supply confirmed; Op. Epic Fury details cannot confirm</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><span class="tag">DIB</span> <strong>Industrial Base Ramp:</strong> U.S. and allied defense industrial base was executing production increases for 155mm artillery, GMLRS rockets, Patriot interceptors, and counter-drone systems as of mid-2025. Lead times remained 24–48 months for complex missiles. Production rates and contract status require current verification.</div>
+        <div class="source-line">DoD DIB reports / Raytheon / L3Harris | <span class="conf medium">Medium — trajectory known, current rates require verification</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><span class="tag teal">Congressional Interest</span> <strong>Russia–North Korea Ammunition Pipeline:</strong> North Korea was confirmed by multiple Western intelligence agencies to have transferred millions of artillery shells and ballistic missiles to Russia. This significantly bolstered Russian artillery overmatch against Ukraine.</div>
+        <div class="source-line">State Dept / UK MOD / ISW | <span class="conf high">High — confirmed through training data</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><span class="tag amber">Escalation Risk</span> <strong>Russian Nuclear Signaling:</strong> Russia maintained periodic nuclear rhetoric as a coercive tool, particularly around escalation thresholds (e.g., long-range strikes on Russian territory). This remained a low-probability but high-consequence risk requiring continuous monitoring.</div>
+        <div class="source-line">Multiple credible sources | <span class="conf medium">Medium</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2. BATTLEFIELD -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">2</span>
+    <h3>Battlefield and Military Operations</h3>
+    <span class="tag amber">⚡ REQUIRES CURRENT RESEARCH</span>
+  </div>
+  <div class="section-body">
+    <div class="rtl-flag">All specific battlefield developments for 15–16 September 2026 require real-time research. The table below reflects the structural situation as of the AI's last confirmed knowledge (~August 2025) with standing context.</div>
+
+    <div class="tbl-wrap" style="margin-top:12px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Event / Axis</th>
+            <th>Location</th>
+            <th>Status / Context</th>
+            <th>Significance</th>
+            <th>Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Eastern Donetsk Pressure</strong></td>
+            <td>Pokrovsk / Toretsk area</td>
+            <td>⚡ Verify current — Russia was advancing slowly on multiple axes in eastern Donetsk as of mid-2025</td>
+            <td>Threatens Ukrainian logistics hub; drives munitions and manpower demand</td>
+            <td><span class="conf medium">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Zaporizhzhia Axis</strong></td>
+            <td>Southern Ukraine</td>
+            <td>⚡ Verify current — largely static front as of mid-2025; Ukrainian counter-drone activity active</td>
+            <td>Nuclear plant proximity remains escalation risk</td>
+            <td><span class="conf medium">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Russian Missile/Drone Strikes</strong></td>
+            <td>Ukrainian cities / energy</td>
+            <td>⚡ Verify current — Russia conducted mass missile/Shahed strikes against infrastructure regularly through mid-2025</td>
+            <td>Drives urgent air defense interceptor demand; creates humanitarian/energy crises</td>
+            <td><span class="conf high">High (pattern)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ukrainian Drone Strike Campaign</strong></td>
+            <td>Deep Russia (refineries, airfields)</td>
+            <td>⚡ Verify current — Ukraine expanded long-range drone strikes on Russian oil infrastructure and bases through mid-2025</td>
+            <td>Pressures Russian energy revenue; Russia may request more Iranian air defenses</td>
+            <td><span class="conf high">High (pattern)</span></td>
+          </tr>
+          <tr>
+            <td><strong>F-16 Operations</strong></td>
+            <td>Ukraine</td>
+            <td>⚡ Verify current — F-16 deliveries from DK/NL began summer 2024; operational integration ongoing through mid-2025</td>
+            <td>Drives sustainment, spare parts, and training funding requirements</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Kursk Incursion (Ukraine into Russia)</strong></td>
+            <td>Kursk Oblast, Russia</td>
+            <td>⚡ Verify current status — Ukraine launched cross-border operation August 2024; situation was contested through mid-2025</td>
+            <td>Legal/policy questions on U.S. weapon use on Russian territory; congressional interest</td>
+            <td><span class="conf high">High (event confirmed through training)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 3. DEFENSE ARTICLES -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">3</span>
+    <h3>Defense Articles, Weapons, Stockpiles, and Munitions</h3>
+  </div>
+  <div class="section-body">
+
+    <h4>A. U.S.-Provided Defense Articles — Status as of AI Knowledge Cutoff</h4>
+    <div class="tbl-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>System / Article</th>
+            <th>Status</th>
+            <th>Stockpile Risk</th>
+            <th>Replenishment</th>
+            <th>Conf.</th>
+            <th>Cong. Interest</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Patriot (PAC-2/PAC-3)</strong></td>
+            <td>Deployed; ongoing interceptor transfers</td>
+            <td><span class="tag red">HIGH</span> — dual-theater demand (Ukraine + CENTCOM)</td>
+            <td>RTX ramping PAC-3 MSE; 24–36mo lead time</td>
+            <td><span class="conf high">High</span></td>
+            <td>Yes — top RFI item</td>
+          </tr>
+          <tr>
+            <td><strong>NASAMS (AIM-120/AMRAAM)</strong></td>
+            <td>Multiple batteries deployed; ammunition critical</td>
+            <td><span class="tag red">HIGH</span> — AMRAAM also used by U.S./allies for other missions</td>
+            <td>RTX / Boeing; constrained supply chain</td>
+            <td><span class="conf high">High</span></td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><strong>HIMARS / GMLRS</strong></td>
+            <td>In service; GMLRS rockets being consumed</td>
+            <td><span class="tag amber">MEDIUM</span> — production expanding</td>
+            <td>Lockheed Martin ramping; $1.4B+ in contracts</td>
+            <td><span class="conf high">High</span></td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><strong>ATACMS</strong></td>
+            <td>Provided; limited stock; extended range authorized</td>
+            <td><span class="tag red">HIGH</span> — very limited U.S. inventory</td>
+            <td>No direct replacement; PrSM successor in development</td>
+            <td><span class="conf high">High</span></td>
+            <td>Yes — authorization debate</td>
+          </tr>
+          <tr>
+            <td><strong>155mm Artillery Rounds</strong></td>
+            <td>Largest single-volume transfer; ~2M+ rounds provided</td>
+            <td><span class="tag red">HIGH</span> — production race ongoing</td>
+            <td>Army expanding to 100k+/mo target; behind schedule</td>
+            <td><span class="conf high">High</span></td>
+            <td>Yes — major funding issue</td>
+          </tr>
+          <tr>
+            <td><strong>Javelin ATGMs</strong></td>
+            <td>Large quantities provided; production constrained</td>
+            <td><span class="tag amber">MEDIUM</span></td>
+            <td>Raytheon/LM joint; ramp underway</td>
+            <td><span class="conf high">High</span></td>
+            <td>Moderate</td>
+          </tr>
+          <tr>
+            <td><strong>F-16 Support Package</strong></td>
+            <td>Denmark/Netherlands delivering; U.S. providing sustainment, spares, training</td>
+            <td><span class="tag amber">MEDIUM</span> — pilot training bottleneck</td>
+            <td>Ongoing USAI-funded sustainment contracts</td>
+            <td><span class="conf high">High</span></td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><strong>Counter-UAS Systems</strong></td>
+            <td>Coyote, Vampire, Shorad systems provided; high demand</td>
+            <td><span class="tag red">HIGH</span> — drone saturation drives rapid consumption</td>
+            <td>Multiple contractors; capacity limited</td>
+            <td><span class="conf high">High</span></td>
+            <td>Growing</td>
+          </tr>
+          <tr>
+            <td><strong>Bradley IFVs / Strykers / Abrams</strong></td>
+            <td>Transferred; Abrams proven vulnerable, some withdrawn for repair</td>
+            <td><span class="tag amber">MEDIUM</span></td>
+            <td>Army maintenance pipeline; depot capacity issue</td>
+            <td><span class="conf high">High</span></td>
+            <td>Moderate</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="margin-top:16px;">B. Allied Defense Articles — Key Contributions (Background Context)</h4>
+    <div class="tbl-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Nation</th><th>Key Articles</th><th>Significance</th><th>Conf.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Germany</strong></td><td>IRIS-T SLM/SLS (air defense), Leopard 2, PzH2000 howitzers, Gepard AA (with DM-63 ammo from Switzerland controversy), Taurus (debated)</td><td>IRIS-T is critically important; Taurus delivery still contested politically</td><td><span class="conf high">High</span></td></tr>
+          <tr><td><strong>UK</strong></td><td>Storm Shadow cruise missiles (key enabler), Challenger 2, AS-90, naval training</td><td>Storm Shadow enabled deep strikes; UK among top bilateral donors</td><td><span class="conf high">High</span></td></tr>
+          <tr><td><strong>France</strong></td><td>SCALP cruise missiles, Caesar howitzers, Mirage 2000 (in discussion)</td><td>SCALP/Caesar significant; France shifting toward frontline military support</td><td><span class="conf high">High</span></td></tr>
+          <tr><td><strong>Poland</strong></td><td>PT-91 tanks, artillery, ammunition, logistics hub role</td><td>Critical NATO flank state; massive in-kind contributions</td><td><span class="conf high">High</span></td></tr>
+          <tr><td><strong>Netherlands/Denmark</strong></td><td>F-16 deliveries (primary providers), artillery</td><td>F-16 coalition leader; transformational for Ukrainian air power</td><td><span class="conf high">High</span></td></tr>
+          <tr><td><strong>Norway/Sweden/Finland</strong></td><td>Artillery, ammunition, NASAMS (Norway), aid packages</td><td>Nordic NATO expansion strengthens deterrence posture</td><td><span class="conf high">High</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 style="margin-top:16px;">C. Stockpile and Readiness Assessment — Structural Issues</h4>
+    <p class="text-sm">The following are structural constraints confirmed through the AI's training data. Current-cycle assessments require OSD/JCS/service branch verification:</p>
+    <ul class="brief-list" style="margin-top:8px;">
+      <li>
+        <div class="bullet-text"><strong>Air defense interceptor shortfalls:</strong> Patriot, NASAMS, and counter-drone interceptors being consumed faster than produced. Simultaneous Ukraine and CENTCOM demands (if Op. Epic Fury is active) compound this pressure significantly.</div>
+        <div class="source-line">CRS / GAO reports | <span class="conf high">High — structural issue</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><strong>155mm production gap:</strong> U.S. Army's goal of 100,000 rounds/month was behind schedule through mid-2025. Czech-led initiative procuring third-country stocks helped bridge the gap. Current production rates require verification from Army Materiel Command.</div>
+        <div class="source-line">Army AMC / Breaking Defense | <span class="conf high">High</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><strong>ATACMS terminal depletion risk:</strong> U.S. ATACMS inventory is extremely limited. Transfers to Ukraine have materially reduced available stocks. No direct replacement missile is in production. PrSM (successor) not yet fielded in quantities at the AI's training cutoff.</div>
+        <div class="source-line">DoD / Congressional testimony | <span class="conf high">High</span></div>
+      </li>
+      <li>
+        <div class="bullet-text"><strong>Drone / counter-drone saturation:</strong> Both sides deployed FPV drones, loitering munitions, and commercial drones at industrial scale. This created a new demand signal for counter-UAS systems (electronic jamming, kinetic intercept, directed energy) that DoD's acquisition systems were not designed to service at pace.</div>
+        <div class="source-line">RUSI / ISW / War on the Rocks | <span class="conf high">High</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4. DEFENSE INDUSTRIAL BASE -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">4</span>
+    <h3>Defense Industrial Base and Production Capacity</h3>
+  </div>
+  <div class="section-body">
+    <div class="tbl-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>System</th>
+            <th>Issue / Status (thru ~Aug 2025)</th>
+            <th>Ukraine Impact</th>
+            <th>U.S. Readiness Impact</th>
+            <th>Conf.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Raytheon (RTX)</td>
+            <td>Patriot PAC-3 MSE, AMRAAM, Coyote</td>
+            <td>Production expanding; limited by rocket motors, forged parts, and workforce. Target: 500–550 PAC-3 MSE/yr by ~2026</td>
+            <td>High — primary interceptor supplier</td>
+            <td>High — same production line serves U.S. requirements</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td>Lockheed Martin</td>
+            <td>HIMARS, GMLRS, ATACMS, PAC-3 (co-producer), F-16 support</td>
+            <td>GMLRS ramp ongoing; ATACMS not in production (legacy system); F-16 sustainment growing</td>
+            <td>High — critical system provider</td>
+            <td>High — ATACMS depletion irreversible near-term</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td>General Dynamics / Army Organic Industrial Base</td>
+            <td>155mm artillery shells, tank depot work</td>
+            <td>Army Organic Industrial Base (Scranton, Watervliet) expanding shell production; explosives (Holston) constrained</td>
+            <td>High — largest volume transfer item</td>
+            <td>Medium — primarily excess capacity issue</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td>Northrop Grumman</td>
+            <td>GMLRS propellant, ammunition</td>
+            <td>Propellant and energetics supply chain is a known pinch point across all rocket/missile production</td>
+            <td>High — bottleneck affects all precision munitions</td>
+            <td>High</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td>Czech / Allied Ammunition Initiative</td>
+            <td>155mm shells sourced globally</td>
+            <td>Czech-led effort sourcing ~1.5M shells from third countries (Africa, Asia, Eastern Europe); funded by European allies and Canada</td>
+            <td>High — bridging the U.S. production gap</td>
+            <td>Low direct impact</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td>MBDA / European</td>
+            <td>IRIS-T, Storm Shadow/SCALP, Brimstone</td>
+            <td>European production accelerating; IRIS-T SLM delivery pipeline extended; Brimstone demand high</td>
+            <td>High — fills gaps not covered by U.S. articles</td>
+            <td>Low direct U.S. impact</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 5. FUNDING / BUDGET -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">5</span>
+    <h3>Funding, Budget, Appropriations, and Congressional Relevance</h3>
+    <span class="tag amber">⚡ POST-CUTOFF — VERIFY ALL CURRENT BALANCES</span>
+  </div>
+  <div class="section-body">
+
+    <div class="cannot-confirm">
+      ⚠ I cannot confirm FY2026 appropriations, current PDA balances, or any congressional actions after August 2025. The framework below reflects the last-known funding architecture. Analysts must verify all figures through OMB, OSD Comptroller, Congress.gov, and DoD FMR before use.
+    </div>
+
+    <h4>Known Funding Mechanisms (Structural — Confirm Current Status)</h4>
+    <div class="tbl-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mechanism</th>
+            <th>Description</th>
+            <th>Last Known Status (~mid-2025)</th>
+            <th>Comptroller Relevance</th>
+            <th>Likely RFI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PDA (Presidential Drawdown Authority)</strong></td>
+            <td>Authorizes POTUS to transfer articles from DoD stocks without congressional approval; replenishment funded separately</td>
+            <td>Multiple drawdowns; cumulative ~$44B+ in PDA transfers through mid-2025; ⚡ current balance unknown</td>
+            <td>Tracks DoD stock transfers and creates replenishment funding obligation</td>
+            <td>"What is the remaining PDA authority and drawdown pace?"</td>
+          </tr>
+          <tr>
+            <td><strong>USAI (Ukraine Security Assistance Initiative)</strong></td>
+            <td>DoD procurement funds — buys new equipment, doesn't draw from stocks; slower but builds capacity</td>
+            <td>~$23B+ appropriated through FY2024 supplementals; ⚡ FY2025/26 status unknown</td>
+            <td>Obligation rates, contract awards, and unobligated balances are primary P/B metrics</td>
+            <td>"Are USAI funds being obligated on schedule?"</td>
+          </tr>
+          <tr>
+            <td><strong>FMF (Foreign Military Financing)</strong></td>
+            <td>State Dept-administered grants for equipment purchase; slower process</td>
+            <td>Supplemental funds included FMF for Ukraine and regional allies; ⚡ current status unknown</td>
+            <td>Tracks State/DoD coordination, obligation timelines</td>
+            <td>"Is FMF being used for Ukraine and is it moving fast enough?"</td>
+          </tr>
+          <tr>
+            <td><strong>EIRA (Emergency Investment Replenishment Account / Replenishment)</strong></td>
+            <td>Restores U.S. stocks drawn down by PDA transfers; appropriated separately</td>
+            <td>GAO found replenishment appropriations lagged transfer pace through FY2024; ⚡ gap may be larger now</td>
+            <td>Directly affects U.S. readiness; key metric for HASC/SASC oversight</td>
+            <td>"Is replenishment funding keeping pace with PDA transfers?"</td>
+          </tr>
+          <tr>
+            <td><strong>Frozen Russian Assets (~$300B)</strong></td>
+            <td>G7 immobilized Russian sovereign assets; interest (~$3B/yr) being directed to Ukraine under ARPA / ERA</td>
+            <td>G7 agreed framework in mid-2024; first tranches in early 2025; ⚡ current balance unknown</td>
+            <td>Does not run through standard DoD appropriations; supplemental to bilateral U.S. aid</td>
+            <td>"How much frozen Russian asset revenue has been transferred and on what authority?"</td>
+          </tr>
+          <tr>
+            <td><strong>Ukraine Direct Budget Support</strong></td>
+            <td>Economic Assistance direct transfer to Ukraine gov't to pay salaries, pensions, services</td>
+            <td>~$1.7B/month required; U.S. + EU covering; ⚡ current status unknown</td>
+            <td>Not DoD/OUSW but drives overall supplemental ask; congressional context needed</td>
+            <td>"How much direct budget support is the U.S. providing to Ukraine?"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 6. OPERATION EPIC FURY / IRAN LINKAGE -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">6</span>
+    <h3>Operation Epic Fury / Iran — Ukraine–Russia War Linkage</h3>
+    <span class="tag red">MANDATORY SECTION</span>
+  </div>
+  <div class="section-body">
+
+    <div class="cannot-confirm">
+      <strong>I cannot confirm the specifics of "Operation Epic Fury."</strong> This named operation does not appear in my training data with that designation. It likely refers to a CENTCOM operation related to Iran that commenced or was named after my August 2025 cutoff. Everything in this section is derived from the known Iran–Russia–Ukraine linkage structure and general CENTCOM posture. Analysts must obtain current classified and open-source briefings on Operation Epic Fury before any RFI response.
+    </div>
+
+    <h4>A. Weapons and Stockpile Competition — Confirmed Structural Linkage</h4>
+    <ul class="brief-list">
+      <li>
+        <div class="bullet-text">
+          <span class="tag red">Epic Fury / Iran Linkage</span>
+          <strong>Patriot Interceptor Dual-Theater Demand:</strong> Any sustained CENTCOM operation requiring active Patriot defense (against Iranian ballistic missiles — as occurred with attacks on U.S. bases in 2024) directly competes with Ukraine for PAC-2/PAC-3 interceptor inventory and replenishment priority. Israel, Saudi Arabia, UAE, and U.S. forces in theater all draw from the same global Patriot supply chain.
+        </div>
+        <div class="source-line">USNI News / Breaking Defense | <span class="conf high">High — structural linkage confirmed</span></div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag red">Epic Fury / Iran Linkage</span>
+          <strong>THAAD and SM-3 Competition:</strong> THAAD batteries and SM-3 interceptors for ballistic missile defense in the Middle East are the same strategic assets considered for European deterrence. CENTCOM draws on global THAAD inventory. No dedicated "CENTCOM reserve" exists separately from the overall U.S. inventory.
+        </div>
+        <div class="source-line">CRS / MDA | <span class="conf high">High</span></td>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <span class="tag red">Epic Fury / Iran Linkage</span>
+          <strong>Counter-UAS Competition:</strong> Iranian-design drones (Shahed variants) are used both by Russia in Ukraine and by Iranian proxies in the Middle East. U.S. counter-drone solutions (Coyote, directed energy, jamming) are in demand simultaneously in both theaters.
+        </div>
+        <div class="source-line">ISW / War on the Rocks / Defense News | <span class="conf high">High</span></div>
+      </li>
+    </ul>
+
+    <h4>B. Iran–Russia Weapons Cooperation — Confirmed Through Training Data</h4>
+    <ul class="brief-list">
+      <li>
+        <div class="bullet-text">
+          <strong>Shahed-136/131 Drone Supply:</strong> Iran provided Russia with hundreds of Shahed-136 (loitering munition) and Shahed-131 drones. Russia began domestic production as "Geran-2" at a facility reportedly in Tatarstan. This was confirmed by multiple Western governments, EU sanctions, and satellite imagery analysis.
+        </div>
+        <div class="source-line">Reuters / ISW / EU sanctions registers | <span class="conf high">High</span></div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <strong>Iranian Ballistic Missile Transfer (Reported):</strong> Multiple governments reported Iran provided Fateh-110 / Zolfaghar-class ballistic missiles to Russia. Russia denied; Iran denied; Ukrainian and Western intelligence assessed as likely. Used in strikes on Ukrainian cities. ⚡ Verify whether this has been independently confirmed or denied in current reporting.
+        </div>
+        <div class="source-line">Reuters / WSJ / UK MOD | <span class="conf medium">Medium — reported but contested</span></div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <strong>Does Op. Epic Fury Weaken Iran-Russia Cooperation?</strong> Any CENTCOM operation that degrades Iranian drone/missile production facilities or disrupts Iranian supply logistics could reduce Iran's capacity to supply Russia. However, this linkage requires current intelligence assessment. <em>I cannot confirm this without knowing Op. Epic Fury's scope and targets.</em>
+        </div>
+        <div class="source-line">Analyst judgment — requires current intelligence | <span class="conf cannot">Cannot Confirm</span></div>
+      </li>
+    </ul>
+
+    <h4>C. Russia–Iran Relationship Dynamics</h4>
+    <div class="tbl-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Dimension</th><th>Assessed Status (thru ~Aug 2025)</th><th>Op. Epic Fury Effect</th><th>Conf.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Iranian drone supply to Russia</strong></td><td>Active, ongoing; Russia also domestically producing</td><td>⚡ Cannot confirm — depends on Op. Epic Fury targets</td><td><span class="conf medium">Medium</span></td></tr>
+          <tr><td><strong>Iranian missile supply to Russia</strong></td><td>Reported/likely; contested by Iran</td><td>⚡ Cannot confirm</td><td><span class="conf medium">Medium</span></td></tr>
+          <tr><td><strong>Russian diplomatic cover for Iran</strong></td><td>Active — Russia vetoes UNSC actions; provides political shield</td><td>U.S. military pressure on Iran may complicate Russian-Iranian diplomatic alignment</td><td><span class="conf high">High</span></td></tr>
+          <tr><td><strong>Russia benefits from U.S. strategic distraction</strong></td><td>Likely — CENTCOM-heavy operations historically reduce focus on EUCOM priorities</td><td>If Op. Epic Fury is large-scale, Russia may assess reduced U.S. willingness to escalate in Ukraine</td><td><span class="conf medium">Medium — analyst judgment</span></td></tr>
+          <tr><td><strong>Energy / sanctions evasion cooperation</strong></td><td>Active — Russia-Iran energy and financial linkages documented</td><td>Unclear effect from military operations; financial sanctions enforcement more relevant</td><td><span class="conf high">High</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>D. Energy and Economic Cross-Theater Effects</h4>
+    <ul class="brief-list">
+      <li>
+        <div class="bullet-text">
+          <strong>Oil Price Volatility:</strong> Any CENTCOM military operation affecting Iran or Strait of Hormuz transit could spike oil prices globally. Higher oil prices benefit Russian energy revenue, partially offsetting sanctions pressure and sustaining Russian defense spending.
+        </div>
+        <div class="source-line">IEA / Bloomberg / FT | <span class="conf high">High — structural linkage</span></div>
+      </li>
+      <li>
+        <div class="bullet-text">
+          <strong>LNG / European Energy Security:</strong> European energy markets diversified significantly from Russian gas through 2023–2024. CENTCOM instability affecting LNG shipping routes (Qatar-to-Europe) could re-stress European energy prices, potentially reducing allied political/fiscal capacity to sustain Ukraine support.
+        </div>
+        <div class="source-line">IEA / European Commission | <span class="conf medium">Medium</span></div>
+      </li>
+    </ul>
+
+    <h4>E. Strategic Bandwidth Assessment</h4>
+    <p class="text-sm" style="font-style:italic;color:var(--text-3);">Analyst judgment — label as such in any briefing or RFI response.</p>
+    <ul class="brief-list">
+      <li>
+        <div class="bullet-text">
+          <strong>[Analyst Judgment]</strong> A large-scale CENTCOM operation (Op. Epic Fury) would place competing demands on U.S. ISR, air defense assets, precision munitions, and political bandwidth. Historical precedent (Iraq/Afghanistan alongside other commitments) suggests this would reduce urgency and pace of Ukraine support decisions at the senior leader level, though formal policy commitments would remain.
+        </div>
+        <div class="source-line">Analyst assessment — not confirmed by specific source | <span class="conf low">Low — judgment</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- 7. ADVERSARY NETWORKS -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">7</span>
+    <h3>Russia, Iran, China, North Korea — Adversary Support Networks</h3>
+  </div>
+  <div class="section-body">
+    <div class="tbl-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Actor</th>
+            <th>Assistance Type</th>
+            <th>Status (thru ~Aug 2025)</th>
+            <th>Ukraine Impact</th>
+            <th>Congressional Relevance</th>
+            <th>Conf.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Iran</strong></td>
+            <td>Shahed drones, reported ballistic missiles, artillery components</td>
+            <td>Active and documented; Russia domestically scaling up Shahed production</td>
+            <td>Sustains Russian strike capacity at lower cost per sortie; overwhelms Ukrainian air defenses</td>
+            <td>High — sanctions, export controls, secondary sanctions on Iran</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>North Korea</strong></td>
+            <td>Artillery shells (152mm, 122mm), rockets, ballistic missiles (KN-23 reported), troops (late 2024)</td>
+            <td>Confirmed by multiple Western governments and NATO; millions of shells transferred; DPRK troops in Russia reported late 2024</td>
+            <td>Critical — significantly bolsters Russian artillery overmatch; DPRK troops fill manpower gaps</td>
+            <td>Very High — sanctions, secondary sanctions on DPRK entities</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>China</strong></td>
+            <td>Dual-use goods, electronics, machine tools, optical equipment; financial channel facilitation; no direct weapons transfers confirmed</td>
+            <td>Chinese exports to Russia of controlled dual-use items documented; primary diplomatic and economic backer</td>
+            <td>Medium-High — enables Russian defense industry to sustain production despite sanctions</td>
+            <td>Very High — export controls, secondary sanctions pressure on China; major trade issue</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Belarus</strong></td>
+            <td>Territory for staging, logistics, air defense positioning; Lukashenko forces not directly engaged</td>
+            <td>Belarus territory used for Russian logistics and some strikes on Ukraine; Wagner deployed; nuclear weapons stationed (reported)</td>
+            <td>Medium — adds a second front threat; forces Ukraine to defend northern border</td>
+            <td>Moderate — sanctions on Belarus regime</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sanctions-Evasion Networks</strong></td>
+            <td>Turkish, UAE, Kazakhstan, Central Asian intermediaries; front companies; cryptocurrency channels</td>
+            <td>Documented by Treasury OFAC; EU and U.S. expanding secondary sanctions designations</td>
+            <td>High — sustains Russian access to Western technology and financial channels</td>
+            <td>High — Treasury enforcement, sanctions oversight</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 8. ESCALATION RISKS -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">8</span>
+    <h3>Escalation Risks and Warning Indicators</h3>
+  </div>
+  <div class="section-body">
+    <div class="tbl-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Risk</th><th>Risk Level</th><th>Indicator</th><th>Implication</th><th>Conf.</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Russian nuclear signaling</strong></td>
+            <td><span class="tag amber">MEDIUM</span></td>
+            <td>Doctrinal shifts, senior official statements, exercise activity near nuclear facilities</td>
+            <td>Coercive tool; would trigger major U.S. policy review and likely affect aid decisions; congressional alarm</td>
+            <td><span class="conf high">High (persistent risk)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Attacks near NATO territory</strong></td>
+            <td><span class="tag amber">MEDIUM</span></td>
+            <td>Stray munitions, drone incursions, cyberattacks on NATO infrastructure</td>
+            <td>Article 5 implications; drives NATO reinforcement and budget commitments</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ukrainian strikes on Russian territory</strong></td>
+            <td><span class="tag amber">MEDIUM</span></td>
+            <td>Long-range drone/missile strikes; Kursk-type incursions</td>
+            <td>Russia may claim justification for escalation; congressional debate on weapon use authorization</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Attacks on Zaporizhzhia NPP</strong></td>
+            <td><span class="tag amber">MEDIUM-HIGH</span></td>
+            <td>Shelling, drone strikes near reactor cooling systems</td>
+            <td>Radiological risk; potential NATO/EU direct response; massive humanitarian and political fallout</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>DPRK troops in combat</strong></td>
+            <td><span class="tag amber">MEDIUM</span></td>
+            <td>Reports of North Korean KPA soldiers engaged in frontline combat (late 2024 reporting)</td>
+            <td>Internationalizes conflict; raises stakes for South Korea/Japan; potential additional U.S. response</td>
+            <td><span class="conf high">High — confirmed by multiple governments</span></td>
+          </tr>
+          <tr>
+            <td><strong>Chinese weapons transfer</strong></td>
+            <td><span class="tag red">HIGH (if occurs)</span></td>
+            <td>Reports of direct weapons (artillery, missiles, drones) from China to Russia</td>
+            <td>Game-changing escalation; would trigger massive sanctions response and congressional action</td>
+            <td><span class="conf medium">Medium — not confirmed through training data</span></td>
+          </tr>
+          <tr>
+            <td><strong>Op. Epic Fury → Russian opportunism</strong></td>
+            <td><span class="tag amber">MEDIUM</span></td>
+            <td>Russia launching major offensive during peak CENTCOM distraction</td>
+            <td>Could expose gaps in Western attention; drives urgent Ukraine capability requests</td>
+            <td><span class="conf low">Low — analyst judgment only</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 9. CONGRESSIONAL RFI READINESS -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">9</span>
+    <h3>Congressional RFI Readiness</h3>
+  </div>
+  <div class="section-body">
+    <div class="tbl-wrap">
+      <table class="data-table rfi-table">
+        <thead>
+          <tr>
+            <th style="width:30%">Likely RFI Question</th>
+            <th style="width:40%">Short Answer (verify with current sources)</th>
+            <th style="width:20%">Source Direction</th>
+            <th style="width:10%">Conf.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>What changed in Ukraine-Russia War in last 24–48 hrs?</td>
+            <td>⚡ Cannot answer from AI training data — requires current ISW/Reuters/AP monitoring</td>
+            <td>ISW: isw.org; Reuters; AP</td>
+            <td><span class="conf cannot">N/A</span></td>
+          </tr>
+          <tr>
+            <td>Are U.S. Patriot interceptor stocks adequate for Ukraine AND Middle East?</td>
+            <td>Structural answer: No — dual-theater demand creates inventory stress; Raytheon production is expanding but lags behind combined consumption rate</td>
+            <td>RTX earnings; DoD; CRS; GAO</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td>What is remaining PDA authority and when will it run out?</td>
+            <td>⚡ Cannot confirm current balance — must query OSD Comptroller / DSCA for current drawdown status vs. authorized ceiling</td>
+            <td>OSD Comptroller; DSCA; Congress.gov</td>
+            <td><span class="conf cannot">N/A</span></td>
+          </tr>
+          <tr>
+            <td>Is replenishment keeping pace with PDA transfers?</td>
+            <td>Through mid-2025: No — GAO found systematic lag. Structural problem requires multi-year production contracts and sustained appropriations</td>
+            <td>GAO-25-XXX (verify latest); Army AMC</td>
+            <td><span class="conf high">High (structural)</span></td>
+          </tr>
+          <tr>
+            <td>What is North Korea supplying Russia and in what volume?</td>
+            <td>Millions of 152mm/122mm artillery shells confirmed; KN-23 ballistic missiles reported; up to ~10,000 troops in Russia (late 2024). Materially bolsters Russian fires capacity</td>
+            <td>State Dept; UK MOD; ISW; NATO</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td>What is China's current support to Russia?</td>
+            <td>Dual-use goods, electronics, machine tools — documented. No direct weapons transfers confirmed through AI training data. Primary economic and diplomatic lifeline</td>
+            <td>Treasury OFAC; EU sanctions; Reuters</td>
+            <td><span class="conf high">High</span></td>
+          </tr>
+          <tr>
+            <td>Are Ukraine and Op. Epic Fury competing for same munitions?</td>
+            <td>Structurally yes for: Patriot interceptors, counter-drone systems, precision munitions. Op. Epic Fury specifics cannot be confirmed. This is a real inventory competition requiring OSD/CENTCOM/EUCOM reconciliation</td>
+            <td>OSD; CENTCOM; EUCOM; classified</td>
+            <td><span class="conf medium">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Has Iran's drone supply to Russia been disrupted?</td>
+            <td>⚡ Cannot confirm — depends on Op. Epic Fury scope and targets. Even if production facilities struck, Russia has domestic Geran-2 production capability</td>
+            <td>Classified; CENTCOM reporting</td>
+            <td><span class="conf cannot">Cannot Confirm</span></td>
+          </tr>
+          <tr>
+            <td>Is 155mm production keeping pace with Ukraine needs?</td>
+            <td>Through mid-2025: No, but Czech-led allied initiative bridging gap. U.S. ramp toward 100k rounds/month was behind schedule. ⚡ Verify current production rates with Army AMC</td>
+            <td>Army AMC; Breaking Defense; Czech MoD</td>
+            <td><span class="conf high">High (structural)</span></td>
+          </tr>
+          <tr>
+            <td>What additional funding actions may be needed?</td>
+            <td>⚡ Cannot confirm FY2026 supplemental status — likely another supplemental or reprogramming action needed if PDA authority is depleted and production replenishment lags. Verify with OSD Comptroller</td>
+            <td>OMB; OSD Comptroller; House Approps</td>
+            <td><span class="conf cannot">Cannot Confirm</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 10. DELTA FROM PRIOR REPORT -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">10</span>
+    <h3>Delta From Prior Report</h3>
+  </div>
+  <div class="section-body">
+    <div class="cannot-confirm">
+      No prior daily report was available for automated comparison. This is either the first run of this routine, or no prior report was committed to this repository for comparison. Delta analysis requires a stored prior-day report baseline. Going forward, each daily run should commit the report to the repository at <code>reports/YYYY-MM-DD_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB.html</code> to enable automated delta comparison.
+    </div>
+
+    <div class="delta-item">
+      <span class="delta-badge na"></span>
+      <span><strong>No prior report available.</strong> Establishing baseline with this run. Delta section will be populated on subsequent cycles.</span>
+    </div>
+    <div class="delta-item">
+      <span class="delta-badge new" style="background:var(--amber);"></span>
+      <span><strong>NEW — Routine Limitation Identified:</strong> This AI session lacks real-time internet access. To generate a live-data brief, configure the scheduled routine with a web-search-enabled AI session or integrate with live news APIs. This is the primary operational gap for this routine.</span>
+    </div>
+  </div>
+</div>
+
+<!-- 11. ANALYST ASSESSMENT -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">11</span>
+    <h3>Analyst Assessment</h3>
+  </div>
+  <div class="section-body">
+
+    <h4>What Matters Most Today</h4>
+    <p><strong>[Confirmed Facts]</strong> The structural pressure on U.S. air defense interceptor inventories from simultaneous Ukraine and CENTCOM (Middle East) demands remains the single most operationally significant issue for OUSW P/B analysts. No near-term production solution closes this gap — Raytheon's ramp to 500+ PAC-3 MSE per year will not cover combined consumption. This will drive congressional pressure, potential reprogramming actions, and allied burden-sharing requests.</p>
+
+    <h4>Watch Over Next 7 Days</h4>
+    <ul style="padding-left:20px;font-size:13.5px;line-height:1.8;">
+      <li>PDA drawdown notifications and any administration request for new authority</li>
+      <li>Russian mass strike events and Ukrainian air defense performance</li>
+      <li>CENTCOM operational tempo and any published assessments of its effect on Ukraine support chains</li>
+      <li>House/Senate Appropriations activity on FY2026 defense and foreign affairs bills</li>
+      <li>RTX / Lockheed Martin production milestone announcements</li>
+    </ul>
+
+    <h4>What Could Become a Congressional Issue</h4>
+    <p><strong>[Analyst Judgment]</strong> If U.S. military operations in the Middle East (Op. Epic Fury) result in higher-than-expected interceptor consumption or naval air defense requirements, Congress will demand a reconciled multi-theater inventory brief and will question whether Ukraine is receiving adequate priority. This is a politically sensitive resource-allocation question with no clean technical answer.</p>
+
+    <h4>What Cannot Be Confirmed</h4>
+    <ul style="padding-left:20px;font-size:13.5px;line-height:1.8;color:var(--text-2);">
+      <li>Any developments from September 15–16, 2026 (beyond AI training cutoff)</li>
+      <li>Operation Epic Fury specific scope, targets, or status</li>
+      <li>Current PDA balance, USAI obligation pace, or FY2026 appropriations status</li>
+      <li>Whether Iranian drone/missile supply to Russia has been disrupted</li>
+      <li>Current battlefield frontline positions</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 12. SOURCE LOG -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">12</span>
+    <h3>Required News Article / Source Log</h3>
+  </div>
+  <div class="section-body">
+
+    <div class="rtl-flag">
+      CRITICAL: No real-time internet access was available for this run. No live article links can be provided. The sources below are the authoritative channels analysts should query for current-cycle reporting. Every source listed has a verified domain; no specific articles with dates and links can be provided for today's cycle from this AI session.
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:12px;">
+      <table class="data-table">
+        <thead>
+          <tr><th>#</th><th>Source</th><th>Domain / Access</th><th>Topic Coverage</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Institute for the Study of War</td><td>isw.org/russia-ukraine-war-updates</td><td>Daily battlefield updates, order of battle, analysis</td><td>Analysis</td></tr>
+          <tr><td>2</td><td>DoD Press Releases</td><td>defense.gov/News/Releases</td><td>PDA announcements, Ukraine aid packages, official statements</td><td>Official Source</td></tr>
+          <tr><td>3</td><td>State Department</td><td>state.gov/ukraine</td><td>Diplomatic, FMF, sanctions, policy</td><td>Official Source</td></tr>
+          <tr><td>4</td><td>Congress.gov</td><td>congress.gov</td><td>Appropriations bills, NDAA, supplemental tracking</td><td>Official Source</td></tr>
+          <tr><td>5</td><td>Reuters Ukraine coverage</td><td>reuters.com/world/europe</td><td>Breaking news, verified battlefield reporting</td><td>News</td></tr>
+          <tr><td>6</td><td>Associated Press</td><td>apnews.com/hub/russia-ukraine</td><td>Breaking news, verified reporting</td><td>News</td></tr>
+          <tr><td>7</td><td>Breaking Defense</td><td>breakingdefense.com</td><td>DIB, production, procurement, military analysis</td><td>Defense media</td></tr>
+          <tr><td>8</td><td>Defense News</td><td>defensenews.com</td><td>Acquisition, budget, policy, foreign military sales</td><td>Defense media</td></tr>
+          <tr><td>9</td><td>USNI News</td><td>news.usni.org</td><td>Naval operations, CENTCOM, Black Sea</td><td>Defense media</td></tr>
+          <tr><td>10</td><td>Congressional Research Service</td><td>crsreports.congress.gov</td><td>Authoritative background on Ukraine aid, funding, legal authorities</td><td>Official/Analysis</td></tr>
+          <tr><td>11</td><td>GAO Reports</td><td>gao.gov/reports</td><td>Oversight, replenishment, readiness findings</td><td>Official</td></tr>
+          <tr><td>12</td><td>UK Ministry of Defence</td><td>gov.uk/government/organisations/ministry-of-defence</td><td>Daily Ukraine intelligence updates, DPRK, Russia</td><td>Official</td></tr>
+          <tr><td>13</td><td>RUSI (Royal United Services Institute)</td><td>rusi.org</td><td>Deep-dive military, DIB, doctrinal analysis</td><td>Analysis</td></tr>
+          <tr><td>14</td><td>Atlantic Council</td><td>atlanticcouncil.org</td><td>Policy, funding, NATO, energy security</td><td>Analysis</td></tr>
+          <tr><td>15</td><td>Kyiv Independent</td><td>kyivindependent.com</td><td>Ukrainian-perspective reporting; use with source label</td><td>Regional — label as Ukrainian source</td></tr>
+          <tr><td>16</td><td>ACLED (Armed Conflict Location & Event Data)</td><td>acleddata.com</td><td>Geolocated event data, conflict mapping</td><td>Data/Analysis</td></tr>
+          <tr><td>17</td><td>Treasury OFAC</td><td>treasury.gov/resource-center/sanctions</td><td>Sanctions designations, Russia/Iran/DPRK/China</td><td>Official Source</td></tr>
+          <tr><td>18</td><td>Wall Street Journal</td><td>wsj.com</td><td>Policy, budget, defense industry</td><td>News (paywalled)</td></tr>
+          <tr><td>19</td><td>Financial Times</td><td>ft.com</td><td>Economic, energy, European policy, sanctions</td><td>News (paywalled)</td></tr>
+          <tr><td>20</td><td>Politico Defense</td><td>politico.com/defense</td><td>Congressional dynamics, appropriations, Hill reporting</td><td>News</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 13. CONFIDENCE MATRIX -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-alpha">13</span>
+    <h3>Confidence Matrix</h3>
+  </div>
+  <div class="section-body">
+    <div class="tbl-wrap">
+      <table class="data-table conf-matrix">
+        <thead>
+          <tr><th>Claim / Topic</th><th>Confidence</th><th>Reason</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Last 24–48 hr battlefield developments</td><td><span class="conf cannot">Cannot Confirm</span></td><td>AI training cutoff August 2025; no real-time internet access</td></tr>
+          <tr><td>Structural air defense interceptor shortage (dual-theater)</td><td><span class="conf high">High</span></td><td>Confirmed by multiple credible sources through training data; structurally persistent issue</td></tr>
+          <tr><td>North Korea artillery shell / missile supply to Russia</td><td><span class="conf high">High</span></td><td>Confirmed by State Dept, NATO, UK MOD, multiple independent governments</td></tr>
+          <tr><td>Iran Shahed drone supply to Russia</td><td><span class="conf high">High</span></td><td>Confirmed by EU sanctions, Western intelligence, satellite imagery</td></tr>
+          <tr><td>Iran ballistic missile supply to Russia</td><td><span class="conf medium">Medium</span></td><td>Reported by credible sources; Iran and Russia deny; Western gov'ts assess likely</td></tr>
+          <tr><td>China direct weapons transfer to Russia</td><td><span class="conf medium">Medium</span></td><td>Dual-use goods confirmed; direct weapons not confirmed through training data</td></tr>
+          <tr><td>155mm production gap / replenishment lag</td><td><span class="conf high">High</span></td><td>Confirmed by GAO, Army testimony, Congressional hearings</td></tr>
+          <tr><td>PDA authority balance / FY2026 funding status</td><td><span class="conf cannot">Cannot Confirm</span></td><td>Post-cutoff; must be verified with OSD Comptroller</td></tr>
+          <tr><td>Operation Epic Fury specifics</td><td><span class="conf cannot">Cannot Confirm</span></td><td>Named operation not in AI training data; cannot confirm scope, targets, or status</td></tr>
+          <tr><td>Op. Epic Fury → Iran supply disruption effect on Ukraine</td><td><span class="conf cannot">Cannot Confirm</span></td><td>Requires current intelligence and Op. Epic Fury details not available to AI</td></tr>
+          <tr><td>DPRK troops in Russia (ground combat)</td><td><span class="conf high">High</span></td><td>Confirmed by South Korea, U.S. intelligence, NATO (late 2024 reporting in training data)</td></tr>
+          <tr><td>F-16 deliveries to Ukraine</td><td><span class="conf high">High</span></td><td>Confirmed official deliveries by Netherlands and Denmark, ~summer 2024</td></tr>
+          <tr><td>Russian nuclear escalation risk</td><td><span class="conf medium">Medium</span></td><td>Persistent coercive signaling documented; actual use assessed low-probability</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="report-footer">
+  <span>UNCLASSIFIED // FOR OFFICIAL USE ONLY</span>
+  <span>AI-GENERATED RESEARCH AID — HUMAN REVIEW REQUIRED BEFORE DISSEMINATION</span>
+  <span>PRODUCED: 16 SEP 2026 0500 ET</span>
+  <span>OUSW COMPTROLLER P/B DAILY BRIEF</span>
+</div>

@@ -1,0 +1,1043 @@
+<title>Ukraine–Russia Analyst Brief — 21 Sep 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Serif:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* ─── TOKEN SYSTEM ─── */
+  :root {
+    --bg:          #F0F3F8;
+    --bg-surface:  #FFFFFF;
+    --bg-card:     #F7F9FC;
+    --bg-stripe:   #EEF2F8;
+    --border:      #C5D0E4;
+    --text:        #0D1526;
+    --text-2:      #4A5A78;
+    --text-3:      #6B7C9C;
+    --accent:      #8A6A10;
+    --accent-bg:   #FDF3D9;
+    --accent-light:#C9A84C;
+    --crit:        #C23030;
+    --crit-bg:     #FFF0F0;
+    --warn:        #A05C10;
+    --warn-bg:     #FFF5E5;
+    --ok:          #1E7A4F;
+    --ok-bg:       #EBF7F2;
+    --muted-bg:    #E8EDF7;
+    --tab-active:  #0D1526;
+    --tab-text:    #4A5A78;
+    --tag-bg:      #E2E9F5;
+    --tag-text:    #2A3C62;
+    --header-bg:   #0D1526;
+    --header-text: #E8D9A8;
+    --conf-h-bg:   #E6F4EE; --conf-h-text: #1E7A4F;
+    --conf-m-bg:   #FFF5E5; --conf-m-text: #A05C10;
+    --conf-l-bg:   #FFF0F0; --conf-l-text: #C23030;
+    --conf-u-bg:   #F0F0F0; --conf-u-text: #555;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:          #090E1C;
+      --bg-surface:  #0F1829;
+      --bg-card:     #131F35;
+      --bg-stripe:   #0F1829;
+      --border:      #1E2D4E;
+      --text:        #E0E8F5;
+      --text-2:      #8090B4;
+      --text-3:      #5A6A8E;
+      --accent:      #C9A84C;
+      --accent-bg:   #1E1700;
+      --accent-light:#C9A84C;
+      --crit:        #E05555;
+      --crit-bg:     #2A0808;
+      --warn:        #D4892A;
+      --warn-bg:     #1E1000;
+      --ok:          #3A9E6F;
+      --ok-bg:       #051A10;
+      --muted-bg:    #111C30;
+      --tab-active:  #E0E8F5;
+      --tab-text:    #8090B4;
+      --tag-bg:      #1A2540;
+      --tag-text:    #8EB4F5;
+      --header-bg:   #050A14;
+      --header-text: #C9A84C;
+      --conf-h-bg:   #051A10; --conf-h-text: #3A9E6F;
+      --conf-m-bg:   #1E1000; --conf-m-text: #D4892A;
+      --conf-l-bg:   #2A0808; --conf-l-text: #E05555;
+      --conf-u-bg:   #1A1A22; --conf-u-text: #888;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:          #090E1C;
+    --bg-surface:  #0F1829;
+    --bg-card:     #131F35;
+    --bg-stripe:   #0F1829;
+    --border:      #1E2D4E;
+    --text:        #E0E8F5;
+    --text-2:      #8090B4;
+    --text-3:      #5A6A8E;
+    --accent:      #C9A84C;
+    --accent-bg:   #1E1700;
+    --accent-light:#C9A84C;
+    --crit:        #E05555;
+    --crit-bg:     #2A0808;
+    --warn:        #D4892A;
+    --warn-bg:     #1E1000;
+    --ok:          #3A9E6F;
+    --ok-bg:       #051A10;
+    --muted-bg:    #111C30;
+    --tab-active:  #E0E8F5;
+    --tab-text:    #8090B4;
+    --tag-bg:      #1A2540;
+    --tag-text:    #8EB4F5;
+    --header-bg:   #050A14;
+    --header-text: #C9A84C;
+    --conf-h-bg:   #051A10; --conf-h-text: #3A9E6F;
+    --conf-m-bg:   #1E1000; --conf-m-text: #D4892A;
+    --conf-l-bg:   #2A0808; --conf-l-text: #E05555;
+    --conf-u-bg:   #1A1A22; --conf-u-text: #888;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { font-size: 15px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    line-height: 1.65;
+    padding-inline: 16px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  /* ─── CLASSIFICATION BANNER ─── */
+  .class-banner {
+    background: var(--header-bg);
+    color: var(--header-text);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-align: center;
+    padding: 6px 16px;
+    margin-inline: -16px;
+  }
+
+  /* ─── REPORT HEADER ─── */
+  .report-header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 20px 24px 18px;
+    margin-inline: -16px;
+    border-bottom: 2px solid var(--accent-light);
+    margin-bottom: 0;
+  }
+  .report-header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    opacity: 0.65;
+    margin-bottom: 6px;
+  }
+  .report-header h1 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--header-text);
+    margin: 0 0 4px;
+    text-wrap: balance;
+    line-height: 1.25;
+  }
+  .report-header .subtitle {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    opacity: 0.7;
+    margin: 0;
+  }
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    opacity: 0.75;
+  }
+  .header-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* ─── TABS ─── */
+  .tabs-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
+    margin-inline: -16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs-wrapper::-webkit-scrollbar { display: none; }
+  .tabs {
+    display: flex;
+    min-width: max-content;
+    padding-inline: 16px;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--tab-text);
+    padding: 11px 14px;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    color: var(--tab-active);
+    border-bottom-color: var(--accent-light);
+  }
+
+  /* ─── TAB PANELS ─── */
+  .tab-panel { display: none; padding-block: 24px; }
+  .tab-panel.active { display: block; }
+
+  /* ─── SECTION HEADINGS ─── */
+  h2 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    border-left: 3px solid var(--accent-light);
+    padding-left: 10px;
+    margin: 28px 0 12px;
+    letter-spacing: 0.02em;
+  }
+  h2:first-child { margin-top: 0; }
+  h3 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-2);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 20px 0 8px;
+  }
+  h3:first-child { margin-top: 0; }
+
+  /* ─── BLUF CARDS ─── */
+  .bluf-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent-light);
+    border-radius: 4px;
+    padding: 13px 16px;
+    margin-bottom: 10px;
+  }
+  .bluf-card.crit { border-left-color: var(--crit); }
+  .bluf-card.warn { border-left-color: var(--warn); }
+  .bluf-card.ok   { border-left-color: var(--ok); }
+  .bluf-card p { margin: 0 0 4px; font-size: 0.9rem; }
+  .bluf-card .source-line {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-3);
+    margin: 0;
+  }
+  .bluf-card .source-line a { color: var(--accent-light); text-decoration: none; }
+  .bluf-card .source-line a:hover { text-decoration: underline; }
+
+  /* ─── TAGS / BADGES ─── */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 4px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .tag.crit { background: var(--crit-bg); color: var(--crit); }
+  .tag.warn { background: var(--warn-bg); color: var(--warn); }
+  .tag.ok   { background: var(--ok-bg);   color: var(--ok);   }
+  .tag.gold { background: var(--accent-bg); color: var(--accent); }
+
+  /* ─── CONFIDENCE BADGES ─── */
+  .conf {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 3px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .conf-h { background: var(--conf-h-bg); color: var(--conf-h-text); }
+  .conf-m { background: var(--conf-m-bg); color: var(--conf-m-text); }
+  .conf-l { background: var(--conf-l-bg); color: var(--conf-l-text); }
+  .conf-u { background: var(--conf-u-bg); color: var(--conf-u-text); }
+
+  /* ─── BULLET ITEMS ─── */
+  .bullet-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+  }
+  .bullet-item .item-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+  .bullet-item p { margin: 0 0 5px; }
+  .bullet-item p:last-child { margin-bottom: 0; }
+  .bullet-item .src {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.67rem;
+    color: var(--text-3);
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+    padding-top: 6px;
+  }
+  .bullet-item .src a { color: var(--accent-light); text-decoration: none; }
+  .bullet-item .src a:hover { text-decoration: underline; }
+
+  /* ─── TABLES ─── */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 16px; border-radius: 4px; border: 1px solid var(--border); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    min-width: 500px;
+  }
+  table caption {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    text-align: left;
+    padding: 8px 10px 6px;
+    background: var(--muted-bg);
+    border-bottom: 1px solid var(--border);
+  }
+  thead th {
+    background: var(--muted-bg);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) td { background: var(--bg-stripe); }
+  td {
+    padding: 9px 10px;
+    vertical-align: top;
+    color: var(--text);
+  }
+  td a { color: var(--accent-light); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; }
+  td a:hover { text-decoration: underline; }
+
+  /* ─── WATCH ITEM ─── */
+  .watch-item {
+    display: grid;
+    grid-template-columns: 3px 1fr;
+    gap: 0 12px;
+    margin-bottom: 10px;
+    align-items: stretch;
+  }
+  .watch-item .bar { background: var(--warn); border-radius: 2px; }
+  .watch-item .body {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 0 4px 4px 0;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+  .watch-item .body strong { font-family: 'Source Sans 3', sans-serif; display: block; margin-bottom: 3px; }
+
+  /* ─── RFI QUESTIONS ─── */
+  .rfi-q {
+    counter-increment: rfi;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+  }
+  .rfi-q::before {
+    content: "Q" counter(rfi);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: 3px;
+    padding: 2px 7px;
+    min-width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+    height: fit-content;
+    margin-top: 2px;
+  }
+  .rfi-list { counter-reset: rfi; list-style: none; padding: 0; margin: 0; }
+
+  /* ─── ANALYST ASSESSMENT ─── */
+  .assessment-block {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .assessment-block .ablock-head {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    text-transform: uppercase;
+  }
+  .assessment-block .ablock-head.fact  { background: var(--ok-bg);   color: var(--ok);   }
+  .assessment-block .ablock-head.judge { background: var(--warn-bg);  color: var(--warn); }
+  .assessment-block .ablock-head.nocon { background: var(--muted-bg); color: var(--text-3); }
+  .assessment-block .ablock-body { padding: 10px 14px; font-size: 0.88rem; }
+  .assessment-block .ablock-body ul { margin: 0; padding-left: 18px; }
+  .assessment-block .ablock-body li { margin-bottom: 4px; }
+
+  /* ─── MISC ─── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .note-box {
+    background: var(--accent-bg);
+    border: 1px solid color-mix(in srgb, var(--accent-light) 40%, transparent);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 0.83rem;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .note-box strong { color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; }
+  .delta-row { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px; font-size: 0.88rem; }
+  .delta-pill { flex-shrink: 0; border-radius: 3px; padding: 2px 8px; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; font-weight: 500; height: fit-content; margin-top: 2px; }
+  .dp-new  { background: var(--ok-bg);   color: var(--ok);   }
+  .dp-esc  { background: var(--crit-bg); color: var(--crit); }
+  .dp-chg  { background: var(--warn-bg); color: var(--warn); }
+  .dp-cont { background: var(--muted-bg); color: var(--text-3); }
+
+  .footer-bar {
+    background: var(--header-bg);
+    color: var(--text-3);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    text-align: center;
+    padding: 10px 16px;
+    margin-inline: -16px;
+    margin-top: 32px;
+    border-top: 1px solid var(--accent-bg);
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 14px; }
+    .report-header h1 { font-size: 1.2rem; }
+    .header-meta { gap: 10px; }
+    table { min-width: 360px; font-size: 0.76rem; }
+  }
+</style>
+
+<!-- CLASSIFICATION BANNER -->
+<div class="class-banner">UNCLASSIFIED // FOR OFFICIAL USE ONLY (FOUO) — OUSW COMPTROLLER P/B ANALYST USE</div>
+
+<!-- REPORT HEADER -->
+<div class="report-header">
+  <div class="eyebrow">DEPARTMENT OF WAR / OUSW COMPTROLLER PROGRAM-BUDGET OFFICE</div>
+  <h1>Ukraine–Russia War Daily Analyst Brief</h1>
+  <p class="subtitle">Defense Articles · Stockpiles · Budget · Congressional RFI · Operation Epic Fury Cross-Theater Impacts</p>
+  <div class="header-meta">
+    <span>📅 21 SEPTEMBER 2026</span>
+    <span>⏱ WAR DAY ~1,304</span>
+    <span>📋 REPORTING WINDOW: 19–21 SEP 2026</span>
+    <span>🕔 0500 ET RELEASE</span>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tabs-wrapper">
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" role="tab" onclick="switchTab(0)">I — Senior Leader Snapshot</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(1)">II — Battlefield</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(2)">III — Defense Articles &amp; Stockpiles</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(3)">IV — Funding &amp; Congressional</button>
+    <button class="tab-btn" role="tab" onclick="switchTab(4)">V — Epic Fury / Analysis / Sources</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 1 — SENIOR LEADER SNAPSHOT
+══════════════════════════════════════════ -->
+<div class="tab-panel active" id="panel-0">
+
+  <div class="note-box">
+    <strong>READING TIME ≈ 2 MIN</strong> — Executive one-pager. Bottom line, top comptroller issues, watch items, and likely RFI questions.
+  </div>
+
+  <h2>A. Bottom Line Up Front (BLUF)</h2>
+
+  <div class="bluf-card crit">
+    <p><span class="tag crit">STOCKPILES</span><span class="tag gold">EPIC FURY LINKAGE</span> Ukraine has virtually exhausted its U.S.-made Patriot PAC-3 interceptors — the only weapon in its arsenal capable of defeating Russian ballistic missiles — receiving only one-third as many air-defense interceptors in 2026 as in the same period of 2025. Operation Epic Fury consumed up to 61% of the U.S. Patriot arsenal in the first 39 days; Washington has prioritized CENTCOM and INDOPACOM reconstitution over European resupply, leaving Ukraine in a critical air-defense deficit.</p>
+    <p class="source-line">Sources: <a href="https://www.rferl.org/a/ukraine-patriots-russia-shortage-us-stockpile/33823317.html" target="_blank">RFERL (Sep 2026)</a> | <a href="https://euromaidanpress.com/2026/04/22/us-spent-up-to-61-of-its-patriot-arsenal-in-39-days-ukraine-looks-at-building-its-own-ballistic-defense/" target="_blank">EuroMaidan Press (22 Apr 2026)</a> | Confidence: <span class="conf conf-h">HIGH</span></p>
+  </div>
+
+  <div class="bluf-card warn">
+    <p><span class="tag warn">BATTLEFIELD</span> Russian forces netted +58 square miles of Ukrainian territory over the four weeks ending September 14, 2026 — a continued slow-grind advance. Ukraine struck Moscow Oblast on Sept 19–20 during Russia's State Duma elections in the largest combined missile/drone package to date, signaling continued Ukrainian long-range strike capability despite air-defense shortfalls.</p>
+    <p class="source-line">Sources: <a href="https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-sept-16-2026" target="_blank">Russia Matters (16 Sep 2026)</a> | <a href="https://www.kyivpost.com/post/84971" target="_blank">ISW via Kyiv Post (20 Sep 2026)</a> | Confidence: <span class="conf conf-h">HIGH</span></p>
+  </div>
+
+  <div class="bluf-card crit">
+    <p><span class="tag crit">READINESS</span><span class="tag gold">DIB</span> The Pentagon is moving to triple Patriot and quadruple THAAD interceptor production but has acknowledged a 3+ year gap before pre-Epic Fury inventory levels are restored. Production currently runs ~620 PAC-3 interceptors/year against two-theater demand exceeding that on a monthly basis during high-intensity operations. This creates a documented, multi-year U.S. readiness shortfall with direct congressional oversight implications.</p>
+    <p class="source-line">Sources: <a href="https://www.defensenews.com/news/pentagon-congress/2026/08/03/pentagon-moves-to-triple-patriot-quadruple-thaad-interceptor-production/" target="_blank">Defense News (3 Aug 2026)</a> | <a href="https://www.csis.org/analysis/rebuilding-us-missile-inventory-multiyear-project" target="_blank">CSIS (2026)</a> | Confidence: <span class="conf conf-h">HIGH</span></p>
+  </div>
+
+  <div class="bluf-card warn">
+    <p><span class="tag warn">FUNDING</span> The FY2026 NDAA authorized only $400M in USAI funding for Ukraine — a sharp reduction from the ~$14B in the April 2024 supplemental. $4.96B in PDA authority remained available as of June 30, 2026, but the Secretary of War retains discretion over whether and how those funds are obligated. Total U.S. commitment since 2022 stands at $68.2B+.</p>
+    <p class="source-line">Sources: <a href="https://www.osw.waw.pl/en/publikacje/analyses/2025-12-19/us-defence-budget-2026-congress-approves-continued-support-ukraine" target="_blank">OSW (Dec 2025)</a> | <a href="https://www.congress.gov/crs_external_products/IF/PDF/IF12040/IF12040.36.pdf" target="_blank">CRS IF12040 (10 Jul 2026)</a> | Confidence: <span class="conf conf-h">HIGH</span></p>
+  </div>
+
+  <div class="bluf-card">
+    <p><span class="tag gold">EPIC FURY / IRAN</span> Operation Epic Fury (launched 28 Feb 2026) has struck 5,000+ Iranian targets. Russia–Iran defense cooperation is under stress as Iran faces an existential military campaign, but Russia still benefits from an Iran-war-driven oil price windfall (Brent ~$109 as of early Sep 2026). North Korea now provides ~50% of Russia's battlefield ammunition, partially compensating for any Iranian supply disruption.</p>
+    <p class="source-line">Sources: <a href="https://www.centcom.mil/OPERATIONS-AND-EXERCISES/EPIC-FURY/" target="_blank">CENTCOM (2026)</a> | <a href="https://www.atlanticcouncil.org/dispatches/north-korean-missiles-are-abetting-russias-campaign-to-overwhelm-ukraines-air-defenses/" target="_blank">Atlantic Council (2026)</a> | Confidence: <span class="conf conf-m">MEDIUM</span></p>
+  </div>
+
+  <hr class="divider">
+
+  <h2>B. Top Issues for OUSW Comptroller P/B Analysts</h2>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag crit">STOCKPILES</span><span class="tag gold">EPIC FURY LINKAGE</span></div>
+    <p><strong>Two-theater interceptor deficit is the defining readiness problem of FY2026.</strong> Operation Epic Fury reduced the U.S. Patriot inventory from 2,330 to approximately 1,030 missiles during its initial phase. Ukraine simultaneously exhausted its allocations. Production (620/yr) cannot keep pace with concurrent EUCOM and CENTCOM requirements. The multi-year rebuilding timeline has direct implications for apportionment, reprogramming, and multi-year procurement (MYP) decisions in FY2027–2030.</p>
+    <p><em>Likely RFI: "What is the timeline to restore Patriot/THAAD inventories to pre-war levels, and what are the FY2027+ funding requirements?"</em></p>
+    <div class="src">Defense News <a href="https://www.defensenews.com/news/your-military/2026/07/30/iran-war-depleted-us-patriot-missile-stockpiles-creating-readiness-challenges-experts-say/" target="_blank">Jul 30 2026</a> · CSIS <a href="https://www.csis.org/analysis/rebuilding-us-missile-inventory-multiyear-project" target="_blank">2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag warn">USAI</span><span class="tag warn">PDA</span></div>
+    <p><strong>$400M USAI (FY2026) vs. $4.96B remaining PDA authority — execution gap is congressional focus.</strong> USAI represents a >97% reduction from the April 2024 supplemental baseline. Congress authorized PDA authority but execution depends on Secretary of War decision. Analysts should be prepared to explain the distinction between authorization, appropriation, and obligation — and why $4.96B in available PDA has not been fully committed.</p>
+    <div class="src">CRS <a href="https://www.congress.gov/crs_external_products/IF/PDF/IF12040/IF12040.36.pdf" target="_blank">IF12040 (Jul 10 2026)</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag gold">DIB</span><span class="tag gold">REPLENISHMENT</span></div>
+    <p><strong>Pentagon's $59B Patriot deal and production ramp is the core DIB story for FY2026–2030.</strong> Lockheed Martin is under contract to triple PAC-3 MSE production to 2,000/year by 2030. The Army separately awarded $441M for GEM-T interceptors to support Epic Fury reconstitution. Budget execution tracking for these contracts — and their interaction with Ukraine replenishment — is a likely senior leader and congressional focus.</p>
+    <div class="src">Defense News <a href="https://www.defensenews.com/news/pentagon-congress/2026/08/03/pentagon-moves-to-triple-patriot-quadruple-thaad-interceptor-production/" target="_blank">Aug 3 2026</a> · Army Recognition <a href="https://www.armyrecognition.com/news/army-news/2026/u-s-army-awards-441m-patriot-gem-t-interceptors-boost-missile-defense-for-epic-fury" target="_blank">2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag warn">CONGRESSIONAL RFI</span><span class="tag warn">READINESS</span></div>
+    <p><strong>Pentagon Inspector General report on Operation Epic Fury (Sep 16) may generate congressional oversight activity.</strong> The IG report release creates a near-term congressional oversight trigger. Analysts should anticipate questions about cost, execution, munitions burn rate, and readiness impacts. Review the IG report for specific findings related to procurement irregularities, contract execution, and supply chain gaps.</p>
+    <div class="src">USNI News <a href="https://news.usni.org/2026/09/16/pentagon-inspector-general-report-on-operation-epic-fury" target="_blank">Sep 16 2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag crit">ESCALATION</span><span class="tag crit">READINESS</span></div>
+    <p><strong>Russia deploying RM48U training missiles against Ukraine — signals desperation and new supply chain behavior.</strong> Russia is repurposing training missiles (originally air-defense targets) for live strikes, indicating potential mainline missile inventory stress. This development — combined with North Korean KN-23/KN-24 ballistic missile deliveries — creates new analytical questions about Russian long-term strike sustainability and Ukraine's degraded ability to defend.</p>
+    <div class="src">Daily Caller <a href="https://dailycaller.com/2026/09/18/russia-repurposing-training-missiles-ukraine-patriot-shortage/" target="_blank">Sep 18 2026</a> · Atlantic Council <a href="https://www.atlanticcouncil.org/dispatches/north-korean-missiles-are-abetting-russias-campaign-to-overwhelm-ukraines-air-defenses/" target="_blank">2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag gold">EPIC FURY LINKAGE</span><span class="tag warn">FUNDING</span></div>
+    <p><strong>Operation Epic Fury is economically benefiting Russia via higher oil prices — undermining the sanctions enforcement framework.</strong> Brent crude rebounded to ~$109 in early September 2026. Russia's oil/gas tax revenues for Jan–Jul 2026 were $55.2B, but the windfall is diminishing due to Baltic and Black Sea export disruptions. Congressional questions about whether the Iran war inadvertently funds Russia's Ukraine campaign are likely.</p>
+    <div class="src">Moscow Times <a href="https://www.themoscowtimes.com/2026/09/01/why-the-middle-east-oil-shock-failed-to-save-russias-budget-a93552" target="_blank">Sep 1 2026</a> · Chatham House <a href="https://www.chathamhouse.org/2026/04/iran-war-has-been-economic-gift-putin" target="_blank">Apr 2026</a></div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>C. Watch Items — Next 7 Days</h2>
+
+  <div class="watch-item"><div class="bar"></div><div class="body"><strong>1. Pentagon IG Report Fallout (Epic Fury)</strong> The Sep 16 IG report may generate HASC/SASC hearings or formal data calls. Watch for congressional statements, hearing scheduling, or DoD response documents. Implication: potential reprogramming scrutiny and supplemental pressure.<br><small><a href="https://news.usni.org/2026/09/16/pentagon-inspector-general-report-on-operation-epic-fury" target="_blank">USNI News, Sep 16 2026</a></small></div></div>
+
+  <div class="watch-item"><div class="bar"></div><div class="body"><strong>2. Ukraine Air Defense Collapse Risk</strong> With Patriot stocks near zero, a major Russian ballistic missile campaign could cause catastrophic civilian and military infrastructure losses. Monitor for Ukrainian requests to allies (Germany, Netherlands) for emergency NASAMS/IRIS-T transfers, or a U.S. emergency PDA draw. Implication: emergency supplemental or PDA obligation decision point.<br><small><a href="https://www.armyrecognition.com/news/army-news/2026/ukraines-u-s-made-patriot-missile-shortage-strains-air-defenses-as-russia-intensifies-ballistic-strikes" target="_blank">Army Recognition, 2026</a></small></div></div>
+
+  <div class="watch-item"><div class="bar"></div><div class="body"><strong>3. Russia State Duma Election Results and War Policy Signal</strong> Russian elections concluded Sep 20. Watch for Kremlin announcements on war escalation, mobilization expansion, or diplomatic signals in the days following. A new mobilization wave could affect the trajectory of FY2027 U.S. budget planning for Ukraine support.<br><small><a href="https://www.kyivpost.com/post/84971" target="_blank">ISW / Kyiv Post, Sep 20 2026</a></small></div></div>
+
+  <div class="watch-item"><div class="bar"></div><div class="body"><strong>4. Black Sea / Baltic Port Attack Impact on Russian Export Revenue</strong> Recent attacks have potentially cut Russian oil exports by up to 40%. Monitor for price stabilization or new disruption. If prices sustain above $100, Russia's budget windfall partially resumes, complicating the sanctions effectiveness narrative before Congress.<br><small><a href="https://www.themoscowtimes.com/2026/09/01/why-the-middle-east-oil-shock-failed-to-save-russias-budget-a93552" target="_blank">Moscow Times, Sep 1 2026</a></small></div></div>
+
+  <div class="watch-item"><div class="bar"></div><div class="body"><strong>5. North Korean Troop Deployment Escalation</strong> Zelenskyy warned in August that Russia plans to deploy 30,000–50,000 NK troops. Current deployed figure is ~14,000–15,000. A confirmed expanded deployment would likely trigger congressional action on DPRK sanctions, and could affect INDOPACOM posture calculations and readiness accounts.<br><small><a href="https://www.atlanticcouncil.org/blogs/ukrainealert/arsenal-of-autocracy-north-korea-and-iran-are-arming-russia-in-ukraine/" target="_blank">Atlantic Council, 2026</a></small></div></div>
+
+  <hr class="divider">
+
+  <h2>D. Most Likely Congressional RFI Questions Today</h2>
+
+  <ol class="rfi-list">
+    <li class="rfi-q">Are U.S. Patriot and THAAD interceptor stockpiles recoverable after two simultaneous high-intensity campaigns? What is the timeline and cost?</li>
+    <li class="rfi-q">How does the FY2026 NDAA $400M USAI figure compare to actual Ukrainian requirements? Is there a funding gap?</li>
+    <li class="rfi-q">Is the Pentagon using remaining $4.96B PDA authority for Ukraine? If not, why not?</li>
+    <li class="rfi-q">What did the Pentagon IG find in its Operation Epic Fury report (released Sep 16)?</li>
+    <li class="rfi-q">Is Operation Epic Fury inadvertently benefiting Russia by driving up oil prices and energy revenue?</li>
+    <li class="rfi-q">Is North Korea's ammunition supply to Russia (reportedly ~50% of front-line needs) being interdicted? What are U.S. options?</li>
+    <li class="rfi-q">What is Ukraine's current air-defense posture given confirmed Patriot interceptor depletion? What happens if Russia escalates ballistic missile strikes?</li>
+    <li class="rfi-q">Is Russia deploying repurposed training missiles at scale? What does this indicate about their missile inventory?</li>
+    <li class="rfi-q">Are European allies compensating for reduced U.S. Ukraine support? Is the 2026 NDAA's burden-shifting to Europe actually happening?</li>
+    <li class="rfi-q">What does Russia's net territorial gain of 58 sq miles in 4 weeks indicate about the effectiveness of current U.S. and allied support levels?</li>
+  </ol>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 2 — BATTLEFIELD
+══════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-1">
+
+  <div class="note-box">
+    <strong>READING TIME ≈ 2 MIN</strong> — Military operations, frontline, strikes, force posture, and casualty reporting.
+  </div>
+
+  <h2>2. Battlefield and Military Operations</h2>
+
+  <h3>Long-Range Strikes</h3>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag">EVENT</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>Ukraine's largest combined missile/drone strike on Moscow Oblast</strong> — 19–20 September 2026. Ukrainian forces conducted their largest combined missile and drone strike package to date against strategic targets in Moscow Oblast on the night of Sep 19–20, timed to coincide with the final day of Russian State Duma elections. Russia's failure to intercept the strikes generated discontent in ultranationalist information spaces and exposed vulnerabilities in Moscow's air-defense posture.</p>
+    <p><strong>Significance:</strong> Demonstrates continued Ukrainian long-range strike capability; political embarrassment for Kremlin during elections; indicates Ukraine may be directing scarce air-defense assets toward offensive rather than purely defensive operations.</p>
+    <div class="src">ISW via Kyiv Post <a href="https://www.kyivpost.com/post/84971" target="_blank">Sep 20 2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag">RUSSIAN STRIKES</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>Massive Russian drone/missile barrages continue against Ukrainian population centers.</strong> Sep 12: 2 killed, 6 wounded by Shahed drone strikes on residential buildings in Zaporizhzhia region. Sep 16–17: Russian missile strike on Zaporizhzhia, injuring a woman and two men, hitting industrial facilities; a fire broke out. Sep 17: At least 19 injured (including children) in attacks on Kyiv and other regions. Ukraine's Air Force reported intercepting or suppressing 131 of 174 aerial targets overnight (drones + 2 Zircon missiles from Kursk region). Sep 19: Russia claimed Black Sea vessel strikes; Poland placed on high alert.</p>
+    <div class="src">Al Jazeera <a href="https://www.aljazeera.com/news/2026/9/19/poland-on-high-alert-as-russia-claims-black-sea-vessel-strikes" target="_blank">Sep 19</a> · <a href="https://www.aljazeera.com/news/2026/9/17/at-least-19-injured-in-russian-attacks-across-ukraine" target="_blank">Sep 17</a> · RFERL via GlobalSecurity <a href="https://www.globalsecurity.org/wmd/library/news/ukraine/2026/09/ukraine-260912-rferl02.htm" target="_blank">Sep 12</a></div>
+  </div>
+
+  <h3>Frontline / Ground Operations</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption>Ground Situation Summary — Reporting Window 19–21 Sep 2026</caption>
+      <thead><tr><th>Sector</th><th>Situation</th><th>Trend</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr><td>Overall Frontline</td><td>Russia netted +58 sq mi in 4 weeks ending Sep 14. Slow but sustained Russian offensive pressure.</td><td>📉 Adverse for Ukraine</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>Southern / Huliaipole</td><td>Ukraine conducting limited offensive actions near Huliaipole — "deliberate operational move" per Ukrainian Army. Aims to disrupt Russian reserve concentration and prevent pressure on Zaporizhzhia city.</td><td>⚖️ Mixed</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>Zaporizhzhia Region</td><td>Under sustained Russian strike campaign (see above). Civilian and industrial infrastructure being degraded.</td><td>📉 Adverse for Ukraine</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>Black Sea</td><td>Russia claims strikes on vessels. Poland on high alert. Ukraine continues maritime harassment operations.</td><td>⚠️ Escalatory signal</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>Moscow Oblast</td><td>Ukraine struck strategic targets Sep 19–20 during Duma elections. Russian air defenses failed to intercept all targets.</td><td>✅ Ukrainian strike success</td><td><span class="conf conf-h">HIGH</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Force Posture and Casualties</h3>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag">CASUALTIES</span><span class="conf conf-m">MEDIUM</span></div>
+    <p><strong>Total Russian combat losses since Feb 24, 2022: ~1,519,650 personnel</strong> as of Sep 21, 2026 (per Ukrainian Armed Forces). This is a Ukrainian official claim and should be treated as an estimate at the upper bound. Independent verification is not available. The figure encompasses KIA, WIA, POW, and MIA.</p>
+    <div class="src">Ukraine Armed Forces claim via multiple outlets — <span class="conf conf-m">MEDIUM</span> (Ukrainian official claim, unverified by independent sources)</div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag warn">RUSSIAN TACTICS</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>Russia deploying repurposed RM48U training missiles (originally air-defense targets) as live munitions.</strong> This confirms Russia is sustaining high strike volume by cannibalizing training inventory — a significant indicator that mainline Iskander and cruise missile production may not be meeting operational demand, or that Russia is conserving remaining stockpiles. North Korean KN-23/KN-24 ballistic missiles continue supplementing Russian strikes, overwhelming Ukraine's depleted Patriot interceptors.</p>
+    <div class="src">Daily Caller <a href="https://dailycaller.com/2026/09/18/russia-repurposing-training-missiles-ukraine-patriot-shortage/" target="_blank">Sep 18 2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag">NORTH KOREAN TROOPS</span><span class="conf conf-m">MEDIUM</span></div>
+    <p><strong>~14,000–15,000 North Korean personnel deployed to Russia; Zelenskyy warns of 30,000–50,000 planned expansion (Aug 2026).</strong> NK troops are being integrated into Russian frontline operations. This represents a significant increase in Russia's force generation capacity without the political cost of additional Russian mobilization.</p>
+    <div class="src">Atlantic Council <a href="https://www.atlanticcouncil.org/blogs/ukrainealert/arsenal-of-autocracy-north-korea-and-iran-are-arming-russia-in-ukraine/" target="_blank">2026</a></div>
+  </div>
+
+  <h3>2026 Ukrainian Counteroffensive</h3>
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag ok">UKRAINE</span><span class="conf conf-m">MEDIUM</span></div>
+    <p>The 2026 Southern Ukraine counteroffensive, launched in February near Huliaipole, was the first time since the 2024 Kursk offensive that Ukraine made a monthly net gain. However, by September the initiative has been absorbed into limited "deliberate operational moves" rather than a sustained offensive campaign. ISW assesses that Ukrainian counterattacks in the south could still disrupt Russia's 2026 offensive planning if sustained.</p>
+    <div class="src">Wikipedia: <a href="https://en.wikipedia.org/wiki/2026_Southern_Ukraine_counteroffensive" target="_blank">2026 Southern Ukraine counteroffensive</a> · ISW via NV Ukraine <a href="https://english.nv.ua/russian-war/ukrainian-counterattacks-in-south-could-disrupt-russia-s-2026-offensive-isw-50590399.html" target="_blank">2026</a></div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 3 — DEFENSE ARTICLES & STOCKPILES
+══════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-2">
+
+  <div class="note-box">
+    <strong>READING TIME ≈ 2 MIN</strong> — U.S./allied defense articles, stockpile depletion, production, and replenishment.
+  </div>
+
+  <h2>3A. U.S.-Provided Defense Articles — Status</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption>Key Defense Article Status — September 2026</caption>
+      <thead><tr><th>System</th><th>Status</th><th>Issue</th><th>Conf</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Patriot PAC-3 Interceptors</strong></td><td><span class="tag crit">CRITICAL SHORTAGE</span></td><td>Ukraine near-depleted. U.S. inventory reduced from 2,330 to ~1,030 by OEF. Receiving only 1/3 of 2025 rate.</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td><strong>THAAD Interceptors</strong></td><td><span class="tag crit">SEVERELY DEPLETED</span></td><td>OEF consumed substantial THAAD inventory. Pentagon moving to quadruple production. No confirmed recent Ukraine transfers.</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td><strong>NASAMS</strong></td><td><span class="tag warn">CONSTRAINED</span></td><td>European platform; Ukraine attempting to shift air-defense stack toward NASAMS/IRIS-T as Patriot alternatives.</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td><strong>HIMARS / GMLRS</strong></td><td><span class="tag warn">LIMITED</span></td><td>Continued use; replenishment limited by production rate. No new major package confirmed in reporting window.</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td><strong>ATACMS</strong></td><td><span class="tag">ACTIVE</span></td><td>Ukraine continues using ATACMS for long-range strikes. No confirmed new deliveries in reporting window.</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td><strong>155mm Artillery Rounds</strong></td><td><span class="tag warn">STRAINED</span></td><td>Allied production ramping but still below battlefield consumption rate. North Korean shells to Russia competing in global supply calculations.</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td><strong>F-16 Support</strong></td><td><span class="tag">ACTIVE</span></td><td>F-16s operational in Ukraine. Parts/sustainment an ongoing challenge. No new reports in reporting window.</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3B. Allied / Partner Defense Articles</h2>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag ok">UKRAINE DOMESTIC</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>Ukraine developing the FP-7.x interceptor to reduce Patriot dependency.</strong> With U.S. Patriot supply cut and European platform deliveries insufficient, Ukraine is pursuing domestic mid-war reconstitution of its air-defense stack. The FP-7.x program targets interception of Russian ballistic threats. This is a significant industrial-capacity signal but will not plug near-term gaps.</p>
+    <div class="src">Army Recognition <a href="https://www.armyrecognition.com/news/army-news/2026/ukraine-develops-fp-7-x-interceptor-as-u-s-patriot-pac-3-air-defense-missile-shortages-grow" target="_blank">2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag">EUROPE</span><span class="conf conf-m">MEDIUM</span></div>
+    <p><strong>European allies are increasing support to compensate for reduced U.S. provision</strong>, aligned with the 2026 NDAA's burden-shifting intent. Germany (IRIS-T), Netherlands, and Nordic countries are key contributors. However, European stockpiles are also depleted from prior donations, and their own production ramps are 12–24 months behind demand. The "Danish model" — financing Ukrainian domestic production — is gaining traction as a sustainable approach.</p>
+    <div class="src">OSW <a href="https://www.osw.waw.pl/en/publikacje/analyses/2025-12-19/us-defence-budget-2026-congress-approves-continued-support-ukraine" target="_blank">Dec 2025</a></div>
+  </div>
+
+  <h2>3C. Stockpile and Readiness Issues</h2>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag crit">CRITICAL</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>The U.S. Patriot PAC-3 production-consumption gap is the defining readiness constraint.</strong> Lockheed Martin delivered ~620 interceptors in 2025 (~1.7/day globally) against a network of dozens of batteries worldwide. In the first 16 days of Operation Epic Fury alone, 402 Patriot interceptors were fired. Even at the ambitious 2,000/year target (2030), two simultaneous high-intensity campaigns would deplete that production in weeks. This is not a procurement line item problem — it is a structural industrial base problem requiring sustained MYP investment.</p>
+    <div class="src">FPRI <a href="https://www.fpri.org/article/2026/05/scaling-patriot-production-the-industrial-base-crisis-explained/" target="_blank">May 2026</a> · EuroMaidan Press <a href="https://euromaidanpress.com/2026/04/22/us-spent-up-to-61-of-its-patriot-arsenal-in-39-days-ukraine-looks-at-building-its-own-ballistic-defense/" target="_blank">Apr 22 2026</a></div>
+  </div>
+
+  <h2>3D. Defense Industrial Base — Production Capacity</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption>Defense Industrial Base — Key Production Indicators</caption>
+      <thead><tr><th>Company / System</th><th>Current Rate</th><th>Target Rate</th><th>Timeline</th><th>Issue</th><th>Conf</th></tr></thead>
+      <tbody>
+        <tr><td>Lockheed / PAC-3 MSE</td><td>~620/yr</td><td>2,000/yr</td><td>2030</td><td>Specialized manufacturing; multi-yr contract signed Jan 2026</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>THAAD Interceptors</td><td>Classified</td><td>4× increase</td><td>2028–30</td><td>Pentagon moving to quadruple production; component constraints</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>155mm rounds</td><td>Ramping</td><td>N/A</td><td>Ongoing</td><td>U.S. + allied production still below battlefield consumption; NK shells to Russia add ~50% to global demand</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>Drones / UAVs</td><td>Ramping</td><td>N/A</td><td>Ongoing</td><td>Ukraine domestic production growing; U.S. counter-UAS and attack drone production accelerating</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>$59B Patriot Deal</td><td>—</td><td>Production base</td><td>FY2026–2030</td><td>Key contract for production infrastructure, not just missiles</td><td><span class="conf conf-h">HIGH</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag gold">DIB POLICY</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>Pentagon is now working directly with key component suppliers (rather than only prime contractors)</strong> to address bottlenecks in propellant, rocket motors, and precision guidance. Stars and Stripes (Jul 10, 2026) reported that U.S. weapons production still falls short of wartime needs despite emergency measures. The Pentagon's August guidance directed defense companies to provide investment roadmaps for production expansion.</p>
+    <div class="src">Stars and Stripes <a href="https://www.stripes.com/theaters/us/2026-07-10/us-defense-industrial-base-war-footing-22229946.html" target="_blank">Jul 10 2026</a> · CNBC <a href="https://www.cnbc.com/2026/08/09/pentagon-defense-contractors-weapons-production.html" target="_blank">Aug 9 2026</a></div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 4 — FUNDING & CONGRESSIONAL
+══════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-3">
+
+  <div class="note-box">
+    <strong>READING TIME ≈ 2 MIN</strong> — Budget, appropriations, PDA, USAI, execution, and congressional oversight.
+  </div>
+
+  <h2>5. Funding, Budget, Appropriations, and Congressional Relevance</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption>Ukraine Security Assistance Funding Snapshot — FY2026</caption>
+      <thead><tr><th>Mechanism</th><th>Amount</th><th>Status</th><th>Comptroller Note</th><th>Conf</th></tr></thead>
+      <tbody>
+        <tr><td>USAI (FY2026 NDAA)</td><td>$400M/yr FY26 + FY27</td><td>Authorized; execution at SecWar discretion</td><td>97%+ reduction from Apr 2024 supplemental baseline. Execution status must be tracked.</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>PDA Remaining Authority</td><td>$4.96B (as of Jun 30, 2026)</td><td>Available; not obligated</td><td>Critical question: Why is available authority unobligated? SecWar decision pending or policy decision?</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>Total U.S. Commitment (Feb 2022–Jun 2026)</td><td>$68.2B+</td><td>Committed (mix of obligated/delivered)</td><td>Cumulative figure for congressional reference; breakdown by PDA/USAI/FMF needed for RFIs.</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>NDAA FY2026 European burden-shift</td><td>Policy directive</td><td>Enacted</td><td>2026 NDAA explicitly shifts primary Ukraine aid burden to Europe. Analysts should track European execution against stated commitments.</td><td><span class="conf conf-h">HIGH</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag warn">APPROPRIATIONS</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>The 2026 NDAA represents a structural policy shift, not just a budget cut.</strong> Defense-Aerospace analysis confirms the act "scales back U.S. funding for Ukraine and shifts the burden to Europe." This is not a temporary drawdown but a deliberate rebalancing consistent with the broader Administration posture of reducing direct Ukraine assistance. Analysts must be prepared to explain to Congress why the $400M USAI figure is not a "gap" to be filled by supplemental — it reflects policy intent. The $4.96B unobligated PDA is the real congressional tension point.</p>
+    <div class="src">Defense-Aerospace <a href="https://www.defense-aerospace.com/how-the-2026-ndaa-scales-back-u-s-funding-for-ukraine-and-shifts-the-burden-to-europe/" target="_blank">2026</a> · OSW <a href="https://www.osw.waw.pl/en/publikacje/analyses/2025-12-19/us-defence-budget-2026-congress-approves-continued-support-ukraine" target="_blank">Dec 2025</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag warn">EXECUTION</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>"Washington has ended almost all direct assistance to Ukraine" per multiple credible analyses.</strong> This is a significant characterization that may conflict with official talking points referencing authorized USAI and PDA. Analysts should be prepared to reconcile the distinction between: (a) authorized/appropriated amounts; (b) obligated amounts; and (c) delivered amounts. The Babel/WSJ reporting that Ukraine had weapons until summer and then faced modern-weapons shortages is consistent with the funding trajectory.</p>
+    <div class="src">Babel/WSJ via <a href="https://babel.ua/en/news/115723-wsj-europe-plans-to-compensate-for-possible-suspension-of-the-us-military-aid-to-ukraine" target="_blank">babel.ua</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag gold">CONGRESSIONAL RFI</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>CRS Report IF12040 updated July 10, 2026</strong> is the authoritative baseline document for congressional staff RFIs on U.S. security assistance to Ukraine. Analysts should have this document current and be prepared to cite specific line items. The report covers PDA, USAI, FMF, and ESF (Economic Support Fund) mechanisms.</p>
+    <div class="src">CRS <a href="https://www.congress.gov/crs_external_products/IF/PDF/IF12040/IF12040.36.pdf" target="_blank">IF12040 — Jul 10 2026</a> (Official Government Source)</div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>9. Congressional RFI Readiness</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption>Likely RFI Questions — Short Answers and Sources</caption>
+      <thead><tr><th style="min-width:200px">Question</th><th>Short Answer</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>What changed in the Ukraine–Russia war in 24–48 hrs?</td>
+          <td>Ukraine struck Moscow Oblast during Russian elections (Sep 19–20, largest strike package to date). Russian missile/drone strikes continued across Ukraine; 19+ injured Sep 17. Russia deploying repurposed training missiles. Source: <a href="https://www.kyivpost.com/post/84971" target="_blank">ISW/Kyiv Post</a></td>
+          <td><span class="conf conf-h">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>What defense articles are most urgently needed by Ukraine?</td>
+          <td>Patriot PAC-3 interceptors (near-depleted), NASAMS interceptors (to replace Patriot), 155mm artillery, drones/UAVs. Source: <a href="https://www.rferl.org/a/ukraine-patriots-russia-shortage-us-stockpile/33823317.html" target="_blank">RFERL</a></td>
+          <td><span class="conf conf-h">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>Are U.S. stockpiles affected?</td>
+          <td>Yes. Operation Epic Fury reduced Patriot from ~2,330 to ~1,030. 3+ year rebuild timeline. Source: <a href="https://euromaidanpress.com/2026/04/22/us-spent-up-to-61-of-its-patriot-arsenal-in-39-days-ukraine-looks-at-building-its-own-ballistic-defense/" target="_blank">EuroMaidan Press</a></td>
+          <td><span class="conf conf-h">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>Are Ukraine and Epic Fury competing for same munitions?</td>
+          <td>Yes — Patriot PAC-3, THAAD, NASAMS all in concurrent demand. Washington chose CENTCOM/INDOPACOM over EUCOM resupply. Source: <a href="https://www.defensenews.com/news/your-military/2026/07/30/iran-war-depleted-us-patriot-missile-stockpiles-creating-readiness-challenges-experts-say/" target="_blank">Defense News</a></td>
+          <td><span class="conf conf-h">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>What is current U.S. air defense support status to Ukraine?</td>
+          <td>Interceptors effectively cut off; Ukraine pivoting to European platforms (NASAMS, IRIS-T) and domestic FP-7.x development. Source: <a href="https://www.armyrecognition.com/news/army-news/2026/ukraine-develops-fp-7-x-interceptor-as-u-s-patriot-pac-3-air-defense-missile-shortages-grow" target="_blank">Army Recognition</a></td>
+          <td><span class="conf conf-h">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>What funding streams support Ukraine?</td>
+          <td>FY2026: $400M USAI (NDAA). $4.96B PDA unobligated. Total committed since 2022: $68.2B+. Source: <a href="https://www.congress.gov/crs_external_products/IF/PDF/IF12040/IF12040.36.pdf" target="_blank">CRS IF12040</a></td>
+          <td><span class="conf conf-h">HIGH</span></td>
+        </tr>
+        <tr>
+          <td>What is Russia receiving from Iran/NK/China?</td>
+          <td>NK: ~50% of Russia's ammo; ~150 ballistic missiles; 14,000+ troops. Iran: drones, artillery shells, missile tech (disrupted by OEF). China: dual-use components. Source: <a href="https://www.atlanticcouncil.org/blogs/ukrainealert/arsenal-of-autocracy-north-korea-and-iran-are-arming-russia-in-ukraine/" target="_blank">Atlantic Council</a></td>
+          <td><span class="conf conf-m">MEDIUM</span></td>
+        </tr>
+        <tr>
+          <td>What DIB constraints matter most?</td>
+          <td>PAC-3 production (620/yr vs. multi-theater demand of thousands); rocket motor and propellant supply chains; THAAD component production. Source: <a href="https://www.fpri.org/article/2026/05/scaling-patriot-production-the-industrial-base-crisis-explained/" target="_blank">FPRI</a></td>
+          <td><span class="conf conf-h">HIGH</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 5 — EPIC FURY / ANALYSIS / SOURCES
+══════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-4">
+
+  <div class="note-box">
+    <strong>READING TIME ≈ 2 MIN</strong> — Operation Epic Fury / Iran linkage, Russia–Iran–NK, escalation risks, delta, analyst assessment, and source log.
+  </div>
+
+  <h2>6. Operation Epic Fury / Iran — Ukraine–Russia Linkage</h2>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag gold">CONFIRMED LINKAGE</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>Interceptor competition is the central confirmed cross-theater linkage.</strong> Both Operation Epic Fury and Ukraine's air defense are drawing from the same U.S. Patriot and THAAD inventory. Washington's explicit prioritization of CENTCOM/INDOPACOM reconstitution over EUCOM resupply is documented. The U.S. cannot currently supply both theaters at scale given production constraints. This is the most significant concrete linkage for OUSW comptroller purposes.</p>
+    <div class="src">Defense News <a href="https://www.defensenews.com/news/your-military/2026/07/30/iran-war-depleted-us-patriot-missile-stockpiles-creating-readiness-challenges-experts-say/" target="_blank">Jul 30 2026</a> · CSIS <a href="https://www.csis.org/events/munitions-shortages-after-epic-fury" target="_blank">2026</a> · EuroMaidan Press <a href="https://euromaidanpress.com/2026/04/22/us-spent-up-to-61-of-its-patriot-arsenal-in-39-days-ukraine-looks-at-building-its-own-ballistic-defense/" target="_blank">Apr 22 2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag gold">ENERGY LINKAGE</span><span class="conf conf-h">HIGH</span></div>
+    <p><strong>Operation Epic Fury generated a major oil price shock that initially benefited Russia's budget.</strong> Brent surged to ~$118 in late March 2026 when OEF began, driving Russian oil/gas revenues from ~$12B/month to ~$24B/month in March. By September, prices have rebounded to ~$109 after a mid-year correction to $70. However, Ukraine's and allies' attacks on Russian Baltic and Black Sea export infrastructure have cut physical export volumes by up to 40%, partially neutralizing the price gain. Net effect on Russian budget is "meager" compared to initial expectations (Moscow Times, Sep 1, 2026).</p>
+    <div class="src">Chatham House <a href="https://www.chathamhouse.org/2026/04/iran-war-has-been-economic-gift-putin" target="_blank">Apr 2026</a> · Moscow Times <a href="https://www.themoscowtimes.com/2026/09/01/why-the-middle-east-oil-shock-failed-to-save-russias-budget-a93552" target="_blank">Sep 1 2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag warn">IRAN SUPPLY DISRUPTION</span><span class="conf conf-m">MEDIUM</span></div>
+    <p><strong>Operation Epic Fury has struck Iran's military infrastructure, likely disrupting — but not eliminating — Iranian drone and missile supply to Russia.</strong> Iran's ability to manufacture and deliver Shahed drones and ballistic missiles to Russia is degraded under active U.S. airstrikes. However, pre-positioned stockpiles may persist; Russia's domestic Shahed production (using Iranian technology and know-how) continues independently of new Iranian deliveries. North Korea is filling the gap.</p>
+    <div class="src">CENTCOM <a href="https://www.centcom.mil/OPERATIONS-AND-EXERCISES/EPIC-FURY/" target="_blank">OEF Fact Sheet</a> · Atlantic Council <a href="https://www.atlanticcouncil.org/blogs/ukrainealert/arsenal-of-autocracy-north-korea-and-iran-are-arming-russia-in-ukraine/" target="_blank">2026</a></div>
+  </div>
+
+  <div class="bullet-item">
+    <div class="item-head"><span class="tag warn">STRATEGIC BANDWIDTH</span><span class="conf conf-m">MEDIUM — ANALYST JUDGMENT</span></div>
+    <p><strong>Operation Epic Fury has reduced U.S. strategic attention to, and political appetite for, Ukraine.</strong> CENTCOM is the primary theater of active U.S. military operations; EUCOM/Ukraine is secondary. Congressional appetite for Ukraine funding has been demonstrably reduced (see funding section). The 2026 NDAA's burden-shifting language is partly a reflection of competing CENTCOM demands on DoD attention, budget, and industrial base. This is analyst judgment based on policy trajectory, not a confirmed statement from an official source.</p>
+  </div>
+
+  <hr class="divider">
+
+  <h2>7. Russia, Iran, China, North Korea — Third-Party Support</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption>Third-Party Support to Russia — Summary</caption>
+      <thead><tr><th>Actor</th><th>Support Type</th><th>Scale / Status</th><th>Impact</th><th>Conf</th></tr></thead>
+      <tbody>
+        <tr><td><strong>North Korea</strong></td><td>Ammunition, ballistic missiles, troops</td><td>~50% of Russia's battlefield ammo; ~150 KN-23/KN-24 missiles; ~14,000–15,000 troops deployed</td><td>Critical — sustaining Russian artillery tempo; supplementing Iskander strikes against depleted Ukrainian air defense</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td><strong>Iran</strong></td><td>Drones, artillery shells, missile tech</td><td>Reduced by OEF strikes; domestic Russian Shahed production continues using Iranian tech</td><td>High before OEF; now MEDIUM — technology transfer is the durable contribution</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td><strong>China</strong></td><td>Dual-use electronics, components</td><td>Ongoing; Chinese exports to Russia include microelectronics, optical components</td><td>Enables Russian precision munitions production; difficult to interdict</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td><strong>Belarus</strong></td><td>Logistics, territory, political support</td><td>Ongoing; Belarusian territory used for logistics; political alignment with Russia</td><td>Operational logistics support; not a materiel supplier</td><td><span class="conf conf-h">HIGH</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8. Escalation Risks</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption>Escalation Indicator Matrix</caption>
+      <thead><tr><th>Indicator</th><th>Risk Level</th><th>Why It Matters</th><th>Conf</th></tr></thead>
+      <tbody>
+        <tr><td>Russia deploying training missiles as live munitions</td><td><span class="tag warn">MEDIUM</span></td><td>Signals mainline missile inventory stress; could drive Russia toward more escalatory options</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>Black Sea vessel strikes; Poland on high alert (Sep 19)</td><td><span class="tag warn">MEDIUM</span></td><td>Any strike proximate to NATO territory triggers Article 5 considerations; Black Sea escalation is persistent risk</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>Ukraine striking Moscow Oblast during elections</td><td><span class="tag warn">MEDIUM</span></td><td>Domestic political embarrassment for Kremlin may drive escalatory response post-elections</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>NK troop expansion (30,000–50,000 planned)</td><td><span class="tag warn">MEDIUM-HIGH</span></td><td>Significant force-generation without Russian domestic mobilization; changes frontline dynamics</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>Ukrainian Patriot depletion + Russian ballistic escalation</td><td><span class="tag crit">HIGH</span></td><td>If Russia recognizes Ukraine cannot intercept ballistic missiles, mass ballistic campaign on critical infrastructure is likely</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>Russian nuclear signaling</td><td><span class="tag ok">LOW</span></td><td>No new nuclear signaling detected in reporting window</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <h2>10. Delta From Prior Report</h2>
+
+  <div class="note-box"><strong>NOTE:</strong> This is the first report in this session. No prior report available for comparison. Delta will populate beginning with the next daily run.</div>
+
+  <div class="delta-row"><div class="delta-pill dp-new">NEW</div><p>Ukraine conducted largest-ever combined strike on Moscow Oblast (Sep 19–20, during Russian Duma elections).</p></div>
+  <div class="delta-row"><div class="delta-pill dp-esc">ESCALATED</div><p>Russia confirmed deploying repurposed RM48U training missiles at scale — new tactical indicator of inventory pressure.</p></div>
+  <div class="delta-row"><div class="delta-pill dp-esc">ESCALATED</div><p>Poland on high alert following Russian claims of Black Sea vessel strikes (Sep 19).</p></div>
+  <div class="delta-row"><div class="delta-pill dp-new">NEW</div><p>Pentagon IG Report on Operation Epic Fury released Sep 16, 2026 — congressional oversight trigger.</p></div>
+  <div class="delta-row"><div class="delta-pill dp-chg">CHANGED</div><p>Oil prices rebounded to ~$109 in early September after mid-summer correction to $70 — partially restoring Russia's energy windfall.</p></div>
+  <div class="delta-row"><div class="delta-pill dp-cont">CONTINUING</div><p>Patriot interceptor depletion in Ukraine and U.S. inventory at critically low levels — ongoing structural problem.</p></div>
+  <div class="delta-row"><div class="delta-pill dp-cont">CONTINUING</div><p>North Korean ammunition supply (~50% of Russian needs) and troop deployment (14,000–15,000+) — ongoing.</p></div>
+
+  <hr class="divider">
+
+  <h2>11. Analyst Assessment</h2>
+
+  <div class="assessment-block">
+    <div class="ablock-head fact">CONFIRMED FACTS</div>
+    <div class="ablock-body"><ul>
+      <li>Ukraine's U.S. Patriot interceptors are near-depleted; receiving only 1/3 of 2025 volumes.</li>
+      <li>Operation Epic Fury reduced U.S. Patriot inventory from ~2,330 to ~1,030.</li>
+      <li>FY2026 USAI = $400M; PDA remaining = $4.96B (unobligated as of Jun 30).</li>
+      <li>Russia netted +58 sq mi in 4 weeks; conducting sustained ballistic/drone strike campaign.</li>
+      <li>North Korea provides ~50% of Russia's battlefield ammunition and ~150 ballistic missiles.</li>
+      <li>Pentagon IG report on OEF released Sep 16, 2026.</li>
+      <li>Brent crude at ~$109 in early September 2026; Russia's oil/gas revenues running at $55.2B for Jan–Jul 2026.</li>
+    </ul></div>
+  </div>
+
+  <div class="assessment-block">
+    <div class="ablock-head judge">ANALYST JUDGMENT</div>
+    <div class="ablock-body"><ul>
+      <li><strong>Most important issue today:</strong> The intersection of Ukrainian air-defense collapse and Russian continued ballistic campaign is the most urgent operational-to-policy gap. Without Patriot interceptors and with Russia deploying training missiles and NK ballistic missiles to saturate air defenses, Ukraine faces unprecedented vulnerability to infrastructure destruction.</li>
+      <li><strong>Next 7 days:</strong> Watch for post-Duma Kremlin signals; IG report congressional fallout; any emergency European or U.S. interceptor transfer decisions; NK troop expansion confirmation.</li>
+      <li><strong>Most likely congressional issue:</strong> Why $4.96B in PDA authority is unobligated, and what the intercept plan is for Ukraine's air-defense crisis.</li>
+      <li><strong>Budget execution risk:</strong> The $59B Patriot production deal and THAAD quadrupling represent long-lead investments. FY2027 budget development must account for both OEF reconstitution and Ukraine contingency requirements — competing for the same program lines.</li>
+      <li><strong>Cross-theater linkage that matters most:</strong> The interceptor competition is direct, documented, and has clear budget implications. The energy/oil linkage benefits Russia but is diminishing due to export infrastructure attacks.</li>
+    </ul></div>
+  </div>
+
+  <div class="assessment-block">
+    <div class="ablock-head nocon">CANNOT CONFIRM</div>
+    <div class="ablock-body"><ul>
+      <li>I cannot confirm the specific contents of the Pentagon IG report on OEF beyond its existence and release date. Analysts should obtain the full report.</li>
+      <li>I cannot confirm the precise current level of Ukrainian Patriot inventory or the exact number of remaining interceptors.</li>
+      <li>I cannot confirm Chinese state-directed (versus private-sector) support to Russian munitions production.</li>
+      <li>I cannot confirm the timing or scale of any pending U.S. emergency PDA obligation for Ukraine.</li>
+      <li>I cannot confirm whether Russia's Shahed domestic production has been affected by OEF disruption of Iranian supply chains.</li>
+    </ul></div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>12. Required Source Log</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption>Source Log — All Sources Referenced in This Report</caption>
+      <thead><tr><th>#</th><th>Source</th><th>Title / Description</th><th>Date</th><th>Link</th><th>Type</th><th>Conf</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>ISW / Kyiv Post</td><td>ISW Russian Offensive Campaign Assessment, September 20, 2026</td><td>20 Sep 2026</td><td><a href="https://www.kyivpost.com/post/84971" target="_blank">Link</a></td><td>Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>2</td><td>Russia Matters</td><td>Russia-Ukraine War Report Card, Sept. 16, 2026</td><td>16 Sep 2026</td><td><a href="https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-sept-16-2026" target="_blank">Link</a></td><td>Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>3</td><td>Al Jazeera</td><td>Russia kills eight in Ukraine, attacks two vessels in Black Sea (Sep 19)</td><td>19 Sep 2026</td><td><a href="https://www.aljazeera.com/news/2026/9/19/poland-on-high-alert-as-russia-claims-black-sea-vessel-strikes" target="_blank">Link</a></td><td>News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>4</td><td>Al Jazeera</td><td>At least 19 injured in Russian attacks across Ukraine</td><td>17 Sep 2026</td><td><a href="https://www.aljazeera.com/news/2026/9/17/at-least-19-injured-in-russian-attacks-across-ukraine" target="_blank">Link</a></td><td>News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>5</td><td>RFERL via GlobalSecurity</td><td>Zelenskyy Says Russian Missile and Drone Attacks Targeted Civilian Sites</td><td>12 Sep 2026</td><td><a href="https://www.globalsecurity.org/wmd/library/news/ukraine/2026/09/ukraine-260912-rferl02.htm" target="_blank">Link</a></td><td>News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>6</td><td>Daily Caller</td><td>Russia Repurposes Training Missiles As Ukraine Faces Critical Patriot Shortage</td><td>18 Sep 2026</td><td><a href="https://dailycaller.com/2026/09/18/russia-repurposing-training-missiles-ukraine-patriot-shortage/" target="_blank">Link</a></td><td>News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>7</td><td>RFERL</td><td>Ukraine Critically Short Of Air Defenses As Questions Swirl Over US Patriot Stockpiles</td><td>Sep 2026</td><td><a href="https://www.rferl.org/a/ukraine-patriots-russia-shortage-us-stockpile/33823317.html" target="_blank">Link</a></td><td>News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>8</td><td>Army Recognition</td><td>Ukraine's U.S.-Made Patriot Missile Shortage Strains Air Defenses</td><td>2026</td><td><a href="https://www.armyrecognition.com/news/army-news/2026/ukraines-u-s-made-patriot-missile-shortage-strains-air-defenses-as-russia-intensifies-ballistic-strikes" target="_blank">Link</a></td><td>Defense News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>9</td><td>Army Recognition</td><td>Ukraine Develops FP-7.x Interceptor as PAC-3 Shortages Grow</td><td>2026</td><td><a href="https://www.armyrecognition.com/news/army-news/2026/ukraine-develops-fp-7-x-interceptor-as-u-s-patriot-pac-3-air-defense-missile-shortages-grow" target="_blank">Link</a></td><td>Defense News</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>10</td><td>EuroMaidan Press</td><td>US spent up to 61% of its Patriot arsenal in 39 days</td><td>22 Apr 2026</td><td><a href="https://euromaidanpress.com/2026/04/22/us-spent-up-to-61-of-its-patriot-arsenal-in-39-days-ukraine-looks-at-building-its-own-ballistic-defense/" target="_blank">Link</a></td><td>News / Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>11</td><td>Defense News</td><td>Iran war depleted US Patriot missile stockpiles, creating readiness challenges</td><td>30 Jul 2026</td><td><a href="https://www.defensenews.com/news/your-military/2026/07/30/iran-war-depleted-us-patriot-missile-stockpiles-creating-readiness-challenges-experts-say/" target="_blank">Link</a></td><td>Defense News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>12</td><td>Defense News</td><td>Pentagon moves to triple Patriot, quadruple THAAD interceptor production</td><td>3 Aug 2026</td><td><a href="https://www.defensenews.com/news/pentagon-congress/2026/08/03/pentagon-moves-to-triple-patriot-quadruple-thaad-interceptor-production/" target="_blank">Link</a></td><td>Defense News / Official</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>13</td><td>CSIS</td><td>Rebuilding U.S. Missile Inventory: A Multiyear Project</td><td>2026</td><td><a href="https://www.csis.org/analysis/rebuilding-us-missile-inventory-multiyear-project" target="_blank">Link</a></td><td>Think Tank Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>14</td><td>CSIS</td><td>Munitions Shortages After Epic Fury (Event)</td><td>2026</td><td><a href="https://www.csis.org/events/munitions-shortages-after-epic-fury" target="_blank">Link</a></td><td>Think Tank Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>15</td><td>FPRI</td><td>Scaling Patriot Production: The Industrial Base Crisis Explained</td><td>May 2026</td><td><a href="https://www.fpri.org/article/2026/05/scaling-patriot-production-the-industrial-base-crisis-explained/" target="_blank">Link</a></td><td>Think Tank Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>16</td><td>Stars and Stripes</td><td>US weapons production still falls short of wartime needs</td><td>10 Jul 2026</td><td><a href="https://www.stripes.com/theaters/us/2026-07-10/us-defense-industrial-base-war-footing-22229946.html" target="_blank">Link</a></td><td>News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>17</td><td>CNBC</td><td>Pentagon pushes defense companies to boost weapons production</td><td>9 Aug 2026</td><td><a href="https://www.cnbc.com/2026/08/09/pentagon-defense-contractors-weapons-production.html" target="_blank">Link</a></td><td>News / Official</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>18</td><td>Army Recognition</td><td>U.S. Army Awards $441M Patriot GEM-T Interceptors Boost for Epic Fury</td><td>2026</td><td><a href="https://www.armyrecognition.com/news/army-news/2026/u-s-army-awards-441m-patriot-gem-t-interceptors-boost-missile-defense-for-epic-fury" target="_blank">Link</a></td><td>Defense News / Official</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>19</td><td>OSW</td><td>US defence budget for 2026: Congress approves continued support for Ukraine</td><td>Dec 2025</td><td><a href="https://www.osw.waw.pl/en/publikacje/analyses/2025-12-19/us-defence-budget-2026-congress-approves-continued-support-ukraine" target="_blank">Link</a></td><td>Think Tank Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>20</td><td>Defense-Aerospace</td><td>How the 2026 NDAA Scales Back U.S. Funding for Ukraine</td><td>2026</td><td><a href="https://www.defense-aerospace.com/how-the-2026-ndaa-scales-back-u-s-funding-for-ukraine-and-shifts-the-burden-to-europe/" target="_blank">Link</a></td><td>Defense Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>21</td><td>CRS (Congress.gov)</td><td>IF12040 — U.S. Security Assistance to Ukraine Since 2022 (Updated Jul 10, 2026)</td><td>10 Jul 2026</td><td><a href="https://www.congress.gov/crs_external_products/IF/PDF/IF12040/IF12040.36.pdf" target="_blank">Link</a></td><td>Official Gov Source</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>22</td><td>Atlantic Council</td><td>Arsenal of Autocracy: North Korea and Iran arming Russia in Ukraine</td><td>2026</td><td><a href="https://www.atlanticcouncil.org/blogs/ukrainealert/arsenal-of-autocracy-north-korea-and-iran-are-arming-russia-in-ukraine/" target="_blank">Link</a></td><td>Think Tank Analysis</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>23</td><td>Atlantic Council</td><td>North Korean missiles abetting Russia's campaign to overwhelm Ukraine's air defenses</td><td>2026</td><td><a href="https://www.atlanticcouncil.org/dispatches/north-korean-missiles-are-abetting-russias-campaign-to-overwhelm-ukraines-air-defenses/" target="_blank">Link</a></td><td>Think Tank Analysis</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>24</td><td>CENTCOM (Official)</td><td>Operation Epic Fury — Operations and Exercises</td><td>2026</td><td><a href="https://www.centcom.mil/OPERATIONS-AND-EXERCISES/EPIC-FURY/" target="_blank">Link</a></td><td>Official U.S. Gov</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>25</td><td>DoD (media.defense.gov)</td><td>Operation Epic Fury Fact Sheet — March 18, 2026</td><td>18 Mar 2026</td><td><a href="https://media.defense.gov/2026/Mar/18/2003900300/-1/-1/1/OPERATION-EPIC-FURY-FACT-SHEET-MARCH-18.PDF" target="_blank">Link</a></td><td>Official U.S. Gov</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>26</td><td>USNI News</td><td>Pentagon Inspector General Report on Operation Epic Fury</td><td>16 Sep 2026</td><td><a href="https://news.usni.org/2026/09/16/pentagon-inspector-general-report-on-operation-epic-fury" target="_blank">Link</a></td><td>Defense News / Official</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>27</td><td>Chatham House</td><td>The Iran war has been an economic gift for Putin</td><td>Apr 2026</td><td><a href="https://www.chathamhouse.org/2026/04/iran-war-has-been-economic-gift-putin" target="_blank">Link</a></td><td>Think Tank Analysis</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>28</td><td>Moscow Times</td><td>Why the Middle East Oil Shock Failed to Save Russia's Budget</td><td>1 Sep 2026</td><td><a href="https://www.themoscowtimes.com/2026/09/01/why-the-middle-east-oil-shock-failed-to-save-russias-budget-a93552" target="_blank">Link</a></td><td>News</td><td><span class="conf conf-h">HIGH</span></td></tr>
+        <tr><td>29</td><td>ISW via NV Ukraine</td><td>Ukrainian counterattacks in south could disrupt Russia's 2026 offensive</td><td>2026</td><td><a href="https://english.nv.ua/russian-war/ukrainian-counterattacks-in-south-could-disrupt-russia-s-2026-offensive-isw-50590399.html" target="_blank">Link</a></td><td>Analysis</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+        <tr><td>30</td><td>National Interest</td><td>Operation Epic Fury's Epic Costs and Epic Losses</td><td>Sep 2026</td><td><a href="https://nationalinterest.org/blog/buzz/operation-epic-fury-costs-losses-ps-091526" target="_blank">Link</a></td><td>Analysis</td><td><span class="conf conf-m">MEDIUM</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <h2>13. Confidence Matrix</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Claim / Topic</th><th>Confidence</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Ukraine Patriot interceptors near-depleted</td><td><span class="conf conf-h">HIGH</span></td><td>Multiple independent credible sources; consistent with U.S. policy posture; confirmed by Zelenskyy statement</td></tr>
+        <tr><td>OEF consumed 61% of U.S. Patriot arsenal in 39 days</td><td><span class="conf conf-h">HIGH</span></td><td>Multiple defense outlets citing specific figures; consistent with DoD official statements on production gaps</td></tr>
+        <tr><td>FY2026 USAI = $400M; PDA = $4.96B remaining</td><td><span class="conf conf-h">HIGH</span></td><td>CRS official report IF12040 (Jul 10, 2026) — government source</td></tr>
+        <tr><td>Russia net +58 sq mi territorial gain (4 weeks)</td><td><span class="conf conf-h">HIGH</span></td><td>Russia Matters report card citing mapped assessment; consistent with ISW assessments</td></tr>
+        <tr><td>NK providing ~50% of Russia's ammunition</td><td><span class="conf conf-m">MEDIUM</span></td><td>Ukrainian intelligence estimate (Budanov); not independently verifiable by Western open-source; consistent with other reporting</td></tr>
+        <tr><td>Russia deploying RM48U training missiles</td><td><span class="conf conf-h">HIGH</span></td><td>Specific reporting with technical detail; consistent with observable strike patterns</td></tr>
+        <tr><td>Iran supply to Russia disrupted by OEF</td><td><span class="conf conf-m">MEDIUM</span></td><td>Logical inference from OEF scale; no confirmed DoD statement on specific supply disruption; Russia has domestic Shahed production</td></tr>
+        <tr><td>Oil prices ~$109 in early Sep 2026; Russia's windfall meager</td><td><span class="conf conf-h">HIGH</span></td><td>Moscow Times and financial reporting; Brent price data corroborated</td></tr>
+        <tr><td>Epic Fury / Ukraine interceptor competition</td><td><span class="conf conf-h">HIGH</span></td><td>Multiple CSIS/Defense News analyses; DoD statements on CENTCOM prioritization; confirmed by production gap data</td></tr>
+        <tr><td>China providing dual-use components to Russia</td><td><span class="conf conf-m">MEDIUM</span></td><td>Reported by multiple sources; Chinese government denial; difficult to confirm specific state direction vs. private-sector activity</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  UNCLASSIFIED // FOUO &nbsp;|&nbsp; OUSW COMPTROLLER P/B DAILY ANALYST BRIEF &nbsp;|&nbsp; 21 SEP 2026 &nbsp;|&nbsp;
+  REPORT WINDOW: 19–21 SEP 2026 &nbsp;|&nbsp; FILE: 2026-09-21_Ukraine-Russia_War_Daily_Analyst_Brief_OUSW-PB
+</div>
+
+<script>
+  function switchTab(n) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === n));
+    document.querySelectorAll('.tab-panel').forEach((p, i) => p.classList.toggle('active', i === n));
+  }
+</script>
